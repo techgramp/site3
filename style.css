@@ -229,6 +229,31 @@ body {
 
 .lb-close:hover { opacity: 1; }
 
+.lb-arrow {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255,255,255,0.15);
+  border: none;
+  color: #fff;
+  font-size: 64px;
+  line-height: 1;
+  cursor: pointer;
+  padding: 8px 18px;
+  border-radius: 6px;
+  opacity: 0.8;
+  transition: background 0.15s, opacity 0.15s;
+  z-index: 501;
+}
+
+.lb-arrow:hover {
+  background: rgba(255,255,255,0.28);
+  opacity: 1;
+}
+
+.lb-prev { left: 16px; }
+.lb-next { right: 16px; }
+
 /* ── Pricing ── */
 .pricing {
   padding: 64px 20px;

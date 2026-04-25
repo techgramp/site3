@@ -216,7 +216,9 @@
 <!-- LIGHTBOX -->
 <div id="lightbox" onclick="closeLightbox()">
   <button class="lb-close" onclick="closeLightbox()" aria-label="Close">&times;</button>
+  <button class="lb-arrow lb-prev" onclick="event.stopPropagation(); navigateLightbox(-1)" aria-label="Previous">&#8249;</button>
   <img id="lb-img" src="" alt="" onclick="event.stopPropagation()">
+  <button class="lb-arrow lb-next" onclick="event.stopPropagation(); navigateLightbox(1)" aria-label="Next">&#8250;</button>
 </div>
 
 <script>
@@ -227,18 +229,38 @@ function closeNav() {
   document.getElementById('navLinks').classList.remove('open');
 }
 
+var galleryImgs = [];
+var currentIndex = 0;
+
+window.addEventListener('DOMContentLoaded', function() {
+  galleryImgs = Array.from(document.querySelectorAll('.photo-grid img'));
+});
+
 function openLightbox(img) {
+  currentIndex = galleryImgs.indexOf(img);
   document.getElementById('lb-img').src = img.src;
   document.getElementById('lb-img').alt = img.alt;
   document.getElementById('lightbox').classList.add('active');
   document.body.style.overflow = 'hidden';
 }
+
+function navigateLightbox(dir) {
+  currentIndex = (currentIndex + dir + galleryImgs.length) % galleryImgs.length;
+  var img = galleryImgs[currentIndex];
+  document.getElementById('lb-img').src = img.src;
+  document.getElementById('lb-img').alt = img.alt;
+}
+
 function closeLightbox() {
   document.getElementById('lightbox').classList.remove('active');
   document.body.style.overflow = '';
 }
+
 document.addEventListener('keydown', function(e) {
-  if (e.key === 'Escape') closeLightbox();
+  if (!document.getElementById('lightbox').classList.contains('active')) return;
+  if (e.key === 'Escape')      closeLightbox();
+  if (e.key === 'ArrowLeft')   navigateLightbox(-1);
+  if (e.key === 'ArrowRight')  navigateLightbox(1);
 });
 </script>
 
