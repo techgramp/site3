@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Woodlands Pet Retreat | Pet Boarding & Kennel</title>
+
+<meta name="description" content="Woodlands Pet Retreat offers safe, loving pet boarding and kennel services in St. Marys, GA. Register your pet online and reserve your stay today.">
+<meta name="keywords" content="pet boarding, kennel, pet daycare, St Marys GA, pet kennel near St Marys GA">
+<meta name="author" content="Woodlands Pet Retreat">
+
+<meta property="og:title" content="Woodlands Pet Retreat">
+<meta property="og:description" content="Now open. Pet boarding and kennel services in St. Marys, GA.">
+<meta property="og:type" content="website">
+
+<link rel="icon" href="favicon.ico">
+<link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a class="nav-brand" href="#home">Woodlands Pet Retreat</a>
+    <button class="nav-toggle" aria-label="Toggle menu" onclick="toggleNav()">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#home"     onclick="closeNav()">Home</a></li>
+      <li><a href="#facility" onclick="closeNav()">Our Facility</a></li>
+      <li><a href="#rates"    onclick="closeNav()">Rates</a></li>
+      <li><a href="#addons"   onclick="closeNav()">Add-Ons</a></li>
+      <li><a href="#app"      onclick="closeNav()">Book</a></li>
+      <li><a href="#contact"  onclick="closeNav()">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero" id="home">
+  <div class="hero-content">
+    <div id="logo"></div>
+    <h1>Woodlands Pet Retreat</h1>
+    <p class="tagline">
+      <b>Now Open</b> &mdash; Located in St. Marys, GA.
+    </p>
+    <a class="cta primary" href="https://woodlandspetretreat.portal.gingrapp.com/">
+      Register Your Pet
+    </a>
+  </div>
+</header>
+
+<!-- FACILITY -->
+<section id="facility" class="facility">
+  <h2>Our Facility</h2>
+  <p class="section-sub">A safe, beautiful space where your pet feels right at home.</p>
+
+  <div class="photo-grid">
+    <img src="images/water.jpg"      alt="Peaceful waterfront view from the property" class="grid-wide" onclick="openLightbox(this)">
+    <img src="images/sign.jpg"       alt="Woodlands Pet Retreat entrance sign"         onclick="openLightbox(this)">
+    <img src="images/outside.jpg"    alt="Secure outdoor walkway"                      onclick="openLightbox(this)">
+    <img src="images/tree.jpg"       alt="Majestic tree on the property"               onclick="openLightbox(this)">
+    <img src="images/play_area.jpg"  alt="Dog enjoying the play area"                  onclick="openLightbox(this)">
+    <img src="images/play_area2.jpg" alt="Dogs playing together"                       onclick="openLightbox(this)">
+    <img src="images/play_area3.jpg" alt="Dogs in the play area"                       onclick="openLightbox(this)">
+    <img src="images/interior.jpg"   alt="Dogs settled in their suites"                onclick="openLightbox(this)">
+    <img src="images/interior2.jpg"  alt="Suite hallway"                               onclick="openLightbox(this)">
+    <img src="images/interior3.jpg"  alt="Full suite wing"                             onclick="openLightbox(this)">
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="rates" class="pricing">
+  <h2>Our Rates</h2>
+  <div class="pricing-grid">
+
+    <div class="pricing-card">
+      <h3>Basic Suite Overnight</h3>
+      <p class="room-info">4&prime; &times; 6&prime; or 3&prime; &times; 6&prime; rooms</p>
+      <ul>
+        <li>3 to 5 potty breaks a day</li>
+        <li>Comfy bed</li>
+      </ul>
+      <div class="price-row">
+        <span>1 dog</span>
+        <span class="price">$45 per night</span>
+      </div>
+      <div class="price-row">
+        <span>Additional dogs (same room)</span>
+        <span class="price">+$20 per night</span>
+      </div>
+    </div>
+
+    <div class="pricing-card">
+      <h3>Deluxe Suite Overnight</h3>
+      <p class="room-info">5&prime; &times; 6&prime; rooms</p>
+      <ul>
+        <li>3 to 5 potty breaks a day</li>
+        <li>Deluxe bed</li>
+      </ul>
+      <div class="price-row">
+        <span>1 dog</span>
+        <span class="price">$65 per night</span>
+      </div>
+      <div class="price-row">
+        <span>Additional dogs (same room)</span>
+        <span class="price">+$20 per night</span>
+      </div>
+    </div>
+
+    <div class="pricing-card">
+      <h3>Day Stay</h3>
+      <p class="room-info">&nbsp;</p>
+      <ul>
+        <li>3 to 5 potty breaks</li>
+        <li>Comfy bed</li>
+      </ul>
+      <div class="price-row">
+        <span>1 dog</span>
+        <span class="price">$25 per day</span>
+      </div>
+      <div class="price-row">
+        <span>Additional dogs (same room)</span>
+        <span class="price">+$10 per day</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ADD-ONS -->
+<section id="addons" class="addons">
+  <h2>Additional Services</h2>
+  <p class="addons-subtitle">Enhance your pet&rsquo;s stay with one of our special add-ons.</p>
+  <div class="addon-grid">
+
+    <div class="addon-card">
+      <h3>Nature Walk</h3>
+      <p>Beautiful walk around the property</p>
+      <p class="addon-price">$10 (10 to 15 min)<br>$20 (25 to 30 min)</p>
+    </div>
+
+    <div class="addon-card">
+      <h3>Fun Photos</h3>
+      <p>Receive a couple cute photos of your pet via email or text</p>
+      <p class="addon-price">$5 per day</p>
+    </div>
+
+    <div class="addon-card">
+      <h3>Brush &amp; Comb Out</h3>
+      <p>For pups with long hair, a brush and comb out to help prevent matting</p>
+      <p class="addon-price">$10 per day</p>
+    </div>
+
+    <div class="addon-card">
+      <h3>Cuddle Time</h3>
+      <p>A staff member hangs out in your pet&rsquo;s suite or outside, giving extra one-on-one love</p>
+      <p class="addon-price">$5 per 10 minutes</p>
+    </div>
+
+    <div class="addon-card">
+      <h3>Extra Potty Break</h3>
+      <p>Great for puppies or dogs that need frequent bathroom breaks</p>
+      <p class="addon-price">$5 per break</p>
+    </div>
+
+    <div class="addon-card">
+      <h3>Bedtime Story &amp; Tuck-In</h3>
+      <p>A staff member reads your pet a bedtime story and tucks them in for the night</p>
+      <p class="addon-price">$15 per night</p>
+    </div>
+
+    <div class="addon-card">
+      <h3>Sunrise Scramble</h3>
+      <p>A scrambled egg served alongside your pet&rsquo;s breakfast</p>
+      <p class="addon-price">$3 per meal</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- APP -->
+<section id="app" class="app-section">
+  <h2>Manage Your Pet&rsquo;s Profile Anytime</h2>
+  <p class="subtitle">
+    Book services, update pet info, and stay connected with us through the Gingr Pet Parent App.
+  </p>
+  <div class="download-buttons">
+    <a href="https://apps.apple.com/us/app/gingr-for-pet-parents/id1580056094" target="_blank" class="btn app-store">
+      Download on the App Store
+    </a>
+    <a href="https://play.google.com/store/apps/details?id=com.gingrapp.gingr&pcampaignid=web_share" target="_blank" class="btn google-play">
+      Get it on Google Play
+    </a>
+  </div>
+  <p class="facility-code">Facility Code: <strong>582844</strong></p>
+  <div class="app-image">
+    <img src="gingr-app.webp" alt="Gingr Pet Parent App preview">
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="contact-info">
+  <h2>Contact Us</h2>
+  <p><strong>Phone:</strong> <a href="tel:+19126744709">+1 (912) 674-4709</a></p>
+  <p><strong>Address:</strong> 120 Davis St, Saint Marys, GA 31558</p>
+</section>
+
+<footer>
+  <p>&copy; 2026 Woodlands Pet Retreat</p>
+</footer>
+
+<!-- LIGHTBOX -->
+<div id="lightbox" onclick="closeLightbox()">
+  <button class="lb-close" onclick="closeLightbox()" aria-label="Close">&times;</button>
+  <img id="lb-img" src="" alt="" onclick="event.stopPropagation()">
+</div>
+
+<script>
+function toggleNav() {
+  document.getElementById('navLinks').classList.toggle('open');
+}
+function closeNav() {
+  document.getElementById('navLinks').classList.remove('open');
+}
+
+function openLightbox(img) {
+  document.getElementById('lb-img').src = img.src;
+  document.getElementById('lb-img').alt = img.alt;
+  document.getElementById('lightbox').classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+function closeLightbox() {
+  document.getElementById('lightbox').classList.remove('active');
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeLightbox();
+});
+</script>
+
+</body>
+</html>
