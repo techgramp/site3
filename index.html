@@ -17,9 +17,11 @@
 
 <link rel="icon" href="favicon.ico">
 <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 </head>
 <body>
+<div id="fb-root"></div>
 
 <!-- NAV -->
 <nav class="site-nav">
@@ -92,6 +94,33 @@
     </div>
 
   </div>
+
+  <!-- Facebook -->
+  <div class="fb-follow">
+    <div class="fb-follow-left">
+      <i class="fa-brands fa-facebook" style="color:#1877F2; font-size:36px;"></i>
+      <div>
+        <p class="fb-follow-title">Follow Us on Facebook</p>
+        <p class="fb-follow-sub">Stay up to date with photos, updates, and more.</p>
+      </div>
+    </div>
+    <div class="fb-plugin-wrap">
+      <div class="fb-page"
+        data-href="https://www.facebook.com/profile.php?id=61579781526886"
+        data-tabs=""
+        data-width="340"
+        data-height="150"
+        data-small-header="true"
+        data-adapt-container-width="false"
+        data-hide-cover="false"
+        data-show-facepile="true">
+        <blockquote cite="https://www.facebook.com/profile.php?id=61579781526886" class="fb-xfbml-parse-ignore">
+          <a href="https://www.facebook.com/profile.php?id=61579781526886" target="_blank">Woodlands Pet Retreat on Facebook</a>
+        </blockquote>
+      </div>
+    </div>
+  </div>
+
 </section>
 
 <!-- FACILITY -->
@@ -298,5 +327,6 @@ document.addEventListener('keydown', function(e) {
 });
 </script>
 
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v21.0"></script>
 </body>
 </html>
