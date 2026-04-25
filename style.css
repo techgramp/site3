@@ -430,22 +430,103 @@ body {
   box-shadow: 0 10px 30px rgba(0,0,0,0.15);
 }
 
-/* ── Contact Info ── */
-.contact-info {
-  padding: 56px 20px;
+/* ── Contact Section ── */
+.contact-section {
+  padding: 64px 20px;
   text-align: center;
   background: var(--cream-bg);
 }
 
-.contact-info h2 {
-  font-size: 28px;
+.contact-section h2 {
+  font-size: 32px;
   color: var(--green-dark);
-  margin: 0 0 20px;
+  margin: 0 0 36px;
 }
 
-.contact-info p     { margin: 10px 0; font-size: 16px; }
-.contact-info a     { color: var(--green-mid); text-decoration: none; }
-.contact-info a:hover { text-decoration: underline; }
+.contact-layout {
+  display: flex;
+  gap: 0;
+  max-width: 960px;
+  margin: 0 auto;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 6px 30px rgba(0,0,0,0.12);
+}
+
+.map-wrap {
+  flex: 1 1 55%;
+  min-height: 360px;
+}
+
+.map-wrap iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 360px;
+}
+
+.contact-details {
+  flex: 1 1 45%;
+  background: var(--green-dark);
+  color: #fff;
+  padding: 40px 36px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 28px;
+  text-align: left;
+}
+
+.contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.contact-icon {
+  font-size: 24px;
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+.contact-label {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--light-teal);
+  margin: 0 0 4px;
+}
+
+.contact-value {
+  font-size: 17px;
+  font-weight: 600;
+  margin: 0;
+  line-height: 1.5;
+  color: var(--cream);
+}
+
+.contact-value a {
+  color: var(--cream);
+  text-decoration: none;
+}
+
+.contact-value a:hover { text-decoration: underline; }
+
+.directions-btn {
+  display: inline-block;
+  margin-top: 8px;
+  padding: 13px 24px;
+  background: var(--cream);
+  color: var(--green-dark);
+  font-weight: bold;
+  font-size: 15px;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: background 0.2s;
+  align-self: flex-start;
+}
+
+.directions-btn:hover { background: #ede3cc; }
 
 /* ── Footer ── */
 footer {
@@ -505,6 +586,10 @@ footer {
 
   .pricing-card { width: 100%; max-width: 360px; }
   .addon-card   { width: calc(50% - 10px); }
+
+  .contact-layout { flex-direction: column; }
+  .map-wrap, .map-wrap iframe { min-height: 260px; }
+  .contact-details { padding: 28px 24px; }
 }
 
 @media (max-width: 480px) {
