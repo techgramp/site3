@@ -54,7 +54,7 @@
     if (e.key === "Escape" && links.classList.contains("open")) setMenu(false);
   });
   window.addEventListener("resize", function () {
-    if (window.innerWidth > 1024 && links.classList.contains("open")) setMenu(false);
+    if (window.innerWidth > 1200 && links.classList.contains("open")) setMenu(false);
   });
 
   /* ---------- scroll reveal ---------- */

@@ -762,15 +762,27 @@ section[id], footer[id] { scroll-margin-top: 84px; }
 
   html:not(.theme-night-pre) body:not(.theme-night) h1, html:not(.theme-night-pre) body:not(.theme-night) h2, html:not(.theme-night-pre) body:not(.theme-night) h3 { color: #1D3A2C !important; }
   html:not(.theme-night-pre) body:not(.theme-night) h1 em, html:not(.theme-night-pre) body:not(.theme-night) h2 em { color: #2E7D4F !important; }
-  p, li, .section-sub, .fact p, .step p, .addon-card p, .price-card p,
-  .pack-card p, .faq-body, .room-info, .visit-value, .footer-est,
-  html:not(.theme-night-pre) body:not(.theme-night) .family-bio, html:not(.theme-night-pre) body:not(.theme-night) .groom-cat span { color: #5D6B62 !important; }
+  html:not(.theme-night-pre) body:not(.theme-night) .section-sub,
+html:not(.theme-night-pre) body:not(.theme-night) .fact p,
+html:not(.theme-night-pre) body:not(.theme-night) .step p,
+html:not(.theme-night-pre) body:not(.theme-night) .addon-card p,
+html:not(.theme-night-pre) body:not(.theme-night) .price-card p,
+html:not(.theme-night-pre) body:not(.theme-night) .pack-card p,
+html:not(.theme-night-pre) body:not(.theme-night) .faq-body,
+html:not(.theme-night-pre) body:not(.theme-night) .room-info,
+html:not(.theme-night-pre) body:not(.theme-night) .visit-value { color: #4F4540 !important; }
 
   html:not(.theme-night-pre) body:not(.theme-night) .eyebrow { color: #2E7D4F !important; }
   html:not(.theme-night-pre) body:not(.theme-night) .eyebrow.light { color: #CBE6F0 !important; }
 
-  .price-card, .addon-card, .pack-card, .faq-item, .visit-card,
-  html:not(.theme-night-pre) body:not(.theme-night) .fact-icon, html:not(.theme-night-pre) body:not(.theme-night) .family-card, html:not(.theme-night-pre) body:not(.theme-night) .review-card { background-color: #FFFFFF !important; }
+  html:not(.theme-night-pre) body:not(.theme-night) .price-card,
+html:not(.theme-night-pre) body:not(.theme-night) .addon-card,
+html:not(.theme-night-pre) body:not(.theme-night) .pack-card,
+html:not(.theme-night-pre) body:not(.theme-night) .faq-item,
+html:not(.theme-night-pre) body:not(.theme-night) .visit-card,
+html:not(.theme-night-pre) body:not(.theme-night) html:not(.theme-night-pre) body:not(.theme-night) .fact-icon,
+html:not(.theme-night-pre) body:not(.theme-night) html:not(.theme-night-pre) body:not(.theme-night) .family-card,
+html:not(.theme-night-pre) body:not(.theme-night) html:not(.theme-night-pre) body:not(.theme-night) .review-card { background-color: #FFFFFF !important; }
 
   html:not(.theme-night-pre) body:not(.theme-night) .hero, html:not(.theme-night-pre) body:not(.theme-night) .hero-bg, html:not(.theme-night-pre) body:not(.theme-night) .hero-scrim { background-color: transparent !important; }
   html:not(.theme-night-pre) body:not(.theme-night) .hero h1, html:not(.theme-night-pre) body:not(.theme-night) .final-cta h2, html:not(.theme-night-pre) body:not(.theme-night) .page-head h1 { color: #FFFFFF !important; }
@@ -1406,7 +1418,7 @@ html.theme-night-pre body .hero-login, body.theme-night .hero-login {
 .nav-links a:not(.btn-book) { white-space: nowrap; }
 .nav-brand { flex: 0 0 auto; min-width: 0; }
 
-@media (max-width: 1024px) {
+@media (max-width: 1200px) {
   .nav-toggle { display: flex; position: relative; z-index: 3; }
   .nav-links {
     position: fixed; top: 0; right: 0; bottom: 0; width: min(82vw, 330px);
@@ -1443,7 +1455,7 @@ html.theme-night-pre body .hero-login, body.theme-night .hero-login {
   body.menu-open .mobile-bar { display: none; }
 }
 
-@media (min-width: 1025px) and (max-width: 1180px) {
+@media (min-width: 1201px) and (max-width: 1360px) {
   .nav-links { gap: 20px; }
   .nav-links a:not(.btn-book) { font-size: .92rem; }
   .nav-inner { padding: 0 18px; }
@@ -1455,7 +1467,7 @@ html.theme-night-pre body .hero-login, body.theme-night .hero-login {
    panel colour belongs only to the mobile drawer, otherwise it
    paints a box behind the horizontal links.
    ============================================================ */
-@media (min-width: 1025px) {
+@media (min-width: 1201px) {
   .nav-links,
   body.theme-night .nav-links,
   html.theme-night-pre body .nav-links {
@@ -1468,7 +1480,261 @@ html.theme-night-pre body .hero-login, body.theme-night .hero-login {
     border: 0 !important;
   }
 }
-@media (max-width: 1024px) {
+@media (max-width: 1200px) {
   body.theme-night .nav-links,
   html.theme-night-pre body .nav-links { background: #0A110E; }
+}
+
+/* ============================================================
+   Light theme readability fixes
+   Dark surfaces (footer, final CTA, estimate summary) must keep
+   light text in every theme, and the hero needs solid colours.
+   ============================================================ */
+.site-footer p, .site-footer li, .footer-est { color: #DFE9E2 !important; }
+.footer-name { color: #F2F8F4 !important; }
+.footer-links a, .footer-contact a:not(.btn) { color: #E6EFE9 !important; }
+.footer-contact p { color: #DFE9E2 !important; }
+.footer-copy { color: #ADBFB4 !important; }
+.final-cta h2 { color: #FFFFFF !important; }
+.final-cta p { color: #EFF7F2 !important; }
+
+.est-summary p, .est-summary li { color: #E4F0E8 !important; }
+.est-summary-title { color: #C6E9F5 !important; }
+.est-lines li { color: #E4F0E8 !important; }
+.est-lines li strong { color: #FFFFFF !important; }
+.est-total span { color: #C6E9F5 !important; }
+.est-total strong { color: #FFFFFF !important; }
+.est-note { color: rgba(255,255,255,.72) !important; }
+
+.hero h1 { color: #FFFFFF; }
+.hero-sub { color: #F4FAF6; }
+.page-head h1 { color: #FFFFFF !important; }
+.page-head-sub { color: #CDEBDA !important; }
+
+/* ============================================================
+   Multi-page components: breadcrumbs, service cards, rate
+   tables, detail grids, comparison blocks, contact layout
+   ============================================================ */
+.breadcrumbs {
+  background: var(--sand); border-bottom: 1px solid var(--line);
+  font-size: .86rem; padding: 12px 0;
+}
+.breadcrumbs a { color: var(--fern); font-weight: 700; text-decoration: none; }
+.breadcrumbs a:hover { text-decoration: underline; }
+.breadcrumbs span[aria-current] { color: var(--muted); font-weight: 700; }
+.crumb-sep { color: var(--line); margin: 0 2px; }
+
+.hero-tagline {
+  font-family: var(--font-display); font-style: italic;
+  font-size: clamp(1.05rem, 2.2vw, 1.5rem);
+  color: #EAF6EE; margin-top: 10px;
+}
+
+.lede { font-size: 1.1rem; line-height: 1.75; color: var(--ink); }
+.section.alt { background: #fff; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.note { font-size: .95rem; color: var(--muted); margin-top: 20px; }
+.note.center, .center { text-align: center; }
+.inline-ctas { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 24px; }
+.inline-ctas.center-ctas { justify-content: center; }
+.cta-alt { font-size: .9rem; margin-top: 16px; color: rgba(255,255,255,.85); }
+.cta-alt a { color: #fff; font-weight: 700; }
+
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; align-items: start; }
+.two-col.reversed > *:first-child { order: 2; }
+.three-col { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+
+.info-card {
+  background: #fff; border: 1px solid var(--line); border-radius: var(--radius);
+  padding: 26px 24px; box-shadow: var(--shadow);
+}
+.info-card h3 { margin-bottom: 4px; }
+.info-price { color: var(--fern); font-weight: 800; font-size: 1.05rem; margin-bottom: 10px; }
+.info-price .save {
+  background: var(--lake-light); color: #1D5A75; font-size: .72rem; font-weight: 800;
+  padding: 3px 9px; border-radius: 999px; margin-left: 6px; vertical-align: middle;
+}
+
+.detail-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 22px; }
+.detail {
+  background: #fff; border: 1px solid var(--line); border-radius: var(--radius);
+  padding: 22px 22px; box-shadow: var(--shadow);
+}
+.detail h3 { font-size: 1.12rem; margin-bottom: 6px; }
+.detail p { font-size: .95rem; color: var(--muted); }
+
+.detail-rows { display: flex; flex-direction: column; gap: 0; margin-top: 8px; }
+.detail-row {
+  display: flex; justify-content: space-between; gap: 20px;
+  padding: 13px 0; border-bottom: 1px solid var(--line);
+}
+.detail-row > span:first-child { font-weight: 800; color: var(--pine); flex: 0 0 42%; }
+.detail-row > span:last-child { color: var(--muted); text-align: right; }
+
+.rate-table { border: 1px solid var(--line); border-radius: 14px; overflow: hidden; background: #fff; margin-bottom: 34px; }
+.rate-row { display: grid; grid-template-columns: 1.1fr 1.4fr .6fr; gap: 16px; padding: 14px 20px; border-bottom: 1px solid var(--line); }
+.rate-row:last-child { border-bottom: 0; }
+.rate-head { background: var(--sand); font-weight: 800; font-size: .78rem; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+.rate-row > span:last-child { font-weight: 800; color: var(--fern); text-align: right; }
+.rate-head > span:last-child { color: var(--muted); }
+
+.compare { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.compare-col { background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: 26px 24px; box-shadow: var(--shadow); }
+.tick-list { list-style: none; display: flex; flex-direction: column; gap: 9px; }
+.tick-list li { position: relative; padding-left: 26px; color: var(--muted); }
+.tick-list li::before {
+  content: ""; position: absolute; left: 0; top: .42em; width: 14px; height: 8px;
+  border-left: 2.5px solid var(--fern); border-bottom: 2.5px solid var(--fern);
+  transform: rotate(-45deg);
+}
+.hours-list { list-style: none; display: flex; flex-direction: column; gap: 8px; margin: 14px 0; }
+.hours-list li { background: var(--sand); border: 1px solid var(--line); border-radius: 10px; padding: 10px 16px; }
+
+
+.fig { border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); }
+.fig img { width: 100%; height: auto; display: block; }
+
+.svc-card { background: #fff; border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); transition: transform .25s ease, box-shadow .25s ease; }
+.svc-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lift); }
+.svc-card figure { margin: 0; aspect-ratio: 4 / 3; overflow: hidden; }
+.svc-card img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.svc-body { padding: 24px 24px 26px; }
+.svc-price { color: var(--fern); font-weight: 800; margin: 2px 0 10px; }
+.link-arrow { font-weight: 800; color: var(--fern); text-decoration: none; display: inline-block; }
+.link-arrow::after { content: " \\2192"; transition: transform .2s ease; display: inline-block; }
+.link-arrow:hover::after { transform: translateX(4px); }
+.preview-links { display: flex; gap: 26px; flex-wrap: wrap; justify-content: center; margin-top: 30px; }
+
+.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; }
+.map-wrap { border-radius: var(--radius); overflow: hidden; border: 1px solid var(--line); box-shadow: var(--shadow); margin-top: 16px; }
+.map-wrap iframe { width: 100%; height: 420px; display: block; border: 0; }
+
+.groom-xlink { background: var(--sand); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+
+@media (max-width: 860px) {
+  .two-col, .three-col, .compare, .contact-grid { grid-template-columns: 1fr; }
+  .two-col.reversed > *:first-child { order: 0; }
+  .rate-row { grid-template-columns: 1fr auto; gap: 6px 14px; }
+  .rate-row > span:nth-child(2) { grid-column: 1 / -1; font-size: .88rem; color: var(--muted); }
+  .rate-head > span:nth-child(2) { display: none; }
+  .detail-row { flex-direction: column; gap: 4px; }
+  .detail-row > span:last-child { text-align: left; }
+  .process-item { grid-template-columns: 1fr; }
+  .preview-links { flex-direction: column; align-items: center; gap: 14px; }
+}
+
+/* dark theme for the new components */
+html.theme-night-pre body .section.alt, body.theme-night .section.alt,
+html.theme-night-pre body .breadcrumbs, body.theme-night .breadcrumbs,
+html.theme-night-pre body .groom-xlink, body.theme-night .groom-xlink {
+  background-color: #16221D !important; border-color: #2E4038 !important;
+}
+html.theme-night-pre body .info-card, body.theme-night .info-card,
+html.theme-night-pre body .detail, body.theme-night .detail,
+html.theme-night-pre body .rate-table, body.theme-night .rate-table,
+html.theme-night-pre body .compare-col, body.theme-night .compare-col,
+html.theme-night-pre body .process-item, body.theme-night .process-item,
+html.theme-night-pre body .svc-card, body.theme-night .svc-card,
+html.theme-night-pre body .hours-list li, body.theme-night .hours-list li {
+  background-color: #1C2A24 !important; border-color: #2E4038 !important;
+}
+html.theme-night-pre body .rate-head, body.theme-night .rate-head { background-color: #16221D !important; }
+html.theme-night-pre body .rate-row, body.theme-night .rate-row { border-color: #2E4038 !important; }
+html.theme-night-pre body .detail-row, body.theme-night .detail-row { border-color: #2E4038 !important; }
+html.theme-night-pre body .info-price, body.theme-night .info-price,
+html.theme-night-pre body .svc-price, body.theme-night .svc-price,
+html.theme-night-pre body .link-arrow, body.theme-night .link-arrow,
+html.theme-night-pre body .breadcrumbs a, body.theme-night .breadcrumbs a,
+html.theme-night-pre body .rate-row > span:last-child, body.theme-night .rate-row > span:last-child {
+  color: #8FE0AC !important;
+}
+html.theme-night-pre body .lede, body.theme-night .lede { color: #DFEDE4 !important; }
+html.theme-night-pre body .detail-row > span:first-child, body.theme-night .detail-row > span:first-child { color: #F2F8F4 !important; }
+
+
+/* ---------- numbered process list (interior pages) ---------- */
+.process { display: flex; flex-direction: column; gap: 20px; max-width: 800px; margin: 0 auto; }
+.process-item {
+  display: grid; grid-template-columns: 48px minmax(0, 1fr); gap: 20px; align-items: start;
+  background: #fff; border: 1px solid var(--line); border-radius: var(--radius);
+  padding: 24px 26px; box-shadow: var(--shadow); text-align: left;
+}
+.process-num {
+  width: 44px; height: 44px; border-radius: 50%; display: flex;
+  align-items: center; justify-content: center; flex: 0 0 44px;
+  background: var(--fern); color: #fff; font-weight: 700;
+  font-family: var(--font-display); font-size: 1.25rem; margin: 0;
+}
+.process-item h3 { font-size: 1.15rem; margin-bottom: 6px; text-align: left; }
+.process-item p { color: var(--muted); font-size: .97rem; text-align: left; margin: 0; }
+@media (max-width: 640px) {
+  .process-item { grid-template-columns: 40px minmax(0, 1fr); gap: 14px; padding: 20px 18px; }
+  .process-num { width: 38px; height: 38px; flex-basis: 38px; font-size: 1.1rem; }
+}
+html.theme-night-pre body .process-item, body.theme-night .process-item {
+  background-color: #1C2A24 !important; border-color: #2E4038 !important;
+}
+html.theme-night-pre body .process-item h3, body.theme-night .process-item h3 { color: #F2F8F4 !important; }
+html.theme-night-pre body .process-item p, body.theme-night .process-item p { color: #CFE0D5 !important; }
+html.theme-night-pre body .process-num, body.theme-night .process-num {
+  background-color: #4BAE71 !important; color: #06120C !important; border: 0 !important;
+}
+
+/* ============================================================
+   Interior page header + nav brand, both themes
+   --pine is redefined as a light tone in the dark theme so
+   headings stay readable, which made the page-head gradient
+   resolve to near-white at the top. Explicit values instead.
+   ============================================================ */
+.page-head {
+  background: linear-gradient(180deg, #1D3A2C 0%, #12291E 100%) !important;
+  padding: 148px 0 60px;
+}
+.page-head h1 { color: #FFFFFF !important; text-shadow: 0 2px 18px rgba(0,0,0,.4); }
+.page-head h1 em { color: #8FE0AC !important; }
+.page-head-sub { color: #CDEBDA !important; }
+
+html.theme-night-pre body .page-head, body.theme-night .page-head {
+  background: linear-gradient(180deg, #163023 0%, #0A140F 100%) !important;
+}
+html.theme-night-pre body .page-head h1, body.theme-night .page-head h1 { color: #FFFFFF !important; }
+html.theme-night-pre body .page-head h1 em, body.theme-night .page-head h1 em { color: #8FE0AC !important; }
+html.theme-night-pre body .page-head-sub, body.theme-night .page-head-sub { color: #CDEBDA !important; }
+
+/* nav brand: light over the hero photo, dark once the bar is solid */
+.nav-brand .nav-wordmark { color: #FFFFFF !important; text-shadow: 0 1px 12px rgba(0,0,0,.45); }
+.site-nav.scrolled .nav-brand .nav-wordmark { color: #1D3A2C !important; text-shadow: none; }
+html.theme-night-pre body .site-nav.scrolled .nav-brand .nav-wordmark,
+body.theme-night .site-nav.scrolled .nav-brand .nav-wordmark { color: #EAF6EE !important; }
+
+/* breadcrumbs in dark mode */
+html.theme-night-pre body .breadcrumbs, body.theme-night .breadcrumbs {
+  background-color: #16221D !important; border-color: #2E4038 !important;
+}
+html.theme-night-pre body .breadcrumbs a, body.theme-night .breadcrumbs a { color: #8FE0AC !important; }
+html.theme-night-pre body .breadcrumbs span[aria-current], body.theme-night .breadcrumbs span[aria-current] { color: #A9BFB1 !important; }
+
+/* ============================================================
+   Hero service chips
+   Deliberately lighter than the primary CTA so the booking
+   button stays the clear focus. Links to our own service pages
+   plus the sister salon.
+   ============================================================ */
+.hero-services {
+  display: flex; flex-wrap: wrap; justify-content: center; gap: 10px;
+  margin-top: 22px;
+}
+.svc-chip {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: .88rem; font-weight: 700; text-decoration: none;
+  color: #FFFFFF; background: rgba(255,255,255,.13);
+  border: 1px solid rgba(255,255,255,.42); border-radius: 999px;
+  padding: 9px 16px; transition: background .2s ease, border-color .2s ease, transform .2s ease;
+}
+.svc-chip svg { width: 15px; height: 15px; opacity: .9; }
+.svc-chip:hover { background: rgba(255,255,255,.26); border-color: rgba(255,255,255,.7); transform: translateY(-1px); }
+.svc-chip-sister { border-style: dashed; border-color: rgba(199,233,213,.75); color: #CDEBDA; }
+.svc-chip-sister:hover { background: rgba(143,224,172,.2); color: #FFFFFF; }
+@media (max-width: 620px) {
+  .hero-services { gap: 8px; }
+  .svc-chip { font-size: .82rem; padding: 8px 13px; }
 }
