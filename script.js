@@ -1,12 +1,10 @@
-/* Woodlands Pet Retreat — interactions */
+/* Chien d'amour — interactions & analytics hooks */
 (function () {
   "use strict";
 
-  /* ---------- nav: solid on scroll ---------- */
+  /* ---------- nav: compact + solid on scroll ---------- */
   var nav = document.getElementById("siteNav");
-  function onScroll() {
-    nav.classList.toggle("scrolled", window.scrollY > 40);
-  }
+  function onScroll() { nav.classList.toggle("scrolled", window.scrollY > 40); }
   window.addEventListener("scroll", onScroll, { passive: true });
   onScroll();
 
@@ -53,6 +51,7 @@
   document.addEventListener("keydown", function (e) {
     if (e.key === "Escape" && links.classList.contains("open")) setMenu(false);
   });
+  // reset if resized back to desktop while open
   window.addEventListener("resize", function () {
     if (window.innerWidth > 1200 && links.classList.contains("open")) setMenu(false);
   });
@@ -62,10 +61,7 @@
   if ("IntersectionObserver" in window) {
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (e) {
-        if (e.isIntersecting) {
-          e.target.classList.add("in");
-          io.unobserve(e.target);
-        }
+        if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
       });
     }, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
     reveals.forEach(function (el) { io.observe(el); });
@@ -76,6 +72,7 @@
   /* ---------- gallery lightbox ---------- */
   var figures = Array.prototype.slice.call(document.querySelectorAll(".photo-grid .ph"));
   var lightbox = document.getElementById("lightbox");
+  if (lightbox) {
   var lbImg = document.getElementById("lb-img");
   var lbCap = document.getElementById("lb-cap");
   var current = 0;
@@ -88,42 +85,76 @@
     lbImg.alt = img.alt;
     lbCap.textContent = cap ? cap.textContent : "";
   }
-  function openLb(i) {
-    show(i);
-    lightbox.classList.add("active");
-    document.body.style.overflow = "hidden";
-  }
-  function closeLb() {
-    lightbox.classList.remove("active");
-    document.body.style.overflow = "";
-  }
+  function openLb(i) { show(i); lightbox.classList.add("active"); document.body.style.overflow = "hidden"; }
+  function closeLb() { lightbox.classList.remove("active"); document.body.style.overflow = ""; }
 
-  figures.forEach(function (fig, i) {
-    fig.addEventListener("click", function () { openLb(i); });
-  });
-  lightbox.addEventListener("click", function (e) {
-    if (e.target === lightbox) closeLb();
-  });
+  figures.forEach(function (fig, i) { fig.addEventListener("click", function () { openLb(i); }); });
+  lightbox.addEventListener("click", function (e) { if (e.target === lightbox) closeLb(); });
   lightbox.querySelector(".lb-close").addEventListener("click", closeLb);
   lightbox.querySelector(".lb-prev").addEventListener("click", function (e) { e.stopPropagation(); show(current - 1); });
   lightbox.querySelector(".lb-next").addEventListener("click", function (e) { e.stopPropagation(); show(current + 1); });
-
   document.addEventListener("keydown", function (e) {
     if (!lightbox.classList.contains("active")) return;
     if (e.key === "Escape") closeLb();
     if (e.key === "ArrowLeft") show(current - 1);
     if (e.key === "ArrowRight") show(current + 1);
   });
+  }
 
   /* ---------- FAQ: close others when one opens ---------- */
   var faqs = document.querySelectorAll(".faq-item");
   faqs.forEach(function (item) {
     item.addEventListener("toggle", function () {
-      if (item.open) {
-        faqs.forEach(function (other) {
-          if (other !== item) other.open = false;
-        });
+      if (item.open) faqs.forEach(function (other) { if (other !== item) other.open = false; });
+    });
+  });
+
+  /* ---------- copy phone number ---------- */
+  var copyBtn = document.getElementById("copyNumber");
+  if (copyBtn) {
+    var label = copyBtn.querySelector(".copy-label");
+    copyBtn.addEventListener("click", function () {
+      var number = copyBtn.getAttribute("data-number");
+      function done() {
+        copyBtn.classList.add("copied");
+        label.textContent = "Copied!";
+        track("copy_number_click", {});
+        setTimeout(function () {
+          copyBtn.classList.remove("copied");
+          label.textContent = "Copy Number";
+        }, 2000);
       }
+      function fallback() {
+        var ta = document.createElement("textarea");
+        ta.value = number;
+        ta.style.position = "fixed";
+        ta.style.opacity = "0";
+        document.body.appendChild(ta);
+        ta.select();
+        try { document.execCommand("copy"); done(); } catch (e) {}
+        document.body.removeChild(ta);
+      }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(number).then(done).catch(fallback);
+      } else { fallback(); }
+    });
+  }
+
+  /* ---------- GA4 event tracking (activates once GA snippet is enabled) ----------
+     Event names: book_grooming_click, call_amber_click, text_amber_click,
+     directions_click, facebook_click, woodlands_referral_click,
+     service_card_click, copy_number_click */
+  function track(name, params) {
+    if (typeof window.gtag === "function") window.gtag("event", name, params || {});
+  }
+  document.querySelectorAll("[data-event]").forEach(function (el) {
+    el.addEventListener("click", function () {
+      track(el.getAttribute("data-event"), { link_url: el.getAttribute("href") || "" });
+    });
+  });
+  document.querySelectorAll(".menu-list li[data-service]").forEach(function (li) {
+    li.addEventListener("click", function () {
+      track("service_card_click", { service_name: li.getAttribute("data-service") });
     });
   });
 
@@ -132,191 +163,40 @@
   if (y) y.textContent = new Date().getFullYear();
 })();
 
-/* ---------- CTA click tracking (activates once GA4 snippet is enabled) ---------- */
-(function () {
-  document.querySelectorAll("[data-cta]").forEach(function (el) {
-    el.addEventListener("click", function () {
-      if (typeof window.gtag === "function") {
-        window.gtag("event", "cta_click", {
-          cta_name: el.getAttribute("data-cta"),
-          cta_url: el.getAttribute("href") || ""
-        });
-      }
-    });
-  });
-})();
-
-/* ---------- copy phone number / email buttons ---------- */
-function wireCopyButton(btnId, dataAttr, labelClass, defaultText) {
-  var btn = document.getElementById(btnId);
-  if (!btn) return;
-  var label = btn.querySelector("." + labelClass);
-  btn.addEventListener("click", function () {
-    var value = btn.getAttribute(dataAttr);
-    function done() {
-      btn.classList.add("copied");
-      label.textContent = "Copied!";
-      setTimeout(function () {
-        btn.classList.remove("copied");
-        label.textContent = defaultText;
-      }, 2000);
-    }
-    function fallback() {
-      var ta = document.createElement("textarea");
-      ta.value = value;
-      ta.style.position = "fixed";
-      ta.style.opacity = "0";
-      document.body.appendChild(ta);
-      ta.select();
-      try { document.execCommand("copy"); done(); } catch (e) {}
-      document.body.removeChild(ta);
-    }
-    if (navigator.clipboard && navigator.clipboard.writeText) {
-      navigator.clipboard.writeText(value).then(done).catch(fallback);
-    } else {
-      fallback();
-    }
-  });
-}
-wireCopyButton("copyNumber", "data-number", "copy-label", "Copy Number");
-wireCopyButton("copyEmail", "data-email", "copy-email-label", "Copy Email");
-
-/* ---------- paw-print scroll trail (injected so both pages get it) ---------- */
+/* ---------- gold scroll progress trail with a bow ---------- */
 (function () {
   var trail = document.createElement("div");
   trail.className = "scroll-trail";
   trail.setAttribute("aria-hidden", "true");
   trail.innerHTML = '<div class="scroll-trail-fill"></div>' +
-    '<span class="scroll-paw"><svg viewBox="0 0 24 24" fill="currentColor">' +
-    '<circle cx="11" cy="4.5" r="2"/><circle cx="17" cy="7" r="2"/><circle cx="5" cy="7" r="2"/>' +
-    '<circle cx="8" cy="11" r="1.8"/><circle cx="14" cy="11" r="1.8"/>' +
-    '<path d="M11 13.5c-3 0-5.4 2.1-5.4 4.5 0 1.6 1.3 2.5 2.8 2.2 1-.2 1.7-.6 2.6-.6s1.6.4 2.6.6c1.5.3 2.8-.6 2.8-2.2 0-2.4-2.4-4.5-5.4-4.5z"/></svg></span>';
+    '<span class="scroll-bow"><svg viewBox="0 0 24 24" fill="currentColor">' +
+    '<path d="M11 12 4.6 7.2a1 1 0 0 0-1.6.8v8a1 1 0 0 0 1.6.8L11 12z"/>' +
+    '<path d="M13 12l6.4-4.8a1 1 0 0 1 1.6.8v8a1 1 0 0 1-1.6.8L13 12z"/>' +
+    '<circle cx="12" cy="12" r="2.3"/></svg></span>';
   document.body.appendChild(trail);
   var fill = trail.querySelector(".scroll-trail-fill");
-  var paw = trail.querySelector(".scroll-paw");
-  function updateTrail() {
+  var bow = trail.querySelector(".scroll-bow");
+  function update() {
     var max = document.documentElement.scrollHeight - window.innerHeight;
     var pct = max > 0 ? Math.min(100, (window.scrollY / max) * 100) : 0;
     fill.style.width = pct + "%";
-    paw.style.left = pct + "%";
+    bow.style.left = pct + "%";
   }
-  window.addEventListener("scroll", updateTrail, { passive: true });
-  window.addEventListener("resize", updateTrail);
-  updateTrail();
-})();
-
-/* ---------- Stay Builder estimator ---------- */
-(function () {
-  var card = document.querySelector(".est-card");
-  if (!card) return;
-
-  var RATES = {
-    basic:  { label: "Basic suite",  price: 45, unit: "night", extraDog: 20 },
-    deluxe: { label: "Deluxe suite", price: 65, unit: "night", extraDog: 20 },
-    day:    { label: "Day stay",     price: 25, unit: "day",  extraDog: 10 }
-  };
-  var ADDON_LABELS = {
-    photo: "Daily photo update",
-    walkShort: "Nature walk (10 to 15 min)",
-    walkLong: "Nature walk (25 to 30 min)",
-    play: "Extended play session",
-    egg: "Sunrise Scramble"
-  };
-
-  var state = { type: "basic", nights: 3, dogs: 1 };
-  var linesEl = document.getElementById("estLines");
-  var totalEl = document.getElementById("estTotal");
-  var nightsEl = document.getElementById("nightsVal");
-  var dogsEl = document.getElementById("dogsVal");
-  var unitLabel = document.getElementById("unitLabel");
-  var dogNote = document.getElementById("dogNote");
-  var reduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  var shownTotal = 0;
-
-  function fmt(n) { return "$" + n.toLocaleString("en-US"); }
-  function plural(n, word) { return n + " " + word + (n === 1 ? "" : "s"); }
-
-  function compute() {
-    var r = RATES[state.type];
-    var n = state.nights;
-    var lines = [];
-    var base = r.price * n;
-    lines.push([r.label + ", " + plural(n, r.unit), fmt(base)]);
-    var total = base;
-
-    var extras = state.dogs - 1;
-    if (extras > 0) {
-      var dogCost = extras * r.extraDog * n;
-      lines.push([plural(extras, "additional dog") + ", same suite", fmt(dogCost)]);
-      total += dogCost;
-    }
-
-    card.querySelectorAll(".est-addons input:checked").forEach(function (cb) {
-      var price = parseInt(cb.getAttribute("data-price"), 10) * n;
-      lines.push([ADDON_LABELS[cb.getAttribute("data-addon")], fmt(price)]);
-      total += price;
-    });
-
-    linesEl.innerHTML = lines.map(function (l) {
-      return "<li><span>" + l[0] + "</span><strong>" + l[1] + "</strong></li>";
-    }).join("");
-
-    animateTotal(total);
-  }
-
-  function animateTotal(target) {
-    if (reduced) { shownTotal = target; totalEl.textContent = fmt(target); return; }
-    var start = shownTotal, t0 = null, dur = 350;
-    function tick(ts) {
-      if (!t0) t0 = ts;
-      var p = Math.min(1, (ts - t0) / dur);
-      var eased = 1 - Math.pow(1 - p, 3);
-      totalEl.textContent = fmt(Math.round(start + (target - start) * eased));
-      if (p < 1) requestAnimationFrame(tick);
-      else shownTotal = target;
-    }
-    requestAnimationFrame(tick);
-  }
-
-  card.querySelectorAll('input[name="stayType"]').forEach(function (radio) {
-    radio.addEventListener("change", function () {
-      state.type = radio.value;
-      var r = RATES[state.type];
-      unitLabel.textContent = r.unit === "night" ? "Nights" : "Days";
-      dogNote.textContent = "(+$" + r.extraDog + "/" + r.unit + " each additional)";
-      compute();
-    });
-  });
-
-  card.querySelectorAll(".step-btn").forEach(function (btn) {
-    btn.addEventListener("click", function () {
-      var key = btn.getAttribute("data-step");
-      var dir = parseInt(btn.getAttribute("data-dir"), 10);
-      if (key === "nights") state.nights = Math.max(1, Math.min(30, state.nights + dir));
-      if (key === "dogs") state.dogs = Math.max(1, Math.min(4, state.dogs + dir));
-      nightsEl.textContent = state.nights;
-      dogsEl.textContent = state.dogs;
-      compute();
-    });
-  });
-
-  card.querySelectorAll(".est-addons input").forEach(function (cb) {
-    cb.addEventListener("change", compute);
-  });
-
-  compute();
+  window.addEventListener("scroll", update, { passive: true });
+  window.addEventListener("resize", update);
+  update();
 })();
 
 /* ---------- day / night theme ----------
-   Follows the operating system's light/dark setting by default, and
-   live-updates if the OS switches while the page is open. A manual
-   toggle overrides it for the rest of the visit. */
+   Follows the operating system's light/dark setting by default and
+   live-updates if the OS switches. A manual toggle overrides it for
+   the rest of the visit. */
 (function () {
   var btn = document.getElementById("themeToggle");
   var mq = window.matchMedia ? window.matchMedia("(prefers-color-scheme: dark)") : null;
-
-  function osPrefersDark() { return mq ? mq.matches : false; }
-
+  function manualChoice() {
+    try { return window.sessionStorage.getItem("cdaTheme"); } catch (e) { return null; }
+  }
   function apply(night) {
     document.body.classList.toggle("theme-night", night);
     document.documentElement.classList.toggle("theme-night-pre", night);
@@ -325,25 +205,83 @@ wireCopyButton("copyEmail", "data-email", "copy-email-label", "Copy Email");
       btn.setAttribute("aria-pressed", night ? "true" : "false");
     }
   }
-
-  function manualChoice() {
-    try { return window.sessionStorage.getItem("wprTheme"); } catch (e) { return null; }
-  }
-
-  apply(manualChoice() ? manualChoice() === "night" : osPrefersDark());
-
+  apply(manualChoice() ? manualChoice() === "night" : (mq ? mq.matches : false));
   if (btn) {
     btn.addEventListener("click", function () {
       var night = !document.body.classList.contains("theme-night");
       apply(night);
-      try { window.sessionStorage.setItem("wprTheme", night ? "night" : "day"); } catch (e) {}
+      try { window.sessionStorage.setItem("cdaTheme", night ? "night" : "day"); } catch (e) {}
     });
   }
-
-  // follow the OS if the visitor hasn't chosen manually
   if (mq) {
     var onChange = function () { if (!manualChoice()) apply(mq.matches); };
     if (mq.addEventListener) mq.addEventListener("change", onChange);
     else if (mq.addListener) mq.addListener(onChange);
   }
+})();
+
+/* ---------- Groom Builder estimator ---------- */
+(function () {
+  var card = document.querySelector(".gb-card");
+  if (!card) return;
+
+  var PRICES = {
+    full: { s: 80, m: 95,  l: 110, xl: 130, label: "Full-service groom" },
+    bath: { s: 45, m: 55,  l: 65,  xl: 75,  label: "Bath & tidy" }
+  };
+  var SIZE_LABELS = { s: "small", m: "medium", l: "large", xl: "X-large" };
+  var ADDONS = { ear: "Ear trimming", nail: "Nail trim only" };
+
+  var linesEl = document.getElementById("gbLines");
+  var totalEl = document.getElementById("gbTotal");
+  var loyalEl = document.getElementById("gbLoyal");
+  var reduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var shown = 0;
+
+  function fmt(n) { return "$" + Math.round(n).toLocaleString("en-US"); }
+
+  function compute() {
+    var svc = card.querySelector('input[name="svc"]:checked').value;
+    var size = card.querySelector('input[name="size"]:checked').value;
+    var base = PRICES[svc][size];
+    var lines = [[PRICES[svc].label + ", " + SIZE_LABELS[size], "from " + fmt(base), ""]];
+    var total = base;
+
+    card.querySelectorAll(".gb-addons input:checked").forEach(function (cb) {
+      var p = parseInt(cb.getAttribute("data-price"), 10);
+      lines.push([ADDONS[cb.getAttribute("data-addon")], fmt(p), ""]);
+      total += p;
+    });
+
+    if (loyalEl && loyalEl.checked) {
+      var save = total * 0.10;
+      lines.push(["Grooming regular discount, 10%", "\u2212" + fmt(save), "gb-save"]);
+      total -= save;
+    }
+
+    linesEl.innerHTML = lines.map(function (l) {
+      return '<li class="' + l[2] + '"><span>' + l[0] + "</span><strong>" + l[1] + "</strong></li>";
+    }).join("");
+
+    animate(total);
+  }
+
+  function animate(target) {
+    if (reduced) { shown = target; totalEl.textContent = fmt(target); return; }
+    var start = shown, t0 = null, dur = 350;
+    function tick(ts) {
+      if (!t0) t0 = ts;
+      var p = Math.min(1, (ts - t0) / dur);
+      var e = 1 - Math.pow(1 - p, 3);
+      totalEl.textContent = fmt(start + (target - start) * e);
+      if (p < 1) requestAnimationFrame(tick); else shown = target;
+    }
+    requestAnimationFrame(tick);
+  }
+
+  card.querySelectorAll('input[name="svc"], input[name="size"], .gb-addons input').forEach(function (el) {
+    el.addEventListener("change", compute);
+  });
+  if (loyalEl) loyalEl.addEventListener("change", compute);
+  compute();
 })();
