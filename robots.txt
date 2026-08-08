@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://chiendamourllc.com/sitemap.xml
+Sitemap: https://woodlandspetretreat.com/sitemap.xml
