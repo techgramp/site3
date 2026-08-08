@@ -54,7 +54,7 @@
     if (e.key === "Escape" && links.classList.contains("open")) setMenu(false);
   });
   window.addEventListener("resize", function () {
-    if (window.innerWidth > 720 && links.classList.contains("open")) setMenu(false);
+    if (window.innerWidth > 1024 && links.classList.contains("open")) setMenu(false);
   });
 
   /* ---------- scroll reveal ---------- */
@@ -308,27 +308,29 @@ wireCopyButton("copyEmail", "data-email", "copy-email-label", "Copy Email");
 })();
 
 /* ---------- day / night theme ----------
-   Defaults to the daytime palette, switches to the evening palette
-   automatically between 7pm and 6am, and remembers a manual choice
-   for the rest of the visit. */
+   Follows the operating system's light/dark setting by default, and
+   live-updates if the OS switches while the page is open. A manual
+   toggle overrides it for the rest of the visit. */
 (function () {
   var btn = document.getElementById("themeToggle");
+  var mq = window.matchMedia ? window.matchMedia("(prefers-color-scheme: dark)") : null;
 
-  function isNightHour() {
-    var h = new Date().getHours();
-    return h >= 19 || h < 6;
-  }
+  function osPrefersDark() { return mq ? mq.matches : false; }
+
   function apply(night) {
     document.body.classList.toggle("theme-night", night);
+    document.documentElement.classList.toggle("theme-night-pre", night);
     if (btn) {
-      btn.setAttribute("aria-label", night ? "Switch to daytime theme" : "Switch to evening theme");
+      btn.setAttribute("aria-label", night ? "Switch to light theme" : "Switch to dark theme");
       btn.setAttribute("aria-pressed", night ? "true" : "false");
     }
   }
 
-  var chosen = null;
-  try { chosen = window.sessionStorage.getItem("wprTheme"); } catch (e) {}
-  apply(chosen ? chosen === "night" : isNightHour());
+  function manualChoice() {
+    try { return window.sessionStorage.getItem("wprTheme"); } catch (e) { return null; }
+  }
+
+  apply(manualChoice() ? manualChoice() === "night" : osPrefersDark());
 
   if (btn) {
     btn.addEventListener("click", function () {
@@ -338,10 +340,10 @@ wireCopyButton("copyEmail", "data-email", "copy-email-label", "Copy Email");
     });
   }
 
-  // if no manual choice was made, follow the clock as the evening arrives
-  setInterval(function () {
-    var manual = null;
-    try { manual = window.sessionStorage.getItem("wprTheme"); } catch (e) {}
-    if (!manual) apply(isNightHour());
-  }, 60000);
+  // follow the OS if the visitor hasn't chosen manually
+  if (mq) {
+    var onChange = function () { if (!manualChoice()) apply(mq.matches); };
+    if (mq.addEventListener) mq.addEventListener("change", onChange);
+    else if (mq.addListener) mq.addListener(onChange);
+  }
 })();

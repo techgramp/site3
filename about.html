@@ -42,6 +42,17 @@
   }
 }
 </script>
+<script>
+/* Set the theme before first paint so there's no flash of the wrong palette. */
+(function () {
+  try {
+    var m = window.sessionStorage.getItem("wprTheme");
+    var dark = m ? m === "night"
+                 : (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches);
+    if (dark) document.documentElement.classList.add("theme-night-pre");
+  } catch (e) {}
+})();
+</script>
 </head>
 <body>
 

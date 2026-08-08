@@ -755,42 +755,42 @@ section[id], footer[id] { scroll-margin-top: 84px; }
 :root { color-scheme: only light; }
 
 @media (prefers-color-scheme: dark) {
-  html:not(.theme-night), body:not(.theme-night) { background-color: #F7F3EA !important; color: #22302A !important; }
-  body:not(.theme-night) .section, body:not(.theme-night) section, body:not(.theme-night) header, body:not(.theme-night) footer { background-color: transparent !important; }
-  body:not(.theme-night) .how, body:not(.theme-night) .grooming, body:not(.theme-night) .app-band { background-color: #FFFFFF !important; }
-  body:not(.theme-night) .family { background-color: #FFFFFF !important; }
+  html:not(.theme-night-pre), html:not(.theme-night-pre) body:not(.theme-night) { background-color: #F7F3EA !important; color: #22302A !important; }
+  html:not(.theme-night-pre) body:not(.theme-night) .section, html:not(.theme-night-pre) body:not(.theme-night) section, html:not(.theme-night-pre) body:not(.theme-night) header, html:not(.theme-night-pre) body:not(.theme-night) footer { background-color: transparent !important; }
+  html:not(.theme-night-pre) body:not(.theme-night) .how, html:not(.theme-night-pre) body:not(.theme-night) .grooming, html:not(.theme-night-pre) body:not(.theme-night) .app-band { background-color: #FFFFFF !important; }
+  html:not(.theme-night-pre) body:not(.theme-night) .family { background-color: #FFFFFF !important; }
 
-  body:not(.theme-night) h1, body:not(.theme-night) h2, body:not(.theme-night) h3 { color: #1D3A2C !important; }
-  body:not(.theme-night) h1 em, body:not(.theme-night) h2 em { color: #2E7D4F !important; }
+  html:not(.theme-night-pre) body:not(.theme-night) h1, html:not(.theme-night-pre) body:not(.theme-night) h2, html:not(.theme-night-pre) body:not(.theme-night) h3 { color: #1D3A2C !important; }
+  html:not(.theme-night-pre) body:not(.theme-night) h1 em, html:not(.theme-night-pre) body:not(.theme-night) h2 em { color: #2E7D4F !important; }
   p, li, .section-sub, .fact p, .step p, .addon-card p, .price-card p,
   .pack-card p, .faq-body, .room-info, .visit-value, .footer-est,
-  body:not(.theme-night) .family-bio, body:not(.theme-night) .groom-cat span { color: #5D6B62 !important; }
+  html:not(.theme-night-pre) body:not(.theme-night) .family-bio, html:not(.theme-night-pre) body:not(.theme-night) .groom-cat span { color: #5D6B62 !important; }
 
-  body:not(.theme-night) .eyebrow { color: #2E7D4F !important; }
-  body:not(.theme-night) .eyebrow.light { color: #CBE6F0 !important; }
+  html:not(.theme-night-pre) body:not(.theme-night) .eyebrow { color: #2E7D4F !important; }
+  html:not(.theme-night-pre) body:not(.theme-night) .eyebrow.light { color: #CBE6F0 !important; }
 
   .price-card, .addon-card, .pack-card, .faq-item, .visit-card,
-  body:not(.theme-night) .fact-icon, body:not(.theme-night) .family-card, body:not(.theme-night) .review-card { background-color: #FFFFFF !important; }
+  html:not(.theme-night-pre) body:not(.theme-night) .fact-icon, html:not(.theme-night-pre) body:not(.theme-night) .family-card, html:not(.theme-night-pre) body:not(.theme-night) .review-card { background-color: #FFFFFF !important; }
 
-  body:not(.theme-night) .hero, body:not(.theme-night) .hero-bg, body:not(.theme-night) .hero-scrim { background-color: transparent !important; }
-  body:not(.theme-night) .hero h1, body:not(.theme-night) .final-cta h2, body:not(.theme-night) .page-head h1 { color: #FFFFFF !important; }
-  body:not(.theme-night) .hero-sub, body:not(.theme-night) .final-cta p { color: #F7EFE9 !important; }
-  body:not(.theme-night) .topbar { background-color: #12291E !important; color: #F7EFE9 !important; }
-  body:not(.theme-night) .site-nav.scrolled { background-color: rgba(247,243,234,.96) !important; }
-  body:not(.theme-night) .nav-wordmark { color: inherit !important; }
-  body:not(.theme-night) .nav-links a:not(.btn-book) { color: #FFFFFF !important; }
-  body:not(.theme-night) .site-nav.scrolled .nav-links a:not(.btn-book) { color: #22302A !important; }
-  body:not(.theme-night) .site-nav.scrolled .nav-wordmark { color: #1D3A2C !important; }
+  html:not(.theme-night-pre) body:not(.theme-night) .hero, html:not(.theme-night-pre) body:not(.theme-night) .hero-bg, html:not(.theme-night-pre) body:not(.theme-night) .hero-scrim { background-color: transparent !important; }
+  html:not(.theme-night-pre) body:not(.theme-night) .hero h1, html:not(.theme-night-pre) body:not(.theme-night) .final-cta h2, html:not(.theme-night-pre) body:not(.theme-night) .page-head h1 { color: #FFFFFF !important; }
+  html:not(.theme-night-pre) body:not(.theme-night) .hero-sub, html:not(.theme-night-pre) body:not(.theme-night) .final-cta p { color: #F7EFE9 !important; }
+  html:not(.theme-night-pre) body:not(.theme-night) .topbar { background-color: #12291E !important; color: #F7EFE9 !important; }
+  html:not(.theme-night-pre) body:not(.theme-night) .site-nav.scrolled { background-color: rgba(247,243,234,.96) !important; }
+  html:not(.theme-night-pre) body:not(.theme-night) .nav-wordmark { color: inherit !important; }
+  html:not(.theme-night-pre) body:not(.theme-night) .nav-links a:not(.btn-book) { color: #FFFFFF !important; }
+  html:not(.theme-night-pre) body:not(.theme-night) .site-nav.scrolled .nav-links a:not(.btn-book) { color: #22302A !important; }
+  html:not(.theme-night-pre) body:not(.theme-night) .site-nav.scrolled .nav-wordmark { color: #1D3A2C !important; }
 
-  body:not(.theme-night) .site-footer { background-color: #12291E !important; color: #EDE5DF !important; }
-  body:not(.theme-night) .footer-links a, body:not(.theme-night) .footer-contact a:not(.btn) { color: #EDE5DF !important; }
-  body:not(.theme-night) .final-cta { background-color: #1D3A2C !important; }
+  html:not(.theme-night-pre) body:not(.theme-night) .site-footer { background-color: #12291E !important; color: #EDE5DF !important; }
+  html:not(.theme-night-pre) body:not(.theme-night) .footer-links a, html:not(.theme-night-pre) body:not(.theme-night) .footer-contact a:not(.btn) { color: #EDE5DF !important; }
+  html:not(.theme-night-pre) body:not(.theme-night) .final-cta { background-color: #1D3A2C !important; }
 
-  body:not(.theme-night) .btn-primary { background-color: #2E7D4F !important; color: #FFFFFF !important; }
-  body:not(.theme-night) .btn-outline { background-color: transparent !important; color: #2E7D4F !important; border-color: #2E7D4F !important; }
-  body:not(.theme-night) .btn-book { background-color: #2E7D4F !important; color: #FFFFFF !important; }
+  html:not(.theme-night-pre) body:not(.theme-night) .btn-primary { background-color: #2E7D4F !important; color: #FFFFFF !important; }
+  html:not(.theme-night-pre) body:not(.theme-night) .btn-outline { background-color: transparent !important; color: #2E7D4F !important; border-color: #2E7D4F !important; }
+  html:not(.theme-night-pre) body:not(.theme-night) .btn-book { background-color: #2E7D4F !important; color: #FFFFFF !important; }
 
-  body:not(.theme-night) img { filter: none !important; }
+  html:not(.theme-night-pre) body:not(.theme-night) img { filter: none !important; }
 }
 
 /* single-card family layout (partner only) */
@@ -878,14 +878,14 @@ section[id], footer[id] { scroll-margin-top: 84px; }
 
 .est-pills { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
 .est-pill input { position: absolute; opacity: 0; pointer-events: none; }
-.est-pill span {
+.est-pill > span {
   display: flex; flex-direction: column; align-items: flex-start; gap: 3px; height: 100%;
   background: #fff; border: 2px solid var(--line); border-radius: 14px;
   padding: 14px 16px; font-weight: 800; color: var(--pine); cursor: pointer;
   transition: border-color .2s ease, background .2s ease, transform .2s ease;
 }
-.est-pill small { font-weight: 800; font-size: .82rem; color: var(--fern); }
-.est-pill em {
+.est-pill > span small { font-weight: 800; font-size: .82rem; color: var(--fern); }
+.est-pill > span em {
   font-style: normal; font-weight: 500; font-size: .8rem; line-height: 1.45;
   color: var(--muted); margin-top: 4px;
 }
@@ -902,9 +902,9 @@ section[id], footer[id] { scroll-margin-top: 84px; }
 .step-val { min-width: 46px; text-align: center; font-family: var(--font-display); font-size: 1.3rem; font-weight: 600; color: var(--pine); }
 
 .est-addons { display: flex; flex-direction: column; gap: 8px; }
-.est-check { display: flex; align-items: center; gap: 10px; cursor: pointer; }
+.est-check { display: block; cursor: pointer; }
 .est-check input { position: absolute; opacity: 0; pointer-events: none; }
-.est-check span {
+.est-check > span {
   display: flex; flex-wrap: wrap; align-items: flex-start; gap: 4px 14px; width: 100%;
   background: #fff; border: 2px solid var(--line); border-radius: 12px;
   padding: 12px 16px; font-weight: 700; font-size: .93rem; color: var(--ink);
@@ -913,12 +913,13 @@ section[id], footer[id] { scroll-margin-top: 84px; }
 .est-check .ec-main { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex: 1 1 auto; min-width: 0; }
 .est-check .ec-desc {
   flex: 1 1 100%; font-weight: 500; font-size: .82rem; line-height: 1.45;
-  color: var(--muted); padding-left: 0;
+  color: var(--muted); padding-left: 32px; margin-top: -2px;
 }
-.est-check span em { font-style: normal; color: var(--muted); font-weight: 800; white-space: nowrap; }
-.est-check span::before {
+.est-check > span .ec-main em { font-style: normal; color: var(--muted); font-weight: 800; white-space: nowrap; }
+.est-check > span::before {
   content: ""; flex: 0 0 18px; width: 18px; height: 18px; border-radius: 6px;
   border: 2px solid var(--line); background: #fff; transition: all .2s ease;
+  margin-top: 2px; order: -1;
 }
 .est-check input:checked + span { border-color: var(--fern); background: #EDF5EE; }
 .est-check input:checked + span::before {
@@ -963,7 +964,7 @@ section[id], footer[id] { scroll-margin-top: 84px; }
 @media (prefers-color-scheme: dark) {
   .estimator { background-color: #FFFFFF !important; }
   .est-card { background-color: #F7F3EA !important; }
-  .est-pill span, .est-check span, .est-stepper { background-color: #FFFFFF !important; }
+  .est-pill > span, .est-check > span, .est-stepper { background-color: #FFFFFF !important; }
   .est-summary { background-color: #1D3A2C !important; color: #FFFFFF !important; }
   .est-summary-title, .est-total span { color: #CBE6F0 !important; }
   .est-lines li { color: rgba(255,255,255,.88) !important; }
@@ -1021,26 +1022,31 @@ section[id], footer[id] { scroll-margin-top: 84px; }
 .site-nav.scrolled .theme-toggle { color: var(--pine); border-color: var(--line); background: rgba(29,58,44,.06); }
 .theme-toggle .ti-moon { display: none; }
 body.theme-night .theme-toggle .ti-sun { display: none; }
+html.theme-night-pre body .theme-toggle .ti-sun { display: none; }
 body.theme-night .theme-toggle .ti-moon { display: block; }
+html.theme-night-pre body .theme-toggle .ti-moon { display: block; }
 
-body.theme-night {
-  --sand:       #131E1A;
-  --card:       #1B2823;
-  --ink:        #E8EFE9;
-  --muted:      #A9BAB0;
-  --line:       #2C3E36;
-  --pine:       #DCEDE1;
-  --pine-deep:  #0C1613;
-  --fern:       #58B87C;
-  --fern-dark:  #46A469;
-  --lake:       #7BC5E0;
-  --lake-light: #BFE4F0;
-  --shadow:      0 10px 30px rgba(0,0,0,.4);
-  --shadow-lift: 0 18px 44px rgba(0,0,0,.55);
+body.theme-night, html.theme-night-pre body {
+  --sand:       #0F1815;
+  --card:       #18241F;
+  --ink:        #EAF2EC;
+  --muted:      #A6BCB0;
+  --line:       #2A3B33;
+  --pine:       #EAF6EE;
+  --pine-deep:  #0A110E;
+  --fern:       #5FC486;
+  --fern-dark:  #4BAE71;
+  --lake:       #7FCBE6;
+  --lake-light: #C6E9F5;
+  --shadow:      0 10px 30px rgba(0,0,0,.45);
+  --shadow-lift: 0 18px 44px rgba(0,0,0,.6);
 }
 body.theme-night { background: var(--sand); color: var(--ink); }
+html.theme-night-pre body { background: var(--sand); color: var(--ink); }
 body.theme-night h1, body.theme-night h2, body.theme-night h3 { color: var(--pine); }
+html.theme-night-pre body h1, html.theme-night-pre body h2, html.theme-night-pre body h3 { color: var(--pine); }
 body.theme-night h1 em, body.theme-night h2 em { color: var(--fern); }
+html.theme-night-pre body h1 em, html.theme-night-pre body h2 em { color: var(--fern); }
 body.theme-night .how,
 body.theme-night .grooming,
 body.theme-night .app-band,
@@ -1048,6 +1054,7 @@ body.theme-night .estimator,
 body.theme-night .reviews,
 body.theme-night .team,
 body.theme-night .family { background: #17231F; }
+html.theme-night-pre body .family { background: #17231F; }
 body.theme-night .price-card,
 body.theme-night .addon-card,
 body.theme-night .pack-card,
@@ -1060,34 +1067,408 @@ body.theme-night .offer-card,
 body.theme-night .includes-grid,
 body.theme-night .why-list,
 body.theme-night .app-strip { background: var(--card); border-color: var(--line); }
+html.theme-night-pre body .app-strip { background: var(--card); border-color: var(--line); }
 body.theme-night .fact-icon,
 body.theme-night .est-pill span,
-body.theme-night .est-check span,
+body.theme-night .est-check > span,
 body.theme-night .est-stepper,
 body.theme-night .step-num { background: var(--card); border-color: var(--line); color: var(--pine); }
+html.theme-night-pre body .step-num { background: var(--card); border-color: var(--line); color: var(--pine); }
 body.theme-night .est-pill input:checked + span,
 body.theme-night .est-check input:checked + span { background: #21372B; border-color: var(--fern); }
+html.theme-night-pre body .est-check input:checked + span { background: #21372B; border-color: var(--fern); }
 body.theme-night .groom-item { background: #17231F; border-color: var(--line); color: var(--pine); }
+html.theme-night-pre body .groom-item { background: #17231F; border-color: var(--line); color: var(--pine); }
 body.theme-night .groom-item.featured-groom { background: var(--fern-dark); color: #08120E; border-color: var(--fern-dark); }
+html.theme-night-pre body .groom-item.featured-groom { background: var(--fern-dark); color: #08120E; border-color: var(--fern-dark); }
 body.theme-night .groom-loyalty,
 body.theme-night .facility-code strong,
 body.theme-night .app-strip-sub strong { background: #17231F; color: var(--pine); }
+html.theme-night-pre body .app-strip-sub strong { background: #17231F; color: var(--pine); }
 body.theme-night .save { background: #21414F; color: var(--lake-light); }
+html.theme-night-pre body .save { background: #21414F; color: var(--lake-light); }
 body.theme-night .review-rec { background: #21414F; color: var(--lake-light); }
-body.theme-night .hero-scrim {
-  background:
-    linear-gradient(180deg, rgba(6,14,11,.82) 0%, rgba(6,14,11,.55) 40%, rgba(6,14,11,.8) 100%),
-    radial-gradient(80% 60% at 50% 45%, rgba(6,14,11,.1) 0%, rgba(6,14,11,.6) 100%);
-}
-body.theme-night .hero-bg { filter: brightness(.62) saturate(.85) hue-rotate(-6deg); }
+html.theme-night-pre body .review-rec { background: #21414F; color: var(--lake-light); }
 body.theme-night .est-summary { background: #0F1B16; }
+html.theme-night-pre body .est-summary { background: #0F1B16; }
 body.theme-night .site-nav.scrolled { background: rgba(19,30,26,.94); }
+html.theme-night-pre body .site-nav.scrolled { background: rgba(19,30,26,.94); }
 body.theme-night .btn-ghost { background: rgba(255,255,255,.08); }
+html.theme-night-pre body .btn-ghost { background: rgba(255,255,255,.08); }
 body.theme-night .est-check input:checked + span::before { background-color: var(--fern); border-color: var(--fern); }
+html.theme-night-pre body .est-check input:checked + span::before { background-color: var(--fern); border-color: var(--fern); }
 
 /* the ambient sparkles read as stars at night */
 body.theme-night .cloud { opacity: .35; }
+html.theme-night-pre body .cloud { opacity: .35; }
 body.theme-night .sparkle { box-shadow: 0 0 12px 3px rgba(191,228,240,.9); }
+html.theme-night-pre body .sparkle { box-shadow: 0 0 12px 3px rgba(191,228,240,.9); }
 body.theme-night .dragonfly { opacity: .5; }
+html.theme-night-pre body .dragonfly { opacity: .5; }
 
 body.theme-night, body.theme-night * { transition: background-color .5s ease, color .4s ease, border-color .4s ease; }
+
+
+/* ---------- dark theme polish ---------- */
+body.theme-night .site-footer,
+html.theme-night-pre body .site-footer { background: #0A110E; }
+body.theme-night .final-cta,
+html.theme-night-pre body .final-cta {
+  background: linear-gradient(180deg, #163023 0%, #0C1A13 100%);
+}
+body.theme-night .page-head,
+html.theme-night-pre body .page-head {
+  background: linear-gradient(180deg, #163023 0%, #0C1A13 100%);
+}
+body.theme-night .topbar,
+html.theme-night-pre body .topbar { background: #0A110E; }
+body.theme-night .badge,
+html.theme-night-pre body .badge { background: var(--fern-dark); color: #06120C; }
+body.theme-night .price-card.featured,
+html.theme-night-pre body .price-card.featured { border-color: var(--fern); }
+body.theme-night .btn-primary,
+html.theme-night-pre body .btn-primary {
+  background: var(--fern-dark); color: #06120C;
+  box-shadow: 0 8px 22px rgba(75,174,113,.28);
+}
+body.theme-night .btn-primary:hover,
+html.theme-night-pre body .btn-primary:hover { background: var(--fern); }
+body.theme-night .btn-outline,
+html.theme-night-pre body .btn-outline { color: var(--fern); border-color: var(--fern); }
+body.theme-night .btn-outline:hover,
+html.theme-night-pre body .btn-outline:hover { background: var(--fern); color: #06120C; }
+body.theme-night .btn-book,
+html.theme-night-pre body .btn-book { background: var(--fern-dark); color: #06120C !important; }
+body.theme-night .mb-call, body.theme-night .mb-text,
+html.theme-night-pre body .mb-call, html.theme-night-pre body .mb-text {
+  background: var(--card); color: var(--pine);
+}
+body.theme-night .mb-book,
+html.theme-night-pre body .mb-book { background: var(--fern-dark); color: #06120C; }
+body.theme-night .mobile-bar,
+html.theme-night-pre body .mobile-bar { background: var(--line); }
+body.theme-night .ripple-hero .ripple-front,
+html.theme-night-pre body .ripple-hero .ripple-front { fill: var(--sand); }
+body.theme-night .ripple-hero .ripple-back,
+html.theme-night-pre body .ripple-hero .ripple-back { fill: rgba(15,24,21,.5); }
+body.theme-night .team-photo,
+html.theme-night-pre body .team-photo { border-color: var(--fern); }
+body.theme-night .est-summary,
+html.theme-night-pre body .est-summary { background: #0C1A13; }
+body.theme-night .why-list li::before,
+html.theme-night-pre body .why-list li::before,
+body.theme-night .paw-list li::before,
+html.theme-night-pre body .paw-list li::before { background: var(--fern); }
+body.theme-night .scroll-trail,
+html.theme-night-pre body .scroll-trail { background: rgba(255,255,255,.1); }
+
+/* ============================================================
+   Dark theme readability: hero, nav and light-on-dark text
+   These come last so they win, and they use solid opaque colors
+   rather than translucent whites, which lose contrast over a
+   darkened photo.
+   ============================================================ */
+
+body.theme-night .hero h1,
+html.theme-night-pre body .hero h1 { color: #FFFFFF; text-shadow: 0 2px 20px rgba(0,0,0,.75); }
+body.theme-night .hero h1 em,
+html.theme-night-pre body .hero h1 em { color: #8FE0AC; }
+body.theme-night .hero-sub,
+html.theme-night-pre body .hero-sub {
+  color: #F2F7F3; text-shadow: 0 1px 14px rgba(0,0,0,.7);
+}
+body.theme-night .hero-sub strong,
+html.theme-night-pre body .hero-sub strong { color: #FFFFFF; }
+body.theme-night .hero .eyebrow, body.theme-night .eyebrow.light,
+html.theme-night-pre body .hero .eyebrow, html.theme-night-pre body .eyebrow.light {
+  color: #BFE6D2; text-shadow: 0 1px 10px rgba(0,0,0,.6);
+}
+body.theme-night .trust-chips li,
+html.theme-night-pre body .trust-chips li {
+  color: #FFFFFF; background: rgba(255,255,255,.16); border-color: rgba(255,255,255,.55);
+}
+body.theme-night .hero-login,
+html.theme-night-pre body .hero-login { color: #FFFFFF; border-color: rgba(255,255,255,.7); }
+body.theme-night .contact-pill,
+html.theme-night-pre body .contact-pill {
+  color: #FFFFFF; background: rgba(255,255,255,.16); border-color: rgba(255,255,255,.5);
+}
+body.theme-night .contact-pill:hover,
+html.theme-night-pre body .contact-pill:hover { background: rgba(255,255,255,.3); }
+body.theme-night .btn-ghost,
+html.theme-night-pre body .btn-ghost {
+  color: #FFFFFF; background: rgba(255,255,255,.14); border-color: rgba(255,255,255,.6);
+}
+
+/* nav links: bright over the photo, dark once the bar turns solid */
+body.theme-night .nav-links a:not(.btn-book),
+html.theme-night-pre body .nav-links a:not(.btn-book) { color: #FFFFFF; }
+body.theme-night .site-nav.scrolled .nav-links a:not(.btn-book),
+html.theme-night-pre body .site-nav.scrolled .nav-links a:not(.btn-book) { color: #EAF6EE; }
+body.theme-night .nav-wordmark,
+html.theme-night-pre body .nav-wordmark { color: #FFFFFF; }
+body.theme-night .site-nav.scrolled .nav-wordmark,
+html.theme-night-pre body .site-nav.scrolled .nav-wordmark { color: #EAF6EE; }
+body.theme-night .site-nav.scrolled,
+html.theme-night-pre body .site-nav.scrolled { background: rgba(12,20,17,.96); }
+body.theme-night .theme-toggle,
+html.theme-night-pre body .theme-toggle {
+  color: #FFFFFF; background: rgba(255,255,255,.15); border-color: rgba(255,255,255,.5);
+}
+body.theme-night .site-nav.scrolled .theme-toggle,
+html.theme-night-pre body .site-nav.scrolled .theme-toggle { color: #EAF6EE; border-color: rgba(255,255,255,.3); }
+body.theme-night .nav-toggle span,
+html.theme-night-pre body .nav-toggle span { background: #FFFFFF; }
+
+/* topbar and footer */
+body.theme-night .topbar,
+html.theme-night-pre body .topbar { color: #F2F7F3; }
+body.theme-night .topbar strong,
+html.theme-night-pre body .topbar strong { color: #F5D98F; }
+body.theme-night .site-footer,
+html.theme-night-pre body .site-footer { color: #E6EFE9; }
+body.theme-night .footer-est,
+html.theme-night-pre body .footer-est { color: #C4D3CA; }
+body.theme-night .footer-links a,
+body.theme-night .footer-contact a:not(.btn),
+html.theme-night-pre body .footer-links a,
+html.theme-night-pre body .footer-contact a:not(.btn) { color: #E6EFE9; }
+body.theme-night .footer-copy,
+html.theme-night-pre body .footer-copy { color: #A8B9AE; }
+
+/* body copy contrast bump throughout */
+body.theme-night .section-sub, body.theme-night .fact p, body.theme-night .step p,
+body.theme-night .addon-card p, body.theme-night .pack-card p, body.theme-night .faq-body,
+body.theme-night .team-bio, body.theme-night .amber-copy > p, body.theme-night .room-info,
+html.theme-night-pre body .section-sub, html.theme-night-pre body .fact p,
+html.theme-night-pre body .step p, html.theme-night-pre body .addon-card p,
+html.theme-night-pre body .pack-card p, html.theme-night-pre body .faq-body,
+html.theme-night-pre body .team-bio, html.theme-night-pre body .amber-copy > p,
+html.theme-night-pre body .room-info { color: #C3D6C9; }
+body.theme-night .final-cta p, html.theme-night-pre body .final-cta p { color: #E8F2EB; }
+body.theme-night .est-lines li, html.theme-night-pre body .est-lines li { color: #DCEBE1; }
+body.theme-night .est-note, html.theme-night-pre body .est-note { color: #A9BFB1; }
+
+
+/* ============================================================
+   Dark theme, final authority.
+   Earlier auto-dark protection rules use !important, which could
+   leave light text sitting on a light card. These win, so every
+   surface is genuinely dark and every text color is chosen for it.
+   The hero photo is left at its natural brightness.
+   ============================================================ */
+html.theme-night-pre, html.theme-night-pre body,
+body.theme-night {
+  background-color: #0F1815 !important;
+  color: #E6F0E9 !important;
+}
+html.theme-night-pre body .how, body.theme-night .how,
+html.theme-night-pre body .grooming, body.theme-night .grooming,
+html.theme-night-pre body .app-band, body.theme-night .app-band,
+html.theme-night-pre body .estimator, body.theme-night .estimator,
+html.theme-night-pre body .reviews, body.theme-night .reviews,
+html.theme-night-pre body .team, body.theme-night .team,
+html.theme-night-pre body .family, body.theme-night .family {
+  background-color: #16221D !important;
+}
+html.theme-night-pre body .price-card, body.theme-night .price-card,
+html.theme-night-pre body .addon-card, body.theme-night .addon-card,
+html.theme-night-pre body .pack-card, body.theme-night .pack-card,
+html.theme-night-pre body .faq-item, body.theme-night .faq-item,
+html.theme-night-pre body .visit-card, body.theme-night .visit-card,
+html.theme-night-pre body .review-card, body.theme-night .review-card,
+html.theme-night-pre body .team-card, body.theme-night .team-card,
+html.theme-night-pre body .est-card, body.theme-night .est-card,
+html.theme-night-pre body .offer-card, body.theme-night .offer-card,
+html.theme-night-pre body .includes-grid, body.theme-night .includes-grid,
+html.theme-night-pre body .why-list, body.theme-night .why-list,
+html.theme-night-pre body .app-strip, body.theme-night .app-strip,
+html.theme-night-pre body .fact-icon, body.theme-night .fact-icon,
+html.theme-night-pre body .est-pill > span, body.theme-night .est-pill > span,
+html.theme-night-pre body .est-check > span, body.theme-night .est-check > span,
+html.theme-night-pre body .est-stepper, body.theme-night .est-stepper,
+html.theme-night-pre body .step-num, body.theme-night .step-num {
+  background-color: #1C2A24 !important;
+  border-color: #2E4038 !important;
+}
+html.theme-night-pre body .est-controls, body.theme-night .est-controls {
+  background-color: #1C2A24 !important;
+}
+html.theme-night-pre body .est-summary, body.theme-night .est-summary {
+  background-color: #0C1A13 !important;
+}
+html.theme-night-pre body .est-pill input:checked + span, body.theme-night .est-pill input:checked + span,
+html.theme-night-pre body .est-check input:checked + span, body.theme-night .est-check input:checked + span {
+  background-color: #24392D !important; border-color: #5FC486 !important;
+}
+
+/* headings and labels */
+html.theme-night-pre body h1, body.theme-night h1,
+html.theme-night-pre body h2, body.theme-night h2,
+html.theme-night-pre body h3, body.theme-night h3,
+html.theme-night-pre body h4, body.theme-night h4,
+html.theme-night-pre body .faq-item summary, body.theme-night .faq-item summary,
+html.theme-night-pre body .step-val, body.theme-night .step-val,
+html.theme-night-pre body .est-pill > span, body.theme-night .est-pill > span {
+  color: #F2F8F4 !important;
+}
+html.theme-night-pre body h1 em, body.theme-night h1 em,
+html.theme-night-pre body h2 em, body.theme-night h2 em {
+  color: #8FE0AC !important;
+}
+html.theme-night-pre body .eyebrow, body.theme-night .eyebrow,
+html.theme-night-pre body .est-group legend, body.theme-night .est-group legend,
+html.theme-night-pre body .est-label, body.theme-night .est-label,
+html.theme-night-pre body .team-role, body.theme-night .team-role {
+  color: #9CD9B4 !important;
+}
+
+/* body copy: light enough to read on the dark cards */
+html.theme-night-pre body p, body.theme-night p,
+html.theme-night-pre body li, body.theme-night li,
+html.theme-night-pre body .faq-body, body.theme-night .faq-body,
+html.theme-night-pre body .team-bio, body.theme-night .team-bio,
+html.theme-night-pre body .section-sub, body.theme-night .section-sub,
+html.theme-night-pre body .est-pill > span em, body.theme-night .est-pill > span em,
+html.theme-night-pre body .est-check .ec-desc, body.theme-night .est-check .ec-desc,
+html.theme-night-pre body .est-label small, body.theme-night .est-label small {
+  color: #CFE0D5 !important;
+}
+html.theme-night-pre body .est-check .ec-main, body.theme-night .est-check .ec-main,
+html.theme-night-pre body .mi-name, body.theme-night .mi-name {
+  color: #F2F8F4 !important;
+}
+html.theme-night-pre body .est-check .ec-main em, body.theme-night .est-check .ec-main em,
+html.theme-night-pre body .est-pill > span small, body.theme-night .est-pill > span small,
+html.theme-night-pre body .price-amount, body.theme-night .price-amount,
+html.theme-night-pre body .pack-price, body.theme-night .pack-price,
+html.theme-night-pre body .addon-price, body.theme-night .addon-price {
+  color: #8FE0AC !important;
+}
+
+/* hero: bright text, photo left alone */
+html.theme-night-pre body .hero h1, body.theme-night .hero h1,
+html.theme-night-pre body .hero-sub, body.theme-night .hero-sub,
+html.theme-night-pre body .hero-sub strong, body.theme-night .hero-sub strong,
+html.theme-night-pre body .final-cta h2, body.theme-night .final-cta h2,
+html.theme-night-pre body .page-head h1, body.theme-night .page-head h1 {
+  color: #FFFFFF !important;
+}
+html.theme-night-pre body .final-cta p, body.theme-night .final-cta p {
+  color: #EFF7F2 !important;
+}
+html.theme-night-pre body .hero .eyebrow, body.theme-night .hero .eyebrow,
+html.theme-night-pre body .eyebrow.light, body.theme-night .eyebrow.light,
+html.theme-night-pre body .page-head-sub, body.theme-night .page-head-sub {
+  color: #CDEBDA !important;
+}
+
+
+/* ---------- dark theme hero: restore the moderate darkening ---------- */
+html.theme-night-pre body .hero-bg, body.theme-night .hero-bg {
+  filter: brightness(.62) saturate(.9);
+}
+html.theme-night-pre body .hero-scrim, body.theme-night .hero-scrim {
+  background:
+    linear-gradient(180deg, rgba(8,18,14,.80) 0%, rgba(8,18,14,.52) 40%, rgba(8,18,14,.78) 100%),
+    radial-gradient(80% 60% at 50% 45%, rgba(8,18,14,.12) 0%, rgba(8,18,14,.58) 100%);
+}
+
+/* hero text over the darkened photo: solid opaque, never translucent */
+html.theme-night-pre body .hero-sub, body.theme-night .hero-sub {
+  color: #F4FAF6 !important; opacity: 1 !important;
+  text-shadow: 0 1px 16px rgba(0,0,0,.7);
+}
+html.theme-night-pre body .hero-sub strong, body.theme-night .hero-sub strong {
+  color: #FFFFFF !important;
+}
+html.theme-night-pre body .hero h1, body.theme-night .hero h1 {
+  color: #FFFFFF !important; text-shadow: 0 2px 22px rgba(0,0,0,.7);
+}
+html.theme-night-pre body .hero h1 em, body.theme-night .hero h1 em {
+  color: #8FE0AC !important;
+}
+html.theme-night-pre body .hero .eyebrow, body.theme-night .hero .eyebrow {
+  color: #D3EEDE !important; text-shadow: 0 1px 12px rgba(0,0,0,.65);
+}
+html.theme-night-pre body .hero-login, body.theme-night .hero-login {
+  color: #F4FAF6 !important; border-color: rgba(255,255,255,.75) !important;
+}
+
+/* ============================================================
+   Nav breakpoint fix
+   Six links plus the theme toggle and Book button need roughly
+   1050px. Below that the row used to wrap and collide with the
+   wordmark, so the drawer now takes over at 1024px instead of
+   720px. Also stop the desktop row from ever wrapping.
+   ============================================================ */
+.nav-links { flex-wrap: nowrap; }
+.nav-links a:not(.btn-book) { white-space: nowrap; }
+.nav-brand { flex: 0 0 auto; min-width: 0; }
+
+@media (max-width: 1024px) {
+  .nav-toggle { display: flex; position: relative; z-index: 3; }
+  .nav-links {
+    position: fixed; top: 0; right: 0; bottom: 0; width: min(82vw, 330px);
+    height: 100vh; height: 100dvh;
+    flex-direction: column; align-items: stretch; gap: 0; flex-wrap: nowrap;
+    background: #12291E; padding: 88px 26px calc(30px + env(safe-area-inset-bottom));
+    transform: translateX(100%); transition: transform .3s ease;
+    box-shadow: -10px 0 40px rgba(0,0,0,.45);
+    overflow-y: auto; -webkit-overflow-scrolling: touch;
+    z-index: 2; opacity: 1;
+  }
+  .nav-links.open { transform: translateX(0); }
+  .nav-links li { width: 100%; }
+  .nav-links a:not(.btn-book) {
+    display: block; width: 100%; color: #fff !important; font-size: 1.08rem; padding: 12px 0;
+    border-bottom: 1px solid rgba(255,255,255,.14) !important;
+  }
+  .nav-theme-wrap { margin-top: 14px; }
+  .nav-theme-wrap .theme-toggle { width: 100%; border-radius: 999px; gap: 8px; }
+  .nav-cta-wrap { margin-top: 12px; }
+  .nav-cta-wrap .btn-book { display: flex; width: 100%; padding: 14px 20px; font-size: 1rem; justify-content: center; }
+
+  body.menu-open .site-nav { z-index: 120; }
+  body.menu-open .site-nav, body.menu-open .site-nav.scrolled {
+    -webkit-backdrop-filter: none; backdrop-filter: none;
+    background: transparent; box-shadow: none;
+  }
+  .nav-backdrop {
+    position: fixed; inset: 0; z-index: 110;
+    background: rgba(10, 22, 16, .55);
+    opacity: 0; visibility: hidden; transition: opacity .3s ease, visibility .3s ease;
+  }
+  .nav-backdrop.open { opacity: 1; visibility: visible; }
+  body.menu-open .mobile-bar { display: none; }
+}
+
+@media (min-width: 1025px) and (max-width: 1180px) {
+  .nav-links { gap: 20px; }
+  .nav-links a:not(.btn-book) { font-size: .92rem; }
+  .nav-inner { padding: 0 18px; }
+}
+
+
+/* ============================================================
+   The nav link row must stay transparent on desktop. The solid
+   panel colour belongs only to the mobile drawer, otherwise it
+   paints a box behind the horizontal links.
+   ============================================================ */
+@media (min-width: 1025px) {
+  .nav-links,
+  body.theme-night .nav-links,
+  html.theme-night-pre body .nav-links {
+    background: transparent !important;
+    background-image: none !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    padding: 0 !important;
+    border: 0 !important;
+  }
+}
+@media (max-width: 1024px) {
+  body.theme-night .nav-links,
+  html.theme-night-pre body .nav-links { background: #0A110E; }
+}
