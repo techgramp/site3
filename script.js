@@ -347,3 +347,52 @@ wireCopyButton("copyEmail", "data-email", "copy-email-label", "Copy Email");
     else if (mq.addListener) mq.addListener(onChange);
   }
 })();
+
+/* ---------- Meta Pixel conversion events ----------
+   Fires standard Meta events from the buttons that already exist on the
+   site, using their data-cta attributes. Booking clicks report as
+   Schedule; calls, texts and emails report as Contact. Wrapped so the
+   site works normally if the pixel is blocked or fails to load. */
+(function () {
+  function track(event, params) {
+    try {
+      if (typeof window.fbq === "function") window.fbq("track", event, params || {});
+    } catch (e) {}
+  }
+
+  document.addEventListener("click", function (e) {
+    var el = e.target.closest ? e.target.closest("a, button") : null;
+    if (!el) return;
+
+    var cta = el.getAttribute("data-cta") || "";
+    var href = el.getAttribute("href") || "";
+
+    // Booking: the Gingr portal is the conversion that matters most
+    if (href.indexOf("gingrapp.com") !== -1) {
+      track("Schedule", { content_name: "Woodlands booking", content_category: "boarding" });
+      return;
+    }
+    // Phone and text
+    if (href.indexOf("tel:") === 0) {
+      track("Contact", { content_name: "Phone call", content_category: "call" });
+      return;
+    }
+    if (href.indexOf("sms:") === 0) {
+      track("Contact", { content_name: "Text message", content_category: "text" });
+      return;
+    }
+    // Email
+    if (href.indexOf("mailto:") === 0) {
+      track("Contact", { content_name: "Email", content_category: "email" });
+      return;
+    }
+    // Rates and directions are strong intent signals short of booking
+    if (cta === "hero_view_rates" || href === "/rates/") {
+      track("ViewContent", { content_name: "Rates page", content_category: "pricing" });
+      return;
+    }
+    if (href.indexOf("google.com/maps") !== -1 || cta === "visit_directions") {
+      track("FindLocation", { content_name: "Directions" });
+    }
+  }, true);
+})();
