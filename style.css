@@ -1836,3 +1836,15 @@ html.theme-night-pre body .disclaimer, body.theme-night .disclaimer { color: #CF
 html.theme-night-pre body .cmp-fit, body.theme-night .cmp-fit,
 html.theme-night-pre body .cmp-head .cmp-us, body.theme-night .cmp-head .cmp-us { color: #8FE0AC !important; }
 html.theme-night-pre body .cmp-us::before, body.theme-night .cmp-us::before { color: #8FE0AC !important; }
+
+/* pricing note blocks on comparison pages */
+.price-note { background: var(--sand); border: 1px solid var(--line); border-left: 4px solid var(--fern); border-radius: 12px; padding: 24px 26px; margin-top: 8px; }
+.price-note h3 { font-size: 1.1rem; margin-bottom: 10px; }
+.price-note p { color: var(--muted); font-size: .95rem; margin-bottom: 12px; }
+.price-note p:last-child { margin-bottom: 0; }
+.verify-note { font-size: .86rem !important; font-style: italic; padding-top: 10px; border-top: 1px solid var(--line); }
+html.theme-night-pre body .price-note, body.theme-night .price-note {
+  background-color: #1C2A24 !important; border-color: #2E4038 !important; border-left-color: #4BAE71 !important;
+}
+html.theme-night-pre body .price-note h3, body.theme-night .price-note h3 { color: #F2F8F4 !important; }
+html.theme-night-pre body .price-note p, body.theme-night .price-note p { color: #CFE0D5 !important; }
