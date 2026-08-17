@@ -396,3 +396,70 @@ wireCopyButton("copyEmail", "data-email", "copy-email-label", "Copy Email");
     }
   }, true);
 })();
+
+
+/* ---------- measure the sticky bar so fixed elements sit flush ----------
+   The bar's height comes from its padding, not a fixed value, so we
+   measure it and expose it as --bar-h. This removes the gap that
+   appeared when a hard-coded offset did not match the real height. */
+(function () {
+  function setBarHeight() {
+    var bar = document.querySelector(".mobile-bar");
+    var h = bar && getComputedStyle(bar).display !== "none" ? bar.offsetHeight : 0;
+    document.documentElement.style.setProperty("--bar-h", h + "px");
+    document.body.style.paddingBottom = h ? h + 8 + "px" : "";
+  }
+  setBarHeight();
+  window.addEventListener("resize", setBarHeight);
+  window.addEventListener("orientationchange", setBarHeight);
+  window.addEventListener("load", setBarHeight);
+})();
+
+/* ---------- mobile scroll cue ----------
+   Fixed to the viewport (the hero clips overflow, which previously hid
+   it). Tapping the paw scrolls on; tapping the x dismisses it for the
+   rest of the visit. */
+(function () {
+  if (!document.querySelector(".hero")) return;
+  var DISMISS_KEY = "cueDismissed";
+  try { if (window.sessionStorage.getItem(DISMISS_KEY) === "1") return; } catch (e) {}
+
+  var cue = document.createElement("div");
+  cue.className = "scroll-cue";
+  cue.innerHTML =
+    '<button type="button" class="scroll-cue-dismiss" aria-label="Hide this hint">&times;</button>' +
+    '<span class="scroll-cue-paw"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">' +
+    '<circle cx="11" cy="4.5" r="2"/><circle cx="17" cy="7" r="2"/><circle cx="5" cy="7" r="2"/>' +
+    '<circle cx="8" cy="11" r="1.8"/><circle cx="14" cy="11" r="1.8"/>' +
+    '<path d="M11 13.5c-3 0-5.4 2.1-5.4 4.5 0 1.6 1.3 2.5 2.8 2.2 1-.2 1.7-.6 2.6-.6s1.6.4 2.6.6c1.5.3 2.8-.6 2.8-2.2 0-2.4-2.4-4.5-5.4-4.5z"/>' +
+    '</svg></span><span>Scroll down</span>';
+  document.body.appendChild(cue);
+
+  function remove() {
+    cue.classList.add("hidden");
+    setTimeout(function () { if (cue.parentNode) cue.parentNode.removeChild(cue); }, 400);
+  }
+
+  cue.querySelector(".scroll-cue-dismiss").addEventListener("click", function (e) {
+    e.stopPropagation();
+    e.preventDefault();
+    try { window.sessionStorage.setItem(DISMISS_KEY, "1"); } catch (err) {}
+    remove();
+  });
+
+  cue.addEventListener("click", function () {
+    var hero = document.querySelector(".hero");
+    var next = hero && hero.nextElementSibling;
+    while (next && next.offsetHeight === 0) next = next.nextElementSibling;
+    if (next) next.scrollIntoView({ behavior: "smooth", block: "start" });
+    else window.scrollTo({ top: window.innerHeight, behavior: "smooth" });
+  });
+
+  function hideOnScroll() {
+    if (window.scrollY > 60) {
+      remove();
+      window.removeEventListener("scroll", hideOnScroll);
+    }
+  }
+  window.addEventListener("scroll", hideOnScroll, { passive: true });
+})();
