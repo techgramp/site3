@@ -463,3 +463,31 @@ wireCopyButton("copyEmail", "data-email", "copy-email-label", "Copy Email");
   }
   window.addEventListener("scroll", hideOnScroll, { passive: true });
 })();
+
+/* ---------- landing page: copy number ---------- */
+(function () {
+  var btn = document.getElementById("lpCopyNum");
+  if (!btn) return;
+  var label = btn.querySelector(".lp-copy-label");
+  btn.addEventListener("click", function () {
+    var num = btn.getAttribute("data-number");
+    function done() {
+      btn.classList.add("copied");
+      label.textContent = "Copied!";
+      setTimeout(function () {
+        btn.classList.remove("copied");
+        label.textContent = "Copy number";
+      }, 2200);
+    }
+    function fallback() {
+      var ta = document.createElement("textarea");
+      ta.value = num; ta.style.position = "fixed"; ta.style.opacity = "0";
+      document.body.appendChild(ta); ta.select();
+      try { document.execCommand("copy"); done(); } catch (e) {}
+      document.body.removeChild(ta);
+    }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(num).then(done).catch(fallback);
+    } else { fallback(); }
+  });
+})();

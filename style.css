@@ -100,8 +100,9 @@ section[id], footer[id] { scroll-margin-top: 84px; }
 .site-nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 100;
   padding: 14px 0; transition: background .3s ease, box-shadow .3s ease, padding .3s ease;
+  background: linear-gradient(180deg, rgba(10,17,14,.55) 0%, rgba(10,17,14,0) 100%);
 }
-.site-nav.scrolled { background: rgba(247,243,234,.92); backdrop-filter: blur(10px); box-shadow: 0 2px 18px rgba(29,58,44,.12); padding: 8px 0; }
+.site-nav.scrolled { background: #F7F3EA; backdrop-filter: blur(14px) saturate(1.1); box-shadow: 0 2px 18px rgba(29,58,44,.12); padding: 8px 0; }
 
 .nav-inner { max-width: var(--wrap); margin: 0 auto; padding: 0 24px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
 
@@ -756,7 +757,7 @@ section[id], footer[id] { scroll-margin-top: 84px; }
 
 @media (prefers-color-scheme: dark) {
   html:not(.theme-night-pre), html:not(.theme-night-pre) body:not(.theme-night) { background-color: #F7F3EA !important; color: #22302A !important; }
-  html:not(.theme-night-pre) body:not(.theme-night) .section, html:not(.theme-night-pre) body:not(.theme-night) section, html:not(.theme-night-pre) body:not(.theme-night) header, html:not(.theme-night-pre) body:not(.theme-night) footer { background-color: transparent !important; }
+  html:not(.theme-night-pre) body:not(.theme-night) .section, html:not(.theme-night-pre) body:not(.theme-night) section, html:not(.theme-night-pre) body:not(.theme-night) header:not(.lp-bar), html:not(.theme-night-pre) body:not(.theme-night) footer:not(.lp-foot) { background-color: transparent !important; }
   html:not(.theme-night-pre) body:not(.theme-night) .how, html:not(.theme-night-pre) body:not(.theme-night) .grooming, html:not(.theme-night-pre) body:not(.theme-night) .app-band { background-color: #FFFFFF !important; }
   html:not(.theme-night-pre) body:not(.theme-night) .family { background-color: #FFFFFF !important; }
 
@@ -785,10 +786,11 @@ html:not(.theme-night-pre) body:not(.theme-night) html:not(.theme-night-pre) bod
 html:not(.theme-night-pre) body:not(.theme-night) html:not(.theme-night-pre) body:not(.theme-night) .review-card { background-color: #FFFFFF !important; }
 
   html:not(.theme-night-pre) body:not(.theme-night) .hero, html:not(.theme-night-pre) body:not(.theme-night) .hero-bg, html:not(.theme-night-pre) body:not(.theme-night) .hero-scrim { background-color: transparent !important; }
-  html:not(.theme-night-pre) body:not(.theme-night) .hero h1, html:not(.theme-night-pre) body:not(.theme-night) .final-cta h2, html:not(.theme-night-pre) body:not(.theme-night) .page-head h1 { color: #FFFFFF !important; }
+  html:not(.theme-night-pre) body:not(.theme-night) .hero h1, html:not(.theme-night-pre) body:not(.theme-night) .lp-hero h1, html:not(.theme-night-pre) body:not(.theme-night) .final-cta h2, html:not(.theme-night-pre) body:not(.theme-night) .page-head h1 { color: #FFFFFF !important; }
+  html:not(.theme-night-pre) body:not(.theme-night) .lp-hero h1 em { color: #8FE0AC !important; }
   html:not(.theme-night-pre) body:not(.theme-night) .hero-sub, html:not(.theme-night-pre) body:not(.theme-night) .final-cta p { color: #F7EFE9 !important; }
   html:not(.theme-night-pre) body:not(.theme-night) .topbar { background-color: #12291E !important; color: #F7EFE9 !important; }
-  html:not(.theme-night-pre) body:not(.theme-night) .site-nav.scrolled { background-color: rgba(247,243,234,.96) !important; }
+  html:not(.theme-night-pre) body:not(.theme-night) .site-nav.scrolled { background: #F7F3EA !important; }
   html:not(.theme-night-pre) body:not(.theme-night) .nav-wordmark { color: inherit !important; }
   html:not(.theme-night-pre) body:not(.theme-night) .nav-links a:not(.btn-book) { color: #FFFFFF !important; }
   html:not(.theme-night-pre) body:not(.theme-night) .site-nav.scrolled .nav-links a:not(.btn-book) { color: #22302A !important; }
@@ -1103,8 +1105,8 @@ body.theme-night .review-rec { background: #21414F; color: var(--lake-light); }
 html.theme-night-pre body .review-rec { background: #21414F; color: var(--lake-light); }
 body.theme-night .est-summary { background: #0F1B16; }
 html.theme-night-pre body .est-summary { background: #0F1B16; }
-body.theme-night .site-nav.scrolled { background: rgba(19,30,26,.94); }
-html.theme-night-pre body .site-nav.scrolled { background: rgba(19,30,26,.94); }
+body.theme-night .site-nav.scrolled { background: #0C1411; }
+html.theme-night-pre body .site-nav.scrolled { background: #0C1411; }
 body.theme-night .btn-ghost { background: rgba(255,255,255,.08); }
 html.theme-night-pre body .btn-ghost { background: rgba(255,255,255,.08); }
 body.theme-night .est-check input:checked + span::before { background-color: var(--fern); border-color: var(--fern); }
@@ -1222,7 +1224,7 @@ html.theme-night-pre body .nav-wordmark { color: #FFFFFF; }
 body.theme-night .site-nav.scrolled .nav-wordmark,
 html.theme-night-pre body .site-nav.scrolled .nav-wordmark { color: #EAF6EE; }
 body.theme-night .site-nav.scrolled,
-html.theme-night-pre body .site-nav.scrolled { background: rgba(12,20,17,.96); }
+html.theme-night-pre body .site-nav.scrolled { background: #0C1411 !important; }
 body.theme-night .theme-toggle,
 html.theme-night-pre body .theme-toggle {
   color: #FFFFFF; background: rgba(255,255,255,.15); border-color: rgba(255,255,255,.5);
@@ -1752,7 +1754,7 @@ html.theme-night-pre body .breadcrumbs span[aria-current], body.theme-night .bre
    Facebook ad landing page (/welcome/)
    No site navigation by design: the only paths out are the CTAs.
    ============================================================ */
-.lp-bar { position: sticky; top: 0; z-index: 100; background: rgba(247,243,234,.96); border-bottom: 1px solid var(--line); backdrop-filter: blur(10px); }
+.lp-bar { position: sticky; top: 0; z-index: 100; background: #F7F3EA; border-bottom: 1px solid var(--line); backdrop-filter: blur(10px); box-shadow: 0 2px 14px rgba(29,58,44,.10); }
 .lp-bar-inner { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 10px 0; }
 .lp-brand { display: flex; align-items: center; gap: 10px; font-family: var(--font-display); font-weight: 600; font-size: 1.1rem; color: var(--pine); }
 .lp-brand em { font-style: italic; font-weight: 450; }
@@ -1766,6 +1768,8 @@ html.theme-night-pre body .breadcrumbs span[aria-current], body.theme-night .bre
 .lp-eyebrow { color: #CDEBDA; font-weight: 800; font-size: .8rem; letter-spacing: .12em; text-transform: uppercase; margin-bottom: 16px; }
 .lp-hero h1 { color: #fff; font-size: clamp(2.1rem, 5.2vw, 3.5rem); line-height: 1.08; }
 .lp-hero h1 em { color: #8FE0AC; font-style: italic; }
+html body .lp-hero h1 { color: #fff; }
+html body .lp-hero h1 em { color: #8FE0AC; }
 .lp-sub { color: #F2F8F4; font-size: clamp(1rem, 2.1vw, 1.15rem); max-width: 60ch; margin: 18px auto 0; }
 .lp-ctas { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-top: 26px; }
 .lp-trust { list-style: none; display: flex; flex-wrap: wrap; justify-content: center; gap: 10px 22px; margin-top: 26px; }
@@ -1783,7 +1787,7 @@ html.theme-night-pre body .breadcrumbs span[aria-current], body.theme-night .bre
 .lp-foot a { color: #fff; font-weight: 700; }
 .lp-foot-small { font-size: .85rem; color: #B6C7BC; margin-top: 10px; }
 
-html.theme-night-pre body .lp-bar, body.theme-night .lp-bar { background: rgba(15,24,21,.96) !important; border-color: #2E4038 !important; }
+html.theme-night-pre body .lp-bar, body.theme-night .lp-bar { background: #0F1815 !important; border-color: #2E4038 !important; }
 html.theme-night-pre body .lp-brand, body.theme-night .lp-brand { color: #EAF6EE !important; }
 html.theme-night-pre body .lp-foot, body.theme-night .lp-foot { background: #0A110E !important; }
 
@@ -1959,3 +1963,74 @@ html.theme-night-pre body .lp-home:hover, body.theme-night .lp-home:hover {
   cursor: pointer; padding: 0;
 }
 .scroll-cue-dismiss:hover { background: rgba(0,0,0,.8); }
+
+/* ============================================================
+   Landing page: prominent call bar
+   Built as an always-visible block rather than a popup. Older
+   visitors are the group most likely to distrust or get stuck in
+   a modal, so the number is simply large, high contrast and
+   permanently on screen instead.
+   ============================================================ */
+.lp-callbar {
+  display: flex; align-items: center; gap: 16px; justify-content: center;
+  max-width: 520px; margin: 26px auto 0;
+  background: #fff; border: 3px solid var(--fern); border-radius: 18px;
+  padding: 16px 24px; text-decoration: none;
+  box-shadow: 0 10px 30px rgba(0,0,0,.28);
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+.lp-callbar:hover { transform: translateY(-2px); box-shadow: 0 14px 36px rgba(0,0,0,.34); }
+.lp-callbar-icon {
+  flex: 0 0 46px; width: 46px; height: 46px; border-radius: 50%;
+  display: grid; place-items: center; background: var(--fern); color: #fff;
+}
+.lp-callbar-icon svg { width: 24px; height: 24px; }
+.lp-callbar-text { display: flex; flex-direction: column; text-align: left; }
+.lp-callbar-num {
+  font-family: var(--font-display); font-size: clamp(1.6rem, 5vw, 2.1rem);
+  font-weight: 700; color: #1D3A2C; line-height: 1.1; letter-spacing: .01em;
+}
+.lp-callbar-sub { font-size: .84rem; font-weight: 700; color: #4F6157; margin-top: 2px; }
+
+.lp-copyrow {
+  display: flex; align-items: center; justify-content: center;
+  gap: 10px 20px; flex-wrap: wrap; margin-top: 14px;
+}
+.lp-copy, .lp-fb-inline {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: .9rem; font-weight: 700; text-decoration: none; cursor: pointer;
+  color: #fff; background: rgba(255,255,255,.16);
+  border: 1px solid rgba(255,255,255,.5); border-radius: 999px; padding: 9px 16px;
+  transition: background .2s ease;
+}
+.lp-copy svg, .lp-fb-inline svg { width: 16px; height: 16px; }
+.lp-copy:hover, .lp-fb-inline:hover { background: rgba(255,255,255,.3); }
+.lp-copy.copied { background: var(--fern); border-color: var(--fern); }
+
+/* mobile: bigger call target, spelled out */
+.mobile-bar-lp { grid-template-columns: 1.15fr .85fr 1.5fr; }
+.mobile-bar-lp .mb-call { font-size: 1.02rem; gap: 7px; }
+.mobile-bar-lp .mb-call svg { width: 19px; height: 19px; }
+
+@media (max-width: 640px) {
+  .lp-callbar { gap: 13px; padding: 14px 18px; max-width: none; }
+  .lp-callbar-icon { flex-basis: 40px; width: 40px; height: 40px; }
+  .lp-callbar-icon svg { width: 21px; height: 21px; }
+  .lp-callbar-sub { font-size: .78rem; }
+  /* copying a number is near-useless on a phone; calling is one tap */
+  .lp-copy { display: none; }
+}
+
+html.theme-night-pre body .lp-callbar, body.theme-night .lp-callbar {
+  background: #1C2A24 !important; border-color: #4BAE71 !important;
+}
+html.theme-night-pre body .lp-callbar-num, body.theme-night .lp-callbar-num { color: #F2F8F4 !important; }
+html.theme-night-pre body .lp-callbar-sub, body.theme-night .lp-callbar-sub { color: #CFE0D5 !important; }
+
+/* directions pill on the landing page (matches the fb/copy pills) */
+.lp-maps-inline svg { width: 16px; height: 16px; }
+.lp-foot a[data-cta="lp_foot_maps"] { color: #fff; text-decoration: underline; }
+
+/* landing header must stay opaque in every scheme (dark-OS browsers were showing the hero through a translucent bar) */
+html body.lp .lp-bar { background: #F7F3EA !important; }
+html.theme-night-pre body.lp .lp-bar, body.theme-night.lp .lp-bar { background: #0F1815 !important; }
