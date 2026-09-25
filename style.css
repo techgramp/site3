@@ -2097,7 +2097,7 @@ html.theme-night-pre body .gallery-item, body.theme-night .gallery-item { box-sh
 .fire-card{--community-accent:#b43a32}.military-card{--community-accent:#65764c}
 .community-head{position:relative;overflow:hidden}
 .community-head:after{content:"";position:absolute;left:0;right:0;bottom:0;height:5px;background:var(--community-accent)}
-.fire-head,.firefighter-page{--community-accent:#b43a32}.military-head,.military-page{--community-accent:#65764c}
+.fire-head,.fire-page{--community-accent:#b43a32}.military-head,.military-page{--community-accent:#65764c}
 .community-head .community-badge{margin-bottom:14px;background:rgba(255,255,255,.14);color:#fff;border:1px solid rgba(255,255,255,.28)}
 .community-split{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(320px,.95fr);gap:48px;align-items:center}
 .community-photo{margin:0;position:relative}
@@ -2128,3 +2128,220 @@ body.theme-night .community-offer,html.theme-night-pre body .community-offer{bac
 .community-rate-grid-four{grid-template-columns:repeat(4,minmax(0,1fr))}
 @media(max-width:1050px){.community-rate-grid-four{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:620px){.community-rate-grid-four{grid-template-columns:1fr}}
+
+/* ==========================================================
+   COMMUNITY PROGRAM PAGES
+   Military / Firefighter / Law enforcement.
+   Each keeps the Woodlands layout and typography, but carries its
+   own accent and a motif taken from that service: rank chevrons,
+   ladder rungs, a badge shield. The site still reads as one site.
+   ========================================================== */
+.community-page{ --prog:#2E7D4F; --prog-d:#1F5B39; --prog-soft:#EDF5EE; }
+
+/* --- Military: service-ribbon navy, rank chevrons --- */
+.military-page{ --prog:#22416B; --prog-d:#162C48; --prog-soft:#E9EEF5; }
+.military-page .page-head{
+  background-image:
+    repeating-linear-gradient(-45deg,rgba(255,255,255,.05) 0 10px,transparent 10px 20px),
+    linear-gradient(135deg,#162C48 0%,#22416B 58%,#2C5386 100%);
+}
+/* chevrons march across the badge, like a rank insignia */
+.military-page .community-badge::before{
+  content:"";position:absolute;inset-inline-start:0;inset-block:0;width:26px;
+  background:repeating-linear-gradient(-60deg,var(--prog) 0 3px,transparent 3px 8px);
+  opacity:.5;
+}
+
+/* --- Firefighter: signal red, ladder rungs --- */
+.fire-page{ --prog:#A8321E; --prog-d:#7E2314; --prog-soft:#F8ECE9; }
+.fire-page .page-head{
+  background-image:
+    repeating-linear-gradient(90deg,rgba(255,255,255,.05) 0 4px,transparent 4px 34px),
+    linear-gradient(135deg,#7E2314 0%,#A8321E 58%,#C24428 100%);
+}
+.fire-page .community-badge::before{
+  content:"";position:absolute;inset-inline-start:0;inset-block:0;width:26px;
+  background:repeating-linear-gradient(180deg,var(--prog) 0 3px,transparent 3px 9px);
+  opacity:.5;
+}
+
+/* --- Law enforcement: duty blue, badge shield --- */
+.police-page{ --prog:#1B4C7E; --prog-d:#123351; --prog-soft:#E8EFF6; }
+.police-page .page-head{
+  background-image:
+    radial-gradient(circle at 18% 120%,rgba(255,255,255,.10),transparent 42%),
+    linear-gradient(135deg,#123351 0%,#1B4C7E 58%,#26639F 100%);
+}
+.police-page .community-badge::before{
+  content:"";position:absolute;inset-inline-start:0;inset-block:0;width:26px;
+  background:
+    linear-gradient(var(--prog),var(--prog)) center/10px 12px no-repeat;
+  clip-path:polygon(50% 0,100% 22%,100% 62%,50% 100%,0 62%,0 22%);
+  opacity:.55;
+}
+
+/* --- shared program styling, driven by the --prog token --- */
+.community-page .eyebrow{ color:var(--prog) }
+.community-page .community-badge{
+  position:relative;overflow:hidden;padding-inline-start:40px;
+  border-inline-start:4px solid var(--prog);background:var(--prog-soft);
+}
+.community-page .community-offer strong,
+.community-page .community-rate-card strong{ color:var(--prog) }
+.community-page .community-rate-card{ border-top:3px solid var(--prog) }
+.community-page .btn-primary{ background:var(--prog) }
+.community-page .btn-primary:hover{ background:var(--prog-d) }
+.community-page .community-dot{ background:var(--prog) }
+.community-page .faq-item summary:hover{ color:var(--prog) }
+.community-page .link-arrow{ color:var(--prog) }
+.community-page .community-final{ border-top:4px solid var(--prog) }
+
+/* the estimator on a program page picks up that page's accent */
+.community-page .est-pill input:checked + span{ border-color:var(--prog) }
+.community-page .est-total-val{ color:var(--prog) }
+
+/* --- homepage community strip --- */
+.community-strip{ text-align:center }
+.community-cards{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:32px;text-align:start;
+}
+.community-card{
+  position:relative;display:block;text-decoration:none;overflow:hidden;
+  background:var(--white,#fff);border:1px solid var(--line);border-radius:var(--radius,16px);
+  padding:26px 24px 22px;box-shadow:var(--shadow);
+  transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease;
+}
+.community-card:hover{ transform:translateY(-5px);box-shadow:var(--shadow-lift) }
+.community-card h3{ font-size:1.18rem;margin:14px 0 6px }
+.community-card p{ font-size:.95rem;color:var(--muted);margin-bottom:12px }
+.cc-go{ font-weight:800;font-size:.9rem }
+.cc-mark{ display:block;width:46px;height:8px;border-radius:2px }
+.cc-military .cc-mark{ background:repeating-linear-gradient(-60deg,#22416B 0 3px,transparent 3px 8px) }
+.cc-military:hover{ border-color:#22416B } .cc-military .cc-go{ color:#22416B }
+.cc-fire .cc-mark{ background:repeating-linear-gradient(90deg,#A8321E 0 4px,transparent 4px 10px) }
+.cc-fire:hover{ border-color:#A8321E } .cc-fire .cc-go{ color:#A8321E }
+.cc-police .cc-mark{ background:linear-gradient(90deg,#1B4C7E 0 60%,transparent 60%) }
+.cc-police:hover{ border-color:#1B4C7E } .cc-police .cc-go{ color:#1B4C7E }
+
+@media (max-width:860px){ .community-cards{ grid-template-columns:1fr } }
+
+/* night theme: lift the accents so they hold against the dark ground */
+html.theme-night-pre body.military-page, body.military-page.theme-night{ --prog:#7FA8DC; --prog-soft:#1C2A3A }
+html.theme-night-pre body.fire-page, body.fire-page.theme-night{ --prog:#E8836C; --prog-soft:#2E1C18 }
+html.theme-night-pre body.police-page, body.police-page.theme-night{ --prog:#79ACDE; --prog-soft:#17232F }
+html.theme-night-pre body .community-card, body.theme-night .community-card{
+  background-color:#1C2A24 !important;border-color:#2E4038 !important;
+}
+html.theme-night-pre body .community-card p, body.theme-night .community-card p{ color:#CFE0D5 !important }
+
+/* ==========================================================
+   PROGRAM PAGE EFFECTS
+   One signature motion per service, drawn from that service's own
+   world. Everything animates transform/opacity so it composites on
+   the GPU, and all of it stops under prefers-reduced-motion.
+   ========================================================== */
+
+/* ---------- MILITARY: rank chevrons march up the header ---------- */
+.military-page .page-head{ position:relative; overflow:hidden }
+.military-page .page-head::after{
+  content:"";position:absolute;inset-inline:0;inset-block-end:-40%;height:180%;
+  background:repeating-linear-gradient(-58deg,
+    rgba(255,255,255,.055) 0 6px, transparent 6px 26px);
+  will-change:transform;
+  animation:marchUp 14s linear infinite;
+  pointer-events:none;
+}
+@keyframes marchUp{ from{transform:translate3d(0,0,0)} to{transform:translate3d(0,-26px,0)} }
+
+/* the rate cards land like stamped dog tags */
+.military-page .community-rate-card{ position:relative }
+.military-page .community-rate-card::before{
+  content:"";position:absolute;inset-block-start:-3px;inset-inline-start:22px;
+  width:34px;height:3px;background:var(--prog);border-radius:0 0 2px 2px;
+  transform:scaleX(0);transform-origin:0 50%;transition:transform .5s cubic-bezier(.2,.8,.3,1)
+}
+.military-page .community-rate-card.in::before,
+.military-page .community-rate-card:hover::before{ transform:scaleX(1) }
+
+/* ---------- FIREFIGHTER: heat shimmer + rungs drawing upward ---------- */
+.fire-page .page-head{ position:relative; overflow:hidden }
+.fire-page .page-head::after{
+  content:"";position:absolute;inset:0;
+  background:radial-gradient(ellipse 60% 45% at 50% 108%,
+    rgba(255,176,92,.30), transparent 70%);
+  will-change:transform,opacity;
+  animation:heat 6.5s ease-in-out infinite;
+  pointer-events:none;
+}
+@keyframes heat{
+  0%,100%{ transform:translate3d(0,0,0) scale(1); opacity:.55 }
+  50%    { transform:translate3d(0,-8px,0) scale(1.06); opacity:.85 }
+}
+/* ladder rungs climb the badge */
+.fire-page .community-badge::after{
+  content:"";position:absolute;inset-inline-start:9px;inset-block:6px;width:8px;
+  background:repeating-linear-gradient(180deg,var(--prog) 0 3px,transparent 3px 10px);
+  opacity:.65;transform-origin:50% 100%;
+  animation:climb 3.2s ease-in-out infinite;
+}
+@keyframes climb{
+  0%,100%{ transform:translate3d(0,0,0) }
+  50%    { transform:translate3d(0,-7px,0) }
+}
+
+/* ---------- LAW ENFORCEMENT: a slow light-bar pass ---------- */
+.police-page .page-head{ position:relative; overflow:hidden }
+.police-page .page-head::after{
+  content:"";position:absolute;inset-block:0;width:38%;inset-inline-start:0;
+  background:linear-gradient(90deg,transparent,rgba(150,205,255,.16) 48%,transparent);
+  will-change:transform;
+  animation:lightbar 7s cubic-bezier(.45,0,.55,1) infinite;
+  pointer-events:none;
+}
+@keyframes lightbar{
+  0%   { transform:translate3d(-120%,0,0) }
+  55%  { transform:translate3d(300%,0,0) }
+  100% { transform:translate3d(300%,0,0) }
+}
+/* badge gets a slow shield glint */
+.police-page .community-badge{ position:relative;overflow:hidden }
+.police-page .community-badge::after{
+  content:"";position:absolute;inset-block:0;width:40px;inset-inline-start:-60px;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.55),transparent);
+  transform:skewX(-18deg);will-change:transform;
+  animation:glint 5.5s ease-in-out infinite;
+}
+@keyframes glint{
+  0%,72%{ transform:translate3d(0,0,0) skewX(-18deg) }
+  100%  { transform:translate3d(520px,0,0) skewX(-18deg) }
+}
+
+/* ---------- shared across all three ---------- */
+/* the discount figure counts up when it scrolls into view */
+.community-page .community-offer strong{ font-variant-numeric:tabular-nums }
+
+/* rate cards stagger in rather than appearing all at once */
+.community-page .community-rate-card{
+  transition:transform .3s cubic-bezier(.2,.7,.3,1), box-shadow .3s, border-color .3s;
+}
+@media (hover:hover){
+  .community-page .community-rate-card:hover{
+    transform:translateY(-6px);box-shadow:var(--shadow-lift);border-color:var(--prog)
+  }
+}
+/* the detail bullets sweep their dot on reveal */
+.community-page .community-dot{ transition:transform .35s cubic-bezier(.2,1.5,.4,1) }
+.community-page .community-detail:hover .community-dot{ transform:scale(1.35) }
+
+/* the homepage cards lift their motif bar on hover */
+.community-card .cc-mark{ transition:width .3s cubic-bezier(.2,.8,.3,1) }
+@media (hover:hover){ .community-card:hover .cc-mark{ width:70px } }
+
+@media (prefers-reduced-motion:reduce){
+  .military-page .page-head::after,
+  .fire-page .page-head::after,
+  .fire-page .community-badge::after,
+  .police-page .page-head::after,
+  .police-page .community-badge::after{ animation:none }
+  .military-page .community-rate-card::before{ transform:scaleX(1);transition:none }
+}

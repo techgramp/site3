@@ -205,11 +205,12 @@ wireCopyButton("copyEmail", "data-email", "copy-email-label", "Copy Email");
   updateTrail();
 })();
 
-/* ---------- Stay Builder estimator ---------- */
+/* ---------- Stay Builder estimator ----------
+   Runs once per .est-card on the page. Everything is looked up inside
+   the card rather than by document id, so the calculator can appear on
+   more than one page (and more than once on a page) without the ids
+   colliding. */
 (function () {
-  var card = document.querySelector(".est-card");
-  if (!card) return;
-
   var RATES = {
     basic:  { label: "Basic suite",  price: 45, unit: "night", extraDog: 20 },
     deluxe: { label: "Deluxe suite", price: 65, unit: "night", extraDog: 20 },
@@ -222,89 +223,93 @@ wireCopyButton("copyEmail", "data-email", "copy-email-label", "Copy Email");
     play: "Extended play session",
     egg: "Sunrise Scramble"
   };
-
-  var state = { type: "basic", nights: 3, dogs: 1 };
-  var linesEl = document.getElementById("estLines");
-  var totalEl = document.getElementById("estTotal");
-  var nightsEl = document.getElementById("nightsVal");
-  var dogsEl = document.getElementById("dogsVal");
-  var unitLabel = document.getElementById("unitLabel");
-  var dogNote = document.getElementById("dogNote");
   var reduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  var shownTotal = 0;
 
-  function fmt(n) { return "$" + n.toLocaleString("en-US"); }
-  function plural(n, word) { return n + " " + word + (n === 1 ? "" : "s"); }
+  function setup(card) {
+    var state = { type: "basic", nights: 3, dogs: 1 };
+    var linesEl  = card.querySelector("[data-est=lines]");
+    var totalEl  = card.querySelector("[data-est=total]");
+    var nightsEl = card.querySelector("[data-est=nights]");
+    var dogsEl   = card.querySelector("[data-est=dogs]");
+    var unitLabel= card.querySelector("[data-est=unit]");
+    var dogNote  = card.querySelector("[data-est=dognote]");
+    if (!linesEl || !totalEl) return;
+    var shownTotal = 0;
 
-  function compute() {
-    var r = RATES[state.type];
-    var n = state.nights;
-    var lines = [];
-    var base = r.price * n;
-    lines.push([r.label + ", " + plural(n, r.unit), fmt(base)]);
-    var total = base;
+    function fmt(n) { return "$" + n.toLocaleString("en-US"); }
+    function plural(n, word) { return n + " " + word + (n === 1 ? "" : "s"); }
 
-    var extras = state.dogs - 1;
-    if (extras > 0) {
-      var dogCost = extras * r.extraDog * n;
-      lines.push([plural(extras, "additional dog") + ", same suite", fmt(dogCost)]);
-      total += dogCost;
+    function animateTotal(target) {
+      if (reduced) { shownTotal = target; totalEl.textContent = fmt(target); return; }
+      var start = shownTotal, t0 = null, dur = 350;
+      function tick(ts) {
+        if (!t0) t0 = ts;
+        var p = Math.min(1, (ts - t0) / dur);
+        var eased = 1 - Math.pow(1 - p, 3);
+        totalEl.textContent = fmt(Math.round(start + (target - start) * eased));
+        if (p < 1) requestAnimationFrame(tick);
+        else shownTotal = target;
+      }
+      requestAnimationFrame(tick);
     }
 
-    card.querySelectorAll(".est-addons input:checked").forEach(function (cb) {
-      var price = parseInt(cb.getAttribute("data-price"), 10) * n;
-      lines.push([ADDON_LABELS[cb.getAttribute("data-addon")], fmt(price)]);
-      total += price;
-    });
+    function compute() {
+      var r = RATES[state.type], n = state.nights, lines = [];
+      var base = r.price * n;
+      lines.push([r.label + ", " + plural(n, r.unit), fmt(base)]);
+      var total = base;
 
-    linesEl.innerHTML = lines.map(function (l) {
-      return "<li><span>" + l[0] + "</span><strong>" + l[1] + "</strong></li>";
-    }).join("");
+      var extras = state.dogs - 1;
+      if (extras > 0) {
+        var dogCost = extras * r.extraDog * n;
+        lines.push([plural(extras, "additional dog") + ", same suite", fmt(dogCost)]);
+        total += dogCost;
+      }
 
-    animateTotal(total);
-  }
+      card.querySelectorAll(".est-addons input:checked").forEach(function (cb) {
+        var price = parseInt(cb.getAttribute("data-price"), 10) * n;
+        lines.push([ADDON_LABELS[cb.getAttribute("data-addon")], fmt(price)]);
+        total += price;
+      });
 
-  function animateTotal(target) {
-    if (reduced) { shownTotal = target; totalEl.textContent = fmt(target); return; }
-    var start = shownTotal, t0 = null, dur = 350;
-    function tick(ts) {
-      if (!t0) t0 = ts;
-      var p = Math.min(1, (ts - t0) / dur);
-      var eased = 1 - Math.pow(1 - p, 3);
-      totalEl.textContent = fmt(Math.round(start + (target - start) * eased));
-      if (p < 1) requestAnimationFrame(tick);
-      else shownTotal = target;
+      linesEl.innerHTML = lines.map(function (l) {
+        return "<li><span>" + l[0] + "</span><strong>" + l[1] + "</strong></li>";
+      }).join("");
+
+      animateTotal(total);
     }
-    requestAnimationFrame(tick);
+
+    card.querySelectorAll('input[type=radio]').forEach(function (radio) {
+      radio.addEventListener("change", function () {
+        if (!radio.checked) return;
+        state.type = radio.value;
+        var r = RATES[state.type];
+        if (unitLabel) unitLabel.textContent = r.unit === "night" ? "Nights" : "Days";
+        if (dogNote) dogNote.textContent = "(+$" + r.extraDog + "/" + r.unit + " each additional)";
+        compute();
+      });
+    });
+
+    card.querySelectorAll(".step-btn").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var key = btn.getAttribute("data-step");
+        var dir = parseInt(btn.getAttribute("data-dir"), 10);
+        if (key === "nights") state.nights = Math.max(1, Math.min(30, state.nights + dir));
+        if (key === "dogs")   state.dogs   = Math.max(1, Math.min(4,  state.dogs + dir));
+        if (nightsEl) nightsEl.textContent = state.nights;
+        if (dogsEl) dogsEl.textContent = state.dogs;
+        compute();
+      });
+    });
+
+    card.querySelectorAll(".est-addons input").forEach(function (cb) {
+      cb.addEventListener("change", compute);
+    });
+
+    compute();
   }
 
-  card.querySelectorAll('input[name="stayType"]').forEach(function (radio) {
-    radio.addEventListener("change", function () {
-      state.type = radio.value;
-      var r = RATES[state.type];
-      unitLabel.textContent = r.unit === "night" ? "Nights" : "Days";
-      dogNote.textContent = "(+$" + r.extraDog + "/" + r.unit + " each additional)";
-      compute();
-    });
-  });
-
-  card.querySelectorAll(".step-btn").forEach(function (btn) {
-    btn.addEventListener("click", function () {
-      var key = btn.getAttribute("data-step");
-      var dir = parseInt(btn.getAttribute("data-dir"), 10);
-      if (key === "nights") state.nights = Math.max(1, Math.min(30, state.nights + dir));
-      if (key === "dogs") state.dogs = Math.max(1, Math.min(4, state.dogs + dir));
-      nightsEl.textContent = state.nights;
-      dogsEl.textContent = state.dogs;
-      compute();
-    });
-  });
-
-  card.querySelectorAll(".est-addons input").forEach(function (cb) {
-    cb.addEventListener("change", compute);
-  });
-
-  compute();
+  document.querySelectorAll(".est-card").forEach(setup);
 })();
 
 /* ---------- day / night theme ----------
@@ -490,4 +495,54 @@ wireCopyButton("copyEmail", "data-email", "copy-email-label", "Copy Email");
       navigator.clipboard.writeText(num).then(done).catch(fallback);
     } else { fallback(); }
   });
+})();
+
+
+/* ---------- community pages: discount figure counts up, rate cards stagger ----------
+   Both are driven by IntersectionObserver so nothing runs until the
+   element is actually on screen, and both no-op under reduced motion. */
+(function () {
+  if (!("IntersectionObserver" in window)) {
+    document.querySelectorAll("[data-pct]").forEach(function (el) {
+      el.textContent = el.getAttribute("data-pct");
+    });
+    return;
+  }
+  var reduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  document.querySelectorAll("[data-pct]").forEach(function (el) {
+    var to = parseInt(el.getAttribute("data-pct"), 10);
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        io.unobserve(e.target);
+        if (reduced) { el.textContent = to; return; }
+        var t0 = null, dur = 900;
+        (function step(ts) {
+          if (!t0) t0 = ts;
+          var p = Math.min((ts - t0) / dur, 1);
+          el.textContent = Math.round(to * (1 - Math.pow(1 - p, 3)));
+          if (p < 1) requestAnimationFrame(step);
+        })(performance.now());
+      });
+    }, { threshold: 0.7 });
+    io.observe(el);
+  });
+
+  var cards = document.querySelectorAll(".community-rate-card");
+  if (cards.length && !reduced) {
+    var ro = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        e.target.classList.add("in");
+        ro.unobserve(e.target);
+      });
+    }, { threshold: 0.25 });
+    cards.forEach(function (c, i) {
+      c.style.transitionDelay = (Math.min(i, 4) * 70) + "ms";
+      ro.observe(c);
+    });
+  } else {
+    cards.forEach(function (c) { c.classList.add("in"); });
+  }
 })();
