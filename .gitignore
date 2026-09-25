@@ -1,0 +1,15 @@
+# OS cruft
+.DS_Store
+._*
+Thumbs.db
+desktop.ini
+
+# Editors
+.vscode/
+.idea/
+*.swp
+
+# Never commit site archives into the site
+*.zip
+*.rar
+*.7z

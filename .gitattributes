@@ -1,0 +1,34 @@
+# Keep line endings as LF everywhere, in the repo AND in the working copy.
+# Without `eol=lf`, Git on Windows checks these files out as CRLF, which is
+# what produces the "this file uses LF but Git is configured to convert them
+# to CRLF" warning. Web servers do not care either way, but a mixed setup
+# makes every file look modified when you commit from a different machine.
+* text=auto eol=lf
+
+# Explicit for the file types in this project.
+*.html  text eol=lf
+*.htm   text eol=lf
+*.css   text eol=lf
+*.js    text eol=lf
+*.json  text eol=lf
+*.xml   text eol=lf
+*.txt   text eol=lf
+*.md    text eol=lf
+*.svg   text eol=lf
+
+# Binary assets must never be touched. Line-ending conversion silently
+# corrupts images and fonts.
+*.png   binary
+*.jpg   binary
+*.jpeg  binary
+*.gif   binary
+*.webp  binary
+*.ico   binary
+*.pdf   binary
+*.zip   binary
+*.woff  binary
+*.woff2 binary
+*.ttf   binary
+*.otf   binary
+*.mp4   binary
+*.webm  binary
