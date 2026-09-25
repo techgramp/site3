@@ -498,51 +498,95 @@ wireCopyButton("copyEmail", "data-email", "copy-email-label", "Copy Email");
 })();
 
 
-/* ---------- community pages: discount figure counts up, rate cards stagger ----------
-   Both are driven by IntersectionObserver so nothing runs until the
-   element is actually on screen, and both no-op under reduced motion. */
+/* ---------- community pages: discount figure counts up ----------
+   The real number lives in the HTML so it is correct with JS off or if
+   the observer never fires. We only blank it at the moment we know the
+   count-up is going to run. */
 (function () {
-  if (!("IntersectionObserver" in window)) {
-    document.querySelectorAll("[data-pct]").forEach(function (el) {
-      el.textContent = el.getAttribute("data-pct");
-    });
-    return;
-  }
   var reduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var pcts = document.querySelectorAll("[data-pct]");
+  if (!pcts.length) return;
 
-  document.querySelectorAll("[data-pct]").forEach(function (el) {
+  if (reduced || !("IntersectionObserver" in window)) return;  // leave the HTML value alone
+
+  pcts.forEach(function (el) {
     var to = parseInt(el.getAttribute("data-pct"), 10);
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (e) {
         if (!e.isIntersecting) return;
         io.unobserve(e.target);
-        if (reduced) { el.textContent = to; return; }
         var t0 = null, dur = 900;
+        el.textContent = "0";
         (function step(ts) {
           if (!t0) t0 = ts;
           var p = Math.min((ts - t0) / dur, 1);
           el.textContent = Math.round(to * (1 - Math.pow(1 - p, 3)));
           if (p < 1) requestAnimationFrame(step);
+          else el.textContent = to;
         })(performance.now());
       });
-    }, { threshold: 0.7 });
+    }, { threshold: 0.4 });
     io.observe(el);
   });
 
+  /* rate cards stagger in */
   var cards = document.querySelectorAll(".community-rate-card");
-  if (cards.length && !reduced) {
+  if (cards.length) {
     var ro = new IntersectionObserver(function (entries) {
       entries.forEach(function (e) {
         if (!e.isIntersecting) return;
         e.target.classList.add("in");
         ro.unobserve(e.target);
       });
-    }, { threshold: 0.25 });
+    }, { threshold: 0.2 });
     cards.forEach(function (c, i) {
       c.style.transitionDelay = (Math.min(i, 4) * 70) + "ms";
       ro.observe(c);
     });
-  } else {
-    cards.forEach(function (c) { c.classList.add("in"); });
   }
+})();
+
+/* ---------- common scroll animations ----------
+   Adds fade-up/left/right/zoom to sensible elements automatically and
+   reveals them once via IntersectionObserver. Nothing runs under
+   reduced motion, and without IO everything simply shows. */
+(function () {
+  var reduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  var MAP = [
+    [".community-card", "a-up"],
+    [".community-rate-card", "a-up"],
+    [".detail", "a-up"],
+    [".rev-card, .review-card", "a-up"],
+    [".cmp-card", "a-up"],
+    [".gallery-item, .tile", "a-zoom"],
+    [".community-photo, .por", "a-right"],
+    [".community-intro, .community-split > div:first-child", "a-left"]
+  ];
+
+  if (!reduced && "IntersectionObserver" in window) {
+    var all = [];
+    MAP.forEach(function (pair) {
+      document.querySelectorAll(pair[0]).forEach(function (el, i) {
+        if (el.classList.contains("a-up") || el.classList.contains("a-zoom")) return;
+        el.classList.add(pair[1]);
+        el.style.transitionDelay = (Math.min(i % 4, 3) * 70) + "ms";
+        all.push(el);
+      });
+    });
+    var io = new IntersectionObserver(function (es) {
+      es.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        e.target.classList.add("in");
+        io.unobserve(e.target);
+      });
+    }, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
+    all.forEach(function (el) { io.observe(el); });
+  }
+
+  /* hover lift + image zoom hooks, applied without touching markup */
+  document.querySelectorAll(".community-card, .community-rate-card, .detail, .cmp-card")
+    .forEach(function (el) { el.classList.add("card-lift"); });
+  document.querySelectorAll(".gallery-item, .community-photo, .tile")
+    .forEach(function (el) { el.classList.add("zoom-frame"); });
 })();

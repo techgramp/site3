@@ -2345,3 +2345,75 @@ html.theme-night-pre body .community-card p, body.theme-night .community-card p{
   .police-page .community-badge::after{ animation:none }
   .military-page .community-rate-card::before{ transform:scaleX(1);transition:none }
 }
+
+/* ==========================================================
+   COMMON ANIMATION SET
+   The familiar, well-liked patterns: fade-up on scroll, hover
+   lift, button shine, image zoom, gentle float, underline wipe.
+   All transform/opacity so they composite; all disabled under
+   prefers-reduced-motion.
+   ========================================================== */
+
+/* --- fade up on scroll, with direction variants --- */
+.a-up,.a-left,.a-right,.a-zoom{opacity:0;will-change:transform,opacity;
+  transition:opacity .7s cubic-bezier(.22,.7,.3,1),transform .7s cubic-bezier(.22,.7,.3,1)}
+.a-up   {transform:translate3d(0,26px,0)}
+.a-left {transform:translate3d(-26px,0,0)}
+.a-right{transform:translate3d(26px,0,0)}
+.a-zoom {transform:scale(.94)}
+.a-up.in,.a-left.in,.a-right.in,.a-zoom.in{opacity:1;transform:none;will-change:auto}
+
+/* --- hover lift on any card-ish surface --- */
+@media (hover:hover){
+  .card-lift{transition:transform .28s cubic-bezier(.2,.7,.3,1),box-shadow .28s}
+  .card-lift:hover{transform:translateY(-6px);box-shadow:var(--shadow-lift)}
+}
+
+/* --- button shine sweep, the classic CTA polish --- */
+.btn-primary{position:relative;overflow:hidden}
+.btn-primary::after{
+  content:"";position:absolute;inset-block:0;inset-inline-start:-70%;width:45%;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.28),transparent);
+  transform:skewX(-20deg);pointer-events:none;
+  transition:transform .65s cubic-bezier(.3,.7,.3,1);
+}
+@media (hover:hover){
+  .btn-primary:hover::after{transform:translateX(320%) skewX(-20deg)}
+}
+
+/* --- image zoom inside a fixed frame --- */
+.zoom-frame{overflow:hidden}
+.zoom-frame img{transition:transform .6s cubic-bezier(.2,.7,.3,1)}
+@media (hover:hover){ .zoom-frame:hover img{transform:scale(1.06)} }
+
+/* --- gentle float for a focal image --- */
+.a-float{animation:gentleFloat 6s ease-in-out infinite;will-change:transform}
+@keyframes gentleFloat{
+  0%,100%{transform:translate3d(0,0,0)}
+  50%    {transform:translate3d(0,-9px,0)}
+}
+
+/* --- link underline wipe --- */
+.a-underline{position:relative;text-decoration:none}
+.a-underline::after{
+  content:"";position:absolute;inset-inline:0;inset-block-end:-2px;height:2px;
+  background:currentColor;transform:scaleX(0);transform-origin:100% 50%;
+  transition:transform .3s cubic-bezier(.2,.7,.3,1);
+}
+@media (hover:hover){
+  .a-underline:hover::after{transform:scaleX(1);transform-origin:0 50%}
+}
+
+/* --- soft pulse to draw the eye to one CTA --- */
+.a-pulse{animation:softpulse 2.6s ease-in-out infinite}
+@keyframes softpulse{
+  0%,100%{transform:scale(1)}
+  50%    {transform:scale(1.035)}
+}
+
+@media (prefers-reduced-motion:reduce){
+  .a-up,.a-left,.a-right,.a-zoom{opacity:1;transform:none;transition:none}
+  .a-float,.a-pulse{animation:none}
+  .btn-primary::after{display:none}
+  .zoom-frame img{transition:none}
+}
