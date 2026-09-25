@@ -2111,9 +2111,13 @@ html.theme-night-pre body .gallery-item, body.theme-night .gallery-item { box-sh
 .community-detail h3{margin:0 0 8px}.community-detail p{margin:0;color:var(--muted)}
 .community-dot{width:11px;height:11px;border-radius:50%;background:var(--community-accent);margin-top:8px;flex:0 0 auto;box-shadow:0 0 0 6px color-mix(in srgb,var(--community-accent) 14%,transparent)}
 .community-rate-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
-.community-rate-card{padding:28px;border:1px solid var(--line);border-radius:22px;background:var(--card,#fff);box-shadow:var(--shadow)}
+.community-rate-card{min-width:0;padding:28px;border:1px solid var(--line);border-radius:22px;background:var(--card,#fff);box-shadow:var(--shadow)}
 .community-rate-card span{display:block;font-weight:800;font-size:.82rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
-.community-rate-card strong{display:block;font-family:"Fraunces",serif;color:var(--pine);font-size:clamp(1.45rem,2vw,2rem);line-height:1.08;margin:8px 0;max-width:100%;overflow-wrap:anywhere}.community-rate-card strong small{font-family:var(--font-body);font-size:.48em;font-weight:800;white-space:nowrap;margin-left:2px}.community-rate-card p{margin:0;color:var(--muted)}
+.community-rate-card strong{display:block;font-family:"Fraunces",serif;color:var(--pine);font-size:clamp(1.45rem,2vw,2rem);line-height:1.08;margin:8px 0;max-width:100%;overflow-wrap:normal;word-break:normal}
+.community-rate-card strong small{font-family:var(--font-body);font-size:.48em;font-weight:800;white-space:nowrap;margin-left:2px}
+.community-rate-grid-four .community-rate-card strong{font-size:clamp(1.35rem,1.8vw,1.9rem)}
+.community-rate-grid-four .community-rate-card strong small{display:block;font-size:.46em;line-height:1.2;margin:3px 0 0;white-space:nowrap}
+.community-rate-card p{margin:0;color:var(--muted)}
 .community-rate-card.featured{border-color:var(--community-accent);box-shadow:0 10px 36px color-mix(in srgb,var(--community-accent) 15%,transparent)}
 .community-rate-card.featured strong{color:var(--community-accent)}
 .community-final{border-top:5px solid var(--community-accent)}
@@ -2341,14 +2345,3 @@ html.theme-night-pre body .community-card p, body.theme-night .community-card p{
   .police-page .community-badge::after{ animation:none }
   .military-page .community-rate-card::before{ transform:scaleX(1);transition:none }
 }
-
-
-/* Police page visual fixes */
-.police-page .community-rate-card.featured strong{color:var(--prog)!important}
-.police-page .community-rate-card{min-width:0}
-
-
-
-/* Firefighter page visual fixes */
-.fire-page .community-rate-card.featured strong{color:var(--prog)!important}
-.fire-page .community-rate-card{min-width:0}
