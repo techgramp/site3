@@ -91,7 +91,7 @@ fbq('init', '1607755737352542');fbq('track', 'PageView');
     <div class="reveal">
       <p class="eyebrow">Community appreciation</p>
       <h2>Reliable care when your schedule <em>isn't ordinary</em></h2>
-      <p class="lede">Woodlands Pet Retreat offers sworn law enforcement officers 5% off dog boarding in St. Marys. The discount is available to members of the Army, Marine Corps, Navy, Air Force, Space Force and Coast Guard.</p>
+      <p class="lede">Woodlands Pet Retreat offers sworn law enforcement officers 5% off dog boarding in St. Marys. The discount is available to eligible sworn law enforcement officers and deputies serving local, state or federal agencies.</p>
       <div class="community-offer"><strong><span class="pct" data-pct="5">5</span>% off dog boarding</strong><span>for eligible law enforcement officers</span></div>
       <div class="inline-ctas">
         <a class="btn btn-primary" href="https://woodlandspetretreat.portal.gingrapp.com/public/new_customer">Book a Stay</a>
@@ -130,12 +130,73 @@ fbq('init', '1607755737352542');fbq('track', 'PageView');
     <p class="eyebrow reveal">Plan the stay</p>
     <h2 class="reveal">What to know before booking</h2>
     <div class="faq-list reveal">
-      <details class="faq-item"><summary>Which agencies are included?<span class="faq-chev" aria-hidden="true"></span></summary><div class="faq-body"><p>The 5% boarding discount is available to sworn officers with Camden County Sheriff, St. Marys Police, Kingsland Police, Georgia State Patrol and Coast Guard.</p></div></details>
+      <details class="faq-item"><summary>Which agencies are included?<span class="faq-chev" aria-hidden="true"></span></summary><div class="faq-body"><p>The 5% boarding discount is available to eligible sworn law enforcement officers and deputies. Bring service identification at your first drop-off so eligibility can be confirmed.</p></div></details>
       <details class="faq-item"><summary>What vaccination records are required?<span class="faq-chev" aria-hidden="true"></span></summary><div class="faq-body"><p>Rabies, bordetella and DHLPP need to be current. Records can be uploaded to your Gingr profile.</p></div></details>
       <details class="faq-item"><summary>What are drop-off and pickup times?<span class="faq-chev" aria-hidden="true"></span></summary><div class="faq-body"><p>Daily windows are 6:30 to 8:00 AM, 12:00 to 1:30 PM, and 4:30 to 6:00 PM.</p></div></details>
     </div>
   </div>
 </section>
+
+<section id="estimator" class="section estimator">
+  <div class="wrap">
+    <p class="eyebrow reveal">Work it out</p>
+    <h2 class="reveal">Build your <em>stay</em></h2>
+    <p class="section-sub reveal">Build the stay you have in mind. Rates shown are standard; your 5% discount comes off at booking.</p>
+
+    <div class="est-card reveal">
+      <div class="est-controls">
+        <fieldset class="est-group">
+          <legend>Choose a stay</legend>
+          <div class="est-pills" role="radiogroup" aria-label="Stay type">
+            <label class="est-pill"><input type="radio" name="stayType-police" value="basic" checked><span>Basic Suite<small>$45 / night</small><em>Private 4&prime;&times;6&prime; or 3&prime;&times;6&prime; suite with a comfy bed, fresh water, scheduled feeding and regular outdoor breaks.</em></span></label>
+            <label class="est-pill"><input type="radio" name="stayType-police" value="deluxe"><span>Deluxe Suite<small>$65 / night</small><em>Our largest suite at 5&prime;&times;6&prime; with a deluxe bed, plus everything included in a Basic stay.</em></span></label>
+            <label class="est-pill"><input type="radio" name="stayType-police" value="day"><span>Day Stay<small>$25 / day</small><em>Daytime care with no overnight. A comfy bed to relax on, outdoor breaks and individual attention.</em></span></label>
+          </div>
+        </fieldset>
+
+        <div class="est-row">
+          <div class="est-group est-stepper-group">
+            <span class="est-label" data-est="unit">Nights</span>
+            <div class="est-stepper">
+              <button type="button" class="step-btn" data-step="nights" data-dir="-1" aria-label="Fewer nights">&minus;</button>
+              <span class="step-val" data-est="nights">3</span>
+              <button type="button" class="step-btn" data-step="nights" data-dir="1" aria-label="More nights">+</button>
+            </div>
+          </div>
+          <div class="est-group est-stepper-group">
+            <span class="est-label">Dogs <small data-est="dognote">(+$20/night each additional)</small></span>
+            <div class="est-stepper">
+              <button type="button" class="step-btn" data-step="dogs" data-dir="-1" aria-label="Fewer dogs">&minus;</button>
+              <span class="step-val" data-est="dogs">1</span>
+              <button type="button" class="step-btn" data-step="dogs" data-dir="1" aria-label="More dogs">+</button>
+            </div>
+          </div>
+        </div>
+
+        <fieldset class="est-group">
+          <legend>Add a little extra</legend>
+          <div class="est-addons">
+            <label class="est-check"><input type="checkbox" data-addon="photo" data-price="5"><span><span class="ec-main">Daily photo update <em>$5/day</em></span><span class="ec-desc">Cute photos of your dog sent to you by text or email, so you can see how the day went.</span></span></label>
+            <label class="est-check"><input type="checkbox" data-addon="walkShort" data-price="10"><span><span class="ec-main">Nature walk, 10 to 15 min <em>$10/day</em></span><span class="ec-desc">A short one‑on‑one walk around the wooded lakefront property.</span></span></label>
+            <label class="est-check"><input type="checkbox" data-addon="walkLong" data-price="20"><span><span class="ec-main">Nature walk, 25 to 30 min <em>$20/day</em></span><span class="ec-desc">A longer guided walk for dogs with plenty of energy to burn.</span></span></label>
+            <label class="est-check"><input type="checkbox" data-addon="play" data-price="10"><span><span class="ec-main">Extended play session <em>$10/day</em></span><span class="ec-desc">Extra one‑on‑one play time in the secure fenced yard.</span></span></label>
+            <label class="est-check"><input type="checkbox" data-addon="egg" data-price="3"><span><span class="ec-main">Sunrise Scramble <em>$3/day</em></span><span class="ec-desc">A freshly scrambled egg served alongside their breakfast.</span></span></label>
+          </div>
+        </fieldset>
+      </div>
+
+      <div class="est-summary">
+        <p class="est-summary-title">Your estimate</p>
+        <ul class="est-lines" data-est="lines"></ul>
+        <p class="est-total"><span>Estimated total</span><strong data-est="total">$135</strong></p>
+        <a class="btn btn-primary" data-cta="estimator_book" href="https://woodlandspetretreat.portal.gingrapp.com/public/new_customer">Book This Stay</a>
+        <p class="est-note">Estimate only. Final pricing and availability are confirmed when you book.</p>
+      </div>
+    </div>
+    <p class="note reveal center">The estimate above shows standard rates. Your <strong>5% discount is applied when you book</strong>, so the amount you pay will be a little lower than shown.</p>
+  </div>
+</section>
+
 
 <section class="final-cta community-final police-final">
   <div class="wrap center">
@@ -195,72 +256,4 @@ fbq('init', '1607755737352542');fbq('track', 'PageView');
 
 <script src="../script.js" defer></script>
 </body>
-</html><section id="estimator" class="section estimator">
-  <div class="wrap">
-    <p class="eyebrow reveal">Work it out</p>
-    <h2 class="reveal">Estimate your <em>stay</em></h2>
-    <p class="section-sub reveal">Build the stay you have in mind. Rates shown are standard; your 5% discount comes off at booking.</p>
-
-    <div class="est-card reveal">
-      <div class="est-controls">
-        <fieldset class="est-group">
-          <legend>Choose a stay</legend>
-          <div class="est-pills" role="radiogroup" aria-label="Stay type">
-            <label class="est-pill"><input type="radio" name="stayType-police" value="basic" checked><span>Basic Suite<small>$45 / night</small><em>Private 4&prime;&times;6&prime; or 3&prime;&times;6&prime; suite with a comfy bed, fresh water, scheduled feeding and regular outdoor breaks.</em></span></label>
-            <label class="est-pill"><input type="radio" name="stayType-police" value="deluxe"><span>Deluxe Suite<small>$65 / night</small><em>Our largest suite at 5&prime;&times;6&prime; with a deluxe bed, plus everything included in a Basic stay.</em></span></label>
-            <label class="est-pill"><input type="radio" name="stayType-police" value="day"><span>Day Stay<small>$25 / day</small><em>Daytime care with no overnight. A comfy bed to relax on, outdoor breaks and individual attention.</em></span></label>
-          </div>
-        </fieldset>
-
-        <div class="est-row">
-          <div class="est-group est-stepper-group">
-            <span class="est-label" data-est="unit">Nights</span>
-            <div class="est-stepper">
-              <button type="button" class="step-btn" data-step="nights" data-dir="-1" aria-label="Fewer nights">&minus;</button>
-              <span class="step-val" data-est="nights">3</span>
-              <button type="button" class="step-btn" data-step="nights" data-dir="1" aria-label="More nights">+</button>
-            </div>
-          </div>
-          <div class="est-group est-stepper-group">
-            <span class="est-label">Dogs <small data-est="dognote">(+$20/night each additional)</small></span>
-            <div class="est-stepper">
-              <button type="button" class="step-btn" data-step="dogs" data-dir="-1" aria-label="Fewer dogs">&minus;</button>
-              <span class="step-val" data-est="dogs">1</span>
-              <button type="button" class="step-btn" data-step="dogs" data-dir="1" aria-label="More dogs">+</button>
-            </div>
-          </div>
-        </div>
-
-        <fieldset class="est-group">
-          <legend>Add a little extra</legend>
-          <div class="est-addons">
-            <label class="est-check"><input type="checkbox" data-addon="photo" data-price="5"><span><span class="ec-main">Daily photo update <em>$5/day</em></span><span class="ec-desc">Cute photos of your dog sent to you by text or email, so you can see how the day went.</span></span></label>
-            <label class="est-check"><input type="checkbox" data-addon="walkShort" data-price="10"><span><span class="ec-main">Nature walk, 10 to 15 min <em>$10/day</em></span><span class="ec-desc">A short one‑on‑one walk around the wooded lakefront property.</span></span></label>
-            <label class="est-check"><input type="checkbox" data-addon="walkLong" data-price="20"><span><span class="ec-main">Nature walk, 25 to 30 min <em>$20/day</em></span><span class="ec-desc">A longer guided walk for dogs with plenty of energy to burn.</span></span></label>
-            <label class="est-check"><input type="checkbox" data-addon="play" data-price="10"><span><span class="ec-main">Extended play session <em>$10/day</em></span><span class="ec-desc">Extra one‑on‑one play time in the secure fenced yard.</span></span></label>
-            <label class="est-check"><input type="checkbox" data-addon="egg" data-price="3"><span><span class="ec-main">Sunrise Scramble <em>$3/day</em></span><span class="ec-desc">A freshly scrambled egg served alongside their breakfast.</span></span></label>
-          </div>
-        </fieldset>
-      </div>
-
-      <div class="est-summary">
-        <p class="est-summary-title">Your estimate</p>
-        <ul class="est-lines" data-est="lines"></ul>
-        <p class="est-total"><span>Estimated total</span><strong data-est="total">$135</strong></p>
-        <a class="btn btn-primary" data-cta="estimator_book" href="https://woodlandspetretreat.portal.gingrapp.com/public/new_customer">Book This Stay</a>
-        <p class="est-note">Estimate only. Final pricing and availability are confirmed when you book.</p>
-      </div>
-    </div>
-    <p class="note reveal center">The estimate above shows standard rates. Your <strong>5% discount is applied when you book</strong>, so the amount you pay will be a little lower than shown.</p>
-  </div>
-</section>
-
-<section class="section alt program-switch">
-  <div class="wrap center">
-    <p class="eyebrow reveal">Also available</p>
-    <h2 class="reveal">Other appreciation <em>discounts</em></h2>
-    <div class="community-cards reveal"><a class="community-card cc-military" href="../military-dog-boarding/index.html"><span class="cc-mark" aria-hidden="true"></span><h3>Military</h3><p>5% off boarding.</p><span class="cc-go">See the details &rarr;</span></a><a class="community-card cc-fire" href="../firefighter-dog-boarding/index.html"><span class="cc-mark" aria-hidden="true"></span><h3>Firefighters</h3><p>5% off boarding.</p><span class="cc-go">See the details &rarr;</span></a></div>
-  </div>
-</section>
-
-
+</html>
