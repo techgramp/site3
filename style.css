@@ -2094,7 +2094,7 @@ html.theme-night-pre body .gallery-item, body.theme-night .gallery-item { box-sh
 .service-discount-card strong{font-family:"Fraunces",serif;font-size:clamp(1.65rem,3vw,2.35rem);line-height:1.04;color:var(--pine);margin:8px 0 10px}
 .service-discount-card p{margin:0 0 18px;color:var(--muted)}
 .discount-kicker,.community-badge{display:inline-flex;align-items:center;width:max-content;font-size:.72rem;font-weight:800;letter-spacing:.12em;border-radius:999px;padding:7px 10px;background:rgba(29,58,44,.08);color:var(--pine)}
-.fire-card{--community-accent:#b43a32}.military-card{--community-accent:#65764c}
+.fire-card{--community-accent:#b43a32}.military-card{--community-accent:#65764c}.police-card{--community-accent:#2f5d86}
 .community-head{position:relative;overflow:hidden}
 .community-head:after{content:"";position:absolute;left:0;right:0;bottom:0;height:5px;background:var(--community-accent)}
 .fire-head,.fire-page{--community-accent:#b43a32}.military-head,.military-page{--community-accent:#65764c}
@@ -2417,3 +2417,23 @@ html.theme-night-pre body .community-card p, body.theme-night .community-card p{
   .btn-primary::after{display:none}
   .zoom-frame img{transition:none}
 }
+
+
+/* three service programs, so the grid is three across */
+.service-discount-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+@media (max-width:900px){ .service-discount-grid{grid-template-columns:1fr} }
+
+/* the one-line discount bar under the hero */
+.community-bar{background:var(--sand,#F1EADF);border-block:1px solid var(--line);padding:12px 0}
+.community-bar .wrap{display:flex;align-items:center;gap:14px;justify-content:center;flex-wrap:wrap}
+.community-bar p{margin:0;font-size:.95rem;color:var(--muted)}
+.community-bar strong{color:var(--ink)}
+.community-bar a{color:var(--fern);font-weight:700;text-decoration:none;white-space:nowrap}
+.community-bar a:hover{text-decoration:underline}
+.cb-marks{display:inline-flex;gap:5px;flex:0 0 auto}
+.cb-marks i{width:22px;height:6px;border-radius:2px;display:block}
+.cb-m{background:#65764c}.cb-f{background:#b43a32}.cb-p{background:#2f5d86}
+html.theme-night-pre body .community-bar, body.theme-night .community-bar{
+  background:#16221D !important;border-color:#2E4038 !important}
+html.theme-night-pre body .community-bar strong, body.theme-night .community-bar strong{color:#F2F8F4 !important}
+html.theme-night-pre body .community-bar p, body.theme-night .community-bar p{color:#CFE0D5 !important}
