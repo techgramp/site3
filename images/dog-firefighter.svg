@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="640" viewBox="0 0 640 640" role="img" aria-labelledby="t d">
+<title id="t">Firefighter dog character</title><desc id="d">A friendly cartoon golden retriever sitting upright, wearing a red firefighter helmet and turnout coat.</desc>
+<defs>
+<linearGradient id="fur" x1="0" x2="0" y1="0" y2="1"><stop stop-color="#e2ad6b"/><stop offset="1" stop-color="#d9a15f"/></linearGradient>
+<path id="ear" d="M240 168C200 170 176 236 188 294c6 30 40 34 54 8 14-28 22-86 18-124-2-8-10-10-20-10z"/>
+<path id="torso" d="M256 312c-26 58-34 150-20 232 54 26 114 26 168 0 14-82 6-174-20-232z"/>
+<path id="garment" d="M254 316c-22 46-28 88-26 130 30 18 154 18 184 0 2-42-4-84-26-130-30 16-102 16-132 0z"/>
+<clipPath id="gclip"><use href="#garment"/></clipPath>
+</defs>
+<ellipse cx="320" cy="568" rx="178" ry="20" fill="#000" opacity=".14"/>
+<path d="M404 536c52 4 86-26 94-82" fill="none" stroke="#b77d3f" stroke-width="30" stroke-linecap="round"/>
+<ellipse cx="236" cy="506" rx="70" ry="60" fill="#b77d3f"/>
+<ellipse cx="404" cy="506" rx="70" ry="60" fill="#b77d3f"/>
+<ellipse cx="196" cy="556" rx="42" ry="18" fill="#d9a15f"/>
+<ellipse cx="444" cy="556" rx="42" ry="18" fill="#d9a15f"/>
+<use href="#torso" fill="url(#fur)"/>
+<path d="M288 330c-14 62-8 132 32 170 40-38 46-108 32-170z" fill="#f8e8cc"/>
+<rect x="260" y="400" width="48" height="156" rx="24" fill="#d9a15f"/>
+<rect x="332" y="400" width="48" height="156" rx="24" fill="#d9a15f"/>
+<path d="M284 430v112M356 430v112" stroke="#b77d3f" stroke-width="4" opacity=".35" stroke-linecap="round"/>
+<use href="#garment" fill="#c8402b"/>
+<g clip-path="url(#gclip)"><rect x="220" y="400" width="200" height="16" fill="#f4d35e"/><rect x="220" y="420" width="200" height="6" fill="#e6e6e6"/><rect x="220" y="390" width="200" height="6" fill="#e6e6e6"/></g>
+<path d="M320 334v112" stroke="#8e2718" stroke-width="5"/>
+<path d="M312 356h16M312 378h16" stroke="#2b2118" stroke-width="6" stroke-linecap="round"/>
+<path d="M254 316l40 10-8 34zM386 316l-40 10 8 34z" fill="#a52f1d"/>
+<ellipse cx="282" cy="556" rx="34" ry="19" fill="#f8e8cc"/>
+<ellipse cx="358" cy="556" rx="34" ry="19" fill="#f8e8cc"/>
+<path d="M272 548v14M292 548v14M348 548v14M368 548v14" stroke="#b77d3f" stroke-width="4" stroke-linecap="round"/>
+<ellipse cx="320" cy="318" rx="74" ry="16" fill="#2b2118" opacity=".16"/>
+<ellipse cx="320" cy="220" rx="106" ry="98" fill="url(#fur)"/>
+<path d="M320 150c-12 0-18 40-18 80h36c0-40-6-80-18-80z" fill="#f8e8cc" opacity=".85"/>
+<ellipse cx="320" cy="282" rx="66" ry="48" fill="#f8e8cc"/>
+<use href="#ear" fill="#8e5a2c"/>
+<use href="#ear" fill="#8e5a2c" transform="matrix(-1 0 0 1 640 0)"/>
+<path d="M262 200q18-12 34 0M344 200q18-12 34 0" fill="none" stroke="#8e5a2c" stroke-width="7" stroke-linecap="round"/>
+<circle cx="279" cy="228" r="15" fill="#2b2118"/><circle cx="361" cy="228" r="15" fill="#2b2118"/>
+<circle cx="274" cy="222" r="5" fill="#fff"/><circle cx="356" cy="222" r="5" fill="#fff"/>
+<path d="M306 300q0 30 14 30t14-30z" fill="#e7727a"/>
+<path d="M320 306v14" stroke="#c4525b" stroke-width="3" stroke-linecap="round"/>
+<path d="M320 280v12m0 0q-16 16-32 4m32-4q16 16 32 4" fill="none" stroke="#2b2118" stroke-width="5" stroke-linecap="round"/>
+<path d="M294 256q26-14 52 0 2 18-26 28-28-10-26-28z" fill="#2b2118"/>
+<ellipse cx="310" cy="256" rx="8" ry="4" fill="#fff" opacity=".45"/>
+<g transform="translate(0 -14)"><path d="M218 176c0-62 46-96 102-96s102 34 102 96z" fill="#d44a33"/>
+<path d="M320 80c-8 30-8 70 0 96 8-26 8-66 0-96z" fill="#a52f1d"/>
+<path d="M200 178c30-12 210-12 240 0 6 10-8 20-120 20s-126-10-120-20z" fill="#a52f1d"/>
+<path d="M294 118h52l-4 38-22 16-22-16z" fill="#f4d35e" stroke="#8e2718" stroke-width="4"/>
+<path d="M320 128v30M306 142h28" stroke="#c8402b" stroke-width="7" stroke-linecap="round"/></g>
+
+</svg>
