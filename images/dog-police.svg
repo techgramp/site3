@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="640" viewBox="0 0 640 640" role="img" aria-labelledby="t d">
+<title id="t">Police dog character</title><desc id="d">A friendly cartoon dog wearing police gear.</desc>
+<defs>
+  <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#edf4fb"/><stop offset="1" stop-color="#d8e6f6"/></linearGradient>
+  <linearGradient id="fur" x1="0" x2="0" y1="0" y2="1"><stop stop-color="#c69255"/><stop offset="1" stop-color="#9b6939"/></linearGradient>
+  <linearGradient id="vest" x1="0" x2="0" y1="0" y2="1"><stop stop-color="#326aa4"/><stop offset="1" stop-color="#1d4e84"/></linearGradient>
+</defs>
+<rect x="36" y="36" width="568" height="568" rx="84" fill="url(#bg)"/>
+<ellipse cx="320" cy="498" rx="136" ry="36" fill="#bccdde" opacity=".55"/>
+<g>
+  <ellipse cx="234" cy="236" rx="46" ry="72" fill="#8a5d33" transform="rotate(-20 234 236)"/>
+  <ellipse cx="406" cy="236" rx="46" ry="72" fill="#8a5d33" transform="rotate(20 406 236)"/>
+  <circle cx="320" cy="252" r="136" fill="url(#fur)"/>
+  <ellipse cx="320" cy="313" rx="88" ry="70" fill="#f7e9d0"/>
+  <circle cx="268" cy="250" r="14" fill="#2f2418"/>
+  <circle cx="372" cy="250" r="14" fill="#2f2418"/>
+  <ellipse cx="320" cy="315" rx="28" ry="22" fill="#2f2418"/>
+  <path d="M302 336c10 15 25 23 18 40-7 17-34 19-42 4" fill="none" stroke="#2f2418" stroke-width="8" stroke-linecap="round"/>
+  <path d="M338 336c-10 15-25 23-18 40 7 17 34 19 42 4" fill="none" stroke="#2f2418" stroke-width="8" stroke-linecap="round"/>
+  <path d="M228 178c26-36 64-55 92-56 35-1 83 14 120 56l-8 22H236z" fill="#173756"/>
+  <path d="M216 185h208l-18 52H234z" fill="#1d4e84"/>
+  <rect x="270" y="154" width="100" height="36" rx="18" fill="#f0c54c"/>
+  <path d="M320 162l11 12 16 2-11 10 3 15-19-8-19 8 3-15-11-10 16-2z" fill="#173756"/>
+  <rect x="246" y="356" width="148" height="124" rx="42" fill="url(#vest)"/>
+  <rect x="300" y="356" width="40" height="124" rx="16" fill="#193754" opacity=".45"/>
+  <circle cx="320" cy="404" r="34" fill="#f0c54c"/>
+  <path d="M320 380l11 12 16 2-11 10 3 15-19-8-19 8 3-15-11-10 16-2z" fill="#173756"/>
+  <rect x="214" y="466" width="74" height="84" rx="34" fill="#a87443"/>
+  <rect x="352" y="466" width="74" height="84" rx="34" fill="#a87443"/>
+  <rect x="208" y="540" width="86" height="18" rx="9" fill="#5f4326"/>
+  <rect x="346" y="540" width="86" height="18" rx="9" fill="#5f4326"/>
+</g>
+</svg>
