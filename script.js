@@ -166,9 +166,10 @@ wireCopyButton("copyEmail", "data-email", "copy-email-label", "Copy Email");
 })();
 
 /* ---------- faint paw background ----------
-   Paws, bones and water bowls drift slowly across the page at very low
-   opacity. On devices with a mouse, nearby shapes glide away from the
-   cursor. Skipped entirely for visitors who prefer reduced motion. */
+   Paws, bones and water bowls drift softly near the viewport edges so
+   they decorate the page without sitting on top of the main reading
+   column. On pointer devices, nearby shapes ease away from the cursor.
+   Skipped for visitors who prefer reduced motion. */
 (function () {
   if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
   var ICONS = {
@@ -176,29 +177,43 @@ wireCopyButton("copyEmail", "data-email", "copy-email-label", "Copy Email");
     bone: '<svg viewBox="0 0 64 64"><path d="M14 22a7 7 0 1 1 9-7l18 18a7 7 0 1 1 7 9 7 7 0 1 1-9 7L21 31a7 7 0 1 1-7-9z" transform="rotate(-8 32 32)"/></svg>',
     bowl: '<svg viewBox="0 0 64 64"><path d="M32 4c5 8 9 13 9 18a9 9 0 0 1-18 0c0-5 4-10 9-18z"/><path d="M6 38h52l-5 16a6 6 0 0 1-6 4H17a6 6 0 0 1-6-4z"/><rect x="4" y="33" width="56" height="6" rx="3"/></svg>'
   };
-  var small = window.innerWidth < 700;
-  var spots = [
-    [6, 14, "paw", 46, -18], [22, 72, "bone", 54, 20], [38, 30, "paw", 38, 12], [55, 86, "bowl", 56, 0],
-    [70, 18, "bone", 48, -30], [86, 58, "paw", 52, 24], [12, 48, "bowl", 50, 0], [48, 55, "paw", 34, -8],
-    [92, 10, "paw", 36, 32], [30, 92, "paw", 44, -26], [78, 88, "bone", 44, 40], [62, 40, "paw", 40, 16]
-  ];
-  if (small) spots = spots.slice(0, 7);
+  var small = window.innerWidth < 760;
+  var spots = small
+    ? [
+        [6, 13, "paw", 34, -18, 7, -10, -6, 8],
+        [93, 18, "bone", 38, 18, -8, -12, 6, 10],
+        [5, 78, "bowl", 36, 0, 9, -8, -6, 6],
+        [92, 82, "paw", 34, 12, -10, -8, 8, 6]
+      ]
+    : [
+        [5, 10, "paw", 42, -18, 10, -14, -8, 8],
+        [16, 84, "bone", 48, 24, 12, -10, -10, 10],
+        [7, 52, "bowl", 48, 0, 8, -10, -7, 7],
+        [24, 7, "bone", 36, -30, 9, -9, -7, 8],
+        [93, 12, "paw", 44, 28, -10, -14, 8, 8],
+        [86, 36, "bowl", 40, 0, -8, -8, 8, 8],
+        [95, 63, "bone", 46, 18, -12, -10, 10, 8],
+        [88, 86, "paw", 40, -20, -9, -9, 8, 8],
+        [30, 94, "paw", 34, -8, 8, -6, -7, 5],
+        [72, 94, "paw", 34, 12, -8, -6, 6, 5]
+      ];
   var layer = document.createElement("div");
   layer.className = "paw-bg";
   layer.setAttribute("aria-hidden", "true");
   var items = spots.map(function (s, i) {
     var el = document.createElement("span");
     el.className = "paw-bg-item";
-    el.style.left = s[0] + "%"; el.style.top = s[1] + "%";
-    el.style.width = el.style.height = (small ? s[3] * 0.8 : s[3]) + "px";
-    el.innerHTML = '<span class="paw-bg-float" style="--r:' + s[4] + 'deg;--dur:' + (16 + (i * 7) % 12) + 's;--delay:-' + (i * 3) % 11 + 's">' + ICONS[s[2]] + "</span>";
+    el.style.left = s[0] + "%";
+    el.style.top = s[1] + "%";
+    el.style.width = el.style.height = s[3] + "px";
+    el.innerHTML = '<span class="paw-bg-float" style="--r:' + s[4] + 'deg;--dur:' + (26 + (i * 5) % 15) + 's;--delay:-' + ((i * 3) % 13) + 's;--dx1:' + s[5] + 'px;--dy1:' + s[6] + 'px;--dx2:' + s[7] + 'px;--dy2:' + s[8] + 'px">' + ICONS[s[2]] + '</span>';
     layer.appendChild(el);
     return { el: el, x: 0, y: 0 };
   });
   document.body.appendChild(layer);
 
   if (!window.matchMedia || !window.matchMedia("(hover: hover) and (pointer: fine)").matches) return;
-  var mx = -9999, my = -9999, queued = false, R = 150, PUSH = 70;
+  var mx = -9999, my = -9999, queued = false, R = 150, PUSH = 22;
   function update() {
     queued = false;
     var rects = items.map(function (it) { return it.el.getBoundingClientRect(); });
@@ -207,18 +222,30 @@ wireCopyButton("copyEmail", "data-email", "copy-email-label", "Copy Email");
       var cx = r.left + r.width / 2 - it.x, cy = r.top + r.height / 2 - it.y;
       var dx = cx - mx, dy = cy - my, d = Math.sqrt(dx * dx + dy * dy) || 1;
       var nx = 0, ny = 0;
-      if (d < R) { var f = (R - d) / R * PUSH; nx = dx / d * f; ny = dy / d * f; }
-      if (Math.abs(nx - it.x) > 0.5 || Math.abs(ny - it.y) > 0.5) {
-        it.x = nx; it.y = ny;
-        it.el.style.transform = "translate(" + nx.toFixed(1) + "px," + ny.toFixed(1) + "px)";
+      if (d < R) {
+        var f = (R - d) / R * PUSH;
+        nx = dx / d * f;
+        ny = dy / d * f;
+      }
+      if (Math.abs(nx - it.x) > 0.15 || Math.abs(ny - it.y) > 0.15) {
+        it.x = nx;
+        it.y = ny;
+        it.el.style.transform = "translate3d(" + nx.toFixed(1) + "px," + ny.toFixed(1) + "px,0)";
       }
     });
   }
   document.addEventListener("pointermove", function (e) {
-    mx = e.clientX; my = e.clientY;
-    if (!queued) { queued = true; requestAnimationFrame(update); }
+    mx = e.clientX;
+    my = e.clientY;
+    if (!queued) {
+      queued = true;
+      requestAnimationFrame(update);
+    }
   }, { passive: true });
-  document.addEventListener("pointerleave", function () { mx = my = -9999; requestAnimationFrame(update); });
+  document.addEventListener("pointerleave", function () {
+    mx = my = -9999;
+    requestAnimationFrame(update);
+  });
 })();
 
 /* ---------- photo viewer ----------

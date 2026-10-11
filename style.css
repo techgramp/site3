@@ -2546,14 +2546,32 @@ body.theme-night .community-mascot-card span, html.theme-night-pre body .communi
 .info-card .pack-link::after{ border-radius:inherit }
 
 /* ===== Faint paw background ===== */
-.paw-bg{ position:fixed; inset:0; z-index:60; pointer-events:none; overflow:hidden; contain:strict }
-.paw-bg-item{ position:absolute; display:block; transition:transform .7s cubic-bezier(.22,.9,.3,1); will-change:transform }
-.paw-bg-float{ display:block; width:100%; height:100%; color:var(--fern); opacity:.07; animation:paw-drift var(--dur,20s) ease-in-out var(--delay,0s) infinite alternate }
+body{ isolation:isolate }
+.hero, .page-head, .lp-hero, main, .site-footer{ position:relative; z-index:1 }
+.paw-bg{
+  position:fixed; inset:0; z-index:0; pointer-events:none; overflow:hidden; contain:strict;
+  -webkit-mask-image: radial-gradient(circle at center, transparent 0 24%, rgba(0,0,0,.18) 38%, rgba(0,0,0,.78) 56%, rgba(0,0,0,1) 74%);
+          mask-image: radial-gradient(circle at center, transparent 0 24%, rgba(0,0,0,.18) 38%, rgba(0,0,0,.78) 56%, rgba(0,0,0,1) 74%);
+}
+.paw-bg-item{
+  position:absolute; display:block; transition:transform 1.35s cubic-bezier(.19,1,.22,1), opacity .3s ease; will-change:transform;
+  transform:translate3d(0,0,0); filter:blur(.2px);
+}
+.paw-bg-float{
+  display:block; width:100%; height:100%; color:var(--fern); opacity:.042;
+  animation:paw-drift var(--dur,30s) cubic-bezier(.45,.05,.55,.95) var(--delay,0s) infinite alternate;
+}
 .paw-bg-float svg{ width:100%; height:100%; fill:currentColor; display:block }
 @keyframes paw-drift{
-  0%{ transform:translate(0,0) rotate(var(--r,0deg)) }
-  50%{ transform:translate(14px,-22px) rotate(calc(var(--r,0deg) + 8deg)) }
-  100%{ transform:translate(-12px,-6px) rotate(calc(var(--r,0deg) - 6deg)) }
+  0%{ transform:translate3d(0,0,0) rotate(var(--r,0deg)) scale(1) }
+  50%{ transform:translate3d(var(--dx1,10px),var(--dy1,-14px),0) rotate(calc(var(--r,0deg) + 4deg)) scale(1.025) }
+  100%{ transform:translate3d(var(--dx2,-8px),var(--dy2,8px),0) rotate(calc(var(--r,0deg) - 3deg)) scale(.985) }
+}
+html.theme-night-pre body .paw-bg-float,
+body.theme-night .paw-bg-float{ opacity:.05 }
+@media (max-width:760px){
+  .paw-bg{ -webkit-mask-image: radial-gradient(circle at center, transparent 0 30%, rgba(0,0,0,.28) 46%, rgba(0,0,0,1) 72%); mask-image: radial-gradient(circle at center, transparent 0 30%, rgba(0,0,0,.28) 46%, rgba(0,0,0,1) 72%); }
+  .paw-bg-float{ opacity:.032 }
 }
 @media print{ .paw-bg{ display:none } }
 
