@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="theme-night-pre">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,13 +17,14 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://woodlandspetretreat.com/images/og-image.jpg">
 
-<meta name="color-scheme" content="light">
+<meta name="color-scheme" content="dark">
 <link rel="icon" type="image/png" href="images/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..700&family=Nunito+Sans:ital,wght@0,400;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
-<link rel="preload" as="image" href="images/water.webp">
-<link rel="stylesheet" href="style.css">
+<link rel="preload" as="image" href="images/water-sm.webp" media="(max-width: 700px)" fetchpriority="high">
+<link rel="preload" as="image" href="images/water.webp" media="(min-width: 701px)" fetchpriority="high">
+<link rel="stylesheet" href="style.css?v=20260927b">
 
 
 <script type="application/ld+json">
@@ -224,17 +225,6 @@
   ]
 }
 </script>
-<script>
-/* Set the theme before first paint so there's no flash of the wrong palette. */
-(function () {
-  try {
-    var m = window.sessionStorage.getItem("wprTheme");
-    var dark = m ? m === "night"
-                 : (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches);
-    if (dark) document.documentElement.classList.add("theme-night-pre");
-  } catch (e) {}
-})();
-</script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -273,7 +263,7 @@ src="https://www.facebook.com/tr?id=1607755737352542&ev=PageView&noscript=1"
   gtag('config', 'AW-18393926073');
 </script>
 </head>
-<body>
+<body class="theme-night">
 
 <!-- ======================= TOPBAR + NAV ======================= -->
 <nav class="site-nav" id="siteNav">
@@ -283,7 +273,7 @@ src="https://www.facebook.com/tr?id=1607755737352542&ev=PageView&noscript=1"
   </a>
   <div class="nav-inner">
     <a class="nav-brand" href="index.html">
-      <img src="images/emblem.png" alt="" class="nav-emblem" width="40" height="40">
+      <img decoding="async" src="images/emblem.webp" alt="" class="nav-emblem" width="40" height="40">
       <span class="nav-wordmark">Woodlands <em>Pet&nbsp;Retreat</em></span>
     </a>
     <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
@@ -299,12 +289,6 @@ src="https://www.facebook.com/tr?id=1607755737352542&ev=PageView&noscript=1"
       <li><a href="about/">About</a></li>
       <li><a href="faq/">FAQ</a></li>
       <li><a href="compare/">Compare</a></li>
-      <li class="nav-theme-wrap">
-        <button type="button" class="theme-toggle" id="themeToggle" aria-label="Switch theme" title="Switch theme">
-          <svg class="ti-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.6M12 18.9v2.6M4.2 12H1.6M22.4 12h-2.6M6.5 6.5L4.6 4.6M19.4 19.4l-1.9-1.9M17.5 6.5l1.9-1.9M4.6 19.4l1.9-1.9"/></svg>
-          <svg class="ti-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 14.5A8.5 8.5 0 1 1 9.5 3.5a7 7 0 0 0 11 11z"/></svg>
-        </button>
-      </li>
       <li class="nav-cta-wrap">
         <a class="btn btn-book" data-cta="nav_book" href="https://woodlandspetretreat.portal.gingrapp.com/public/new_customer">Book a Stay</a>
       </li>
@@ -334,7 +318,7 @@ src="https://www.facebook.com/tr?id=1607755737352542&ev=PageView&noscript=1"
   </div>
 
   <div class="hero-content">
-    <img src="images/emblem.png" alt="Woodlands Pet Retreat emblem: a poodle and a tuxedo cat among pines" class="hero-emblem" width="112" height="112">
+    <img decoding="async" src="images/emblem.webp" alt="Woodlands Pet Retreat emblem: a poodle and a tuxedo cat among pines" class="hero-emblem" width="112" height="112">
     <p class="eyebrow light">Owner‑operated dog boarding · St.&nbsp;Marys, Georgia</p>
     <h1>Dog Boarding &amp; Day Stays<br>in <em>St. Marys, GA</em></h1>
     <p class="hero-tagline">Personal, experienced care, right on the water.</p>
@@ -345,16 +329,12 @@ src="https://www.facebook.com/tr?id=1607755737352542&ev=PageView&noscript=1"
     </p>
     <div class="hero-ctas">
       <a class="btn btn-primary btn-lg" data-cta="hero_new_client" href="https://woodlandspetretreat.portal.gingrapp.com/public/new_customer">
-        New Client: Create a Profile
+        Book a Stay
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
       </a>
       <a class="btn btn-ghost btn-lg" data-cta="hero_view_rates" href="rates/">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16v14H4z"/><path d="M8 9h8M8 13h8M8 17h4"/></svg>
         View Pricing &amp; Rates
-      </a>
-      <a class="btn btn-ghost btn-lg" data-cta="hero_build_stay" href="#estimator">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16v14H4z"/><path d="M8 9h8M8 13h4"/><path d="M15 15l2 2 4-4"/></svg>
-        Build Your Stay / Quote
       </a>
     </div>
     <nav class="hero-services reveal" aria-label="Our services">
@@ -450,6 +430,7 @@ src="https://www.facebook.com/tr?id=1607755737352542&ev=PageView&noscript=1"
 <!-- ======================= FIND US ======================= -->
 <section id="visit" class="section visit">
   <div class="wrap">
+    <img class="page-mascot reveal" src="images/mascot-poodle.svg" alt="Poodle mascot with a curly topknot, pink bow and show ribbon" width="116" height="116" loading="lazy" decoding="async">
     <p class="eyebrow reveal">Find us</p>
     <h2 class="reveal">Come <em>say hello</em></h2>
     <p class="section-sub reveal">Located in St. Marys, Georgia, proudly serving pet parents from Kingsland, Kings Bay, and Yulee too.</p>
@@ -503,7 +484,7 @@ src="https://www.facebook.com/tr?id=1607755737352542&ev=PageView&noscript=1"
 
     <!-- compact app strip -->
     <div class="app-strip reveal">
-      <img src="images/gingr-app.webp" alt="Gingr Pet Parent App" class="app-strip-img">
+      <img decoding="async" loading="lazy" src="images/gingr-app.webp" alt="Gingr Pet Parent App" class="app-strip-img">
       <div class="app-strip-copy">
         <p class="app-strip-title">Stay connected with the Gingr Pet Parent App</p>
         <p class="app-strip-sub">Book services, update your dog's info, and message us. Facility code: <strong>582844</strong></p>
@@ -521,7 +502,7 @@ src="https://www.facebook.com/tr?id=1607755737352542&ev=PageView&noscript=1"
 <section id="amber" class="section amber">
   <div class="wrap amber-grid">
     <div class="amber-photo reveal">
-      <img src="images/amber.webp" alt="The owner of Woodlands Pet Retreat with a goldendoodle" loading="lazy">
+      <img decoding="async" src="images/amber.webp" srcset="images/amber-sm.webp 640w, images/amber.webp 675w" sizes="(max-width: 700px) 92vw, 560px" alt="The owner of Woodlands Pet Retreat with a goldendoodle" loading="lazy">
     </div>
     <div class="amber-copy">
       <p class="eyebrow reveal">Owner operated</p>
@@ -566,22 +547,22 @@ src="https://www.facebook.com/tr?id=1607755737352542&ev=PageView&noscript=1"
     photos of our guests on Facebook all the time.</p>
     <div class="gallery-grid">
       <figure class="gallery-item reveal">
-        <img src="images/interior.webp" alt="A private indoor suite with bedding at Woodlands Pet Retreat" loading="lazy" width="600" height="600">
+        <img decoding="async" src="images/interior.webp" srcset="images/interior-sm.webp 640w, images/interior.webp 960w" sizes="(max-width: 700px) 92vw, 560px" alt="A private indoor suite with bedding at Woodlands Pet Retreat" loading="lazy" width="600" height="600">
       </figure>
       <figure class="gallery-item reveal">
-        <img src="images/play_area.webp" alt="Fenced outdoor play area under the pines" loading="lazy" width="600" height="600">
+        <img decoding="async" src="images/play_area.webp" srcset="images/play_area-sm.webp 640w, images/play_area.webp 1170w" sizes="(max-width: 700px) 92vw, 560px" alt="Fenced outdoor play area under the pines" loading="lazy" width="600" height="600">
       </figure>
       <figure class="gallery-item reveal">
-        <img src="images/water.webp" alt="The quiet wooded lakefront setting" loading="lazy" width="600" height="600">
+        <img decoding="async" src="images/water.webp" srcset="images/water-sm.webp 640w, images/water.webp 1600w" sizes="(max-width: 700px) 92vw, 560px" alt="The quiet wooded lakefront setting" loading="lazy" width="600" height="600">
       </figure>
       <figure class="gallery-item reveal">
-        <img src="images/interior2.webp" alt="Another private boarding suite" loading="lazy" width="600" height="600">
+        <img decoding="async" src="images/interior2.webp" srcset="images/interior2-sm.webp 640w, images/interior2.webp 960w" sizes="(max-width: 700px) 92vw, 560px" alt="Another private boarding suite" loading="lazy" width="600" height="600">
       </figure>
       <figure class="gallery-item reveal">
-        <img src="images/play_area2.webp" alt="Dogs enjoy outdoor time one family at a time" loading="lazy" width="600" height="600">
+        <img decoding="async" src="images/play_area2.webp" srcset="images/play_area2-sm.webp 640w, images/play_area2.webp 768w" sizes="(max-width: 700px) 92vw, 560px" alt="Dogs enjoy outdoor time one family at a time" loading="lazy" width="600" height="600">
       </figure>
       <figure class="gallery-item reveal">
-        <img src="images/outside.webp" alt="The exterior grounds at Woodlands Pet Retreat" loading="lazy" width="600" height="600">
+        <img decoding="async" src="images/outside.webp" srcset="images/outside-sm.webp 640w, images/outside.webp 768w" sizes="(max-width: 700px) 92vw, 560px" alt="The exterior grounds at Woodlands Pet Retreat" loading="lazy" width="600" height="600">
       </figure>
     </div>
     <div class="gallery-cta reveal">
@@ -691,51 +672,56 @@ src="https://www.facebook.com/tr?id=1607755737352542&ev=PageView&noscript=1"
       <h3 class="packages-title reveal">Or make it easy: <em>stay packages</em></h3>
       <div class="package-grid">
         <article class="pack-card reveal">
-          <h4>Comfort Stay</h4>
+          <h4><a class="pack-link" href="packages/comfort-stay/">Comfort Stay</a></h4>
           <p>Standard boarding in a basic suite.</p>
           <p class="pack-price">$45<span>/night</span></p>
         </article>
         <article class="pack-card reveal" style="--d:.08s">
-          <h4>Peace‑of‑Mind Stay</h4>
+          <h4><a class="pack-link" href="packages/peace-of-mind-stay/">Peace‑of‑Mind Stay</a></h4>
           <p>Boarding + a daily photo update + a daily nature walk.</p>
           <p class="pack-price">$60<span>/night</span></p>
         </article>
         <article class="pack-card reveal" style="--d:.16s">
-          <h4>Fresh‑Home Package</h4>
+          <h4><a class="pack-link" href="packages/fresh-home-package/">Fresh‑Home Package</a></h4>
           <p>Boarding + daily photo update + a departure bath, so they come home clean.</p>
           <p class="pack-price">from $95<span>/night</span></p>
         </article>
         <article class="pack-card reveal" style="--d:.24s">
-          <h4>Deluxe Retreat</h4>
+          <h4><a class="pack-link" href="packages/deluxe-retreat/">Deluxe Retreat</a></h4>
           <p>Deluxe suite + daily photo, walk &amp; play session + departure grooming.</p>
           <p class="pack-price">from $90<span>/night</span>, plus a full groom from $80</p>
+        </article>
+        <article class="pack-card pack-month reveal" style="--d:.32s">
+          <h4><a class="pack-link" href="packages/month-long-stay/">Month&#8209;Long Stay</a></h4>
+          <p>28 or more nights in a row, in any suite. 20% off lodging, with a daily photo update included free.</p>
+          <p class="pack-price">from $36<span>/night</span> <span class="save">save 20%</span></p>
         </article>
       </div>
 
       <h3 class="packages-title reveal">Weekday regulars: <em>stay bundles</em></h3>
       <div class="package-grid day-packs">
         <article class="pack-card reveal">
-          <h4>5‑Day Pack</h4>
+          <h4><a class="pack-link" href="packages/5-day-pack/">5‑Day Pack</a></h4>
           <p>Five day stays to use anytime.</p>
           <p class="pack-price">$115 <span class="save">save $10</span></p>
         </article>
         <article class="pack-card reveal" style="--d:.08s">
-          <h4>10‑Day Pack</h4>
+          <h4><a class="pack-link" href="packages/10-day-pack/">10‑Day Pack</a></h4>
           <p>Ten day stays to use anytime.</p>
           <p class="pack-price">$220 <span class="save">save $30</span></p>
         </article>
         <article class="pack-card reveal" style="--d:.16s">
-          <h4>Weekday Regular</h4>
+          <h4><a class="pack-link" href="packages/weekday-regular/">Weekday Regular</a></h4>
           <p>Two day stays every week, billed monthly.</p>
           <p class="pack-price">$189<span>/month</span></p>
         </article>
         <article class="pack-card reveal" style="--d:.24s">
-          <h4>Weekday Overnight Regular</h4>
+          <h4><a class="pack-link" href="packages/weekday-overnight-regular/">Weekday Overnight Regular</a></h4>
           <p>Eight weekday overnight stays each month, billed monthly.</p>
           <p class="pack-price">$290<span>/month</span></p>
         </article>
       </div>
-      <p class="rates-note reveal">Packages and bundles have simple expiration and payment terms, ask at booking. Questions about the right fit? Call or text us at <a href="tel:+19126744709">(912) 674‑4709</a>.</p>
+      <p class="rates-note reveal"><a href="packages/">Compare all stay packages</a>. Packages and bundles have simple expiration and payment terms, ask at booking. Questions about the right fit? Call or text us at <a href="tel:+19126744709">(912) 674‑4709</a>.</p>
     </div>
   </div>
 </section>
@@ -747,7 +733,7 @@ src="https://www.facebook.com/tr?id=1607755737352542&ev=PageView&noscript=1"
     <h2 class="reveal">Two ways to <em>stay</em></h2>
     <div class="two-col">
       <article class="svc-card reveal">
-        <figure><img src="images/interior.webp" alt="A private indoor boarding suite at Woodlands Pet Retreat" loading="lazy" width="800" height="600"></figure>
+        <figure><img decoding="async" src="images/interior.webp" srcset="images/interior-sm.webp 640w, images/interior.webp 960w" sizes="(max-width: 700px) 92vw, 560px" alt="A private indoor boarding suite at Woodlands Pet Retreat" loading="lazy" width="800" height="600"></figure>
         <div class="svc-body">
           <h3>Overnight Dog Boarding</h3>
           <p class="svc-price">From $45 per night</p>
@@ -757,7 +743,7 @@ src="https://www.facebook.com/tr?id=1607755737352542&ev=PageView&noscript=1"
         </div>
       </article>
       <article class="svc-card reveal">
-        <figure><img src="images/play_area.webp" alt="Secure fenced play yard used for day stays" loading="lazy" width="800" height="600"></figure>
+        <figure><img decoding="async" src="images/play_area.webp" srcset="images/play_area-sm.webp 640w, images/play_area.webp 1170w" sizes="(max-width: 700px) 92vw, 560px" alt="Secure fenced play yard used for day stays" loading="lazy" width="800" height="600"></figure>
         <div class="svc-body">
           <h3>Day Stays</h3>
           <p class="svc-price">$25 per day</p>
@@ -773,15 +759,6 @@ src="https://www.facebook.com/tr?id=1607755737352542&ev=PageView&noscript=1"
       <a class="link-arrow" href="faq/">Read the full FAQ</a>
     </div>
   </div>
-</section>
-
-
-<!-- ======================= ST. MARYS TRAVEL GUIDES ======================= -->
-<section class="section seo-home-preview" id="st-marys-guides">
- <div class="wrap seo-two-col">
-  <div><p class="eyebrow">Planning a visit to coastal Georgia?</p><h2>Explore St. Marys <em>with your dog in mind.</em></h2><p>Start with the <a href="st-marys-welcome-center/">St. Marys Welcome Center</a>, discover dog-friendly places around town, and plan ahead for the Cumberland Island passenger ferry—which does not take pets.</p><div class="seo-inline-actions"><a class="btn btn-primary" href="st-marys-pet-travel/">Explore local visitor guides</a><a class="btn btn-outline" href="cumberland-island-dog-boarding/">Cumberland Island pet rules</a></div></div>
-  <div class="seo-home-preview-card"><span class="seo-kicker">Featured St. Marys resources</span><a href="st-marys-welcome-center/">Welcome Center &amp; historic downtown <span aria-hidden="true">↗</span></a><a href="cumberland-island-dog-boarding/">Cumberland Island dog boarding plan <span aria-hidden="true">↗</span></a><a href="dog-friendly-st-marys-ga/">Dog-friendly places to explore <span aria-hidden="true">↗</span></a></div>
- </div>
 </section>
 
 <!-- ======================= COMMUNITY DISCOUNTS ======================= -->
@@ -837,41 +814,103 @@ src="https://www.facebook.com/tr?id=1607755737352542&ev=PageView&noscript=1"
 
         <div class="est-row">
           <div class="est-group est-stepper-group">
-            <span class="est-label" data-est="unit">Nights</span>
+            <label class="est-label" for="est-nights-home" data-est="unit">Nights</label>
             <div class="est-stepper">
-              <button type="button" class="step-btn" data-step="nights" data-dir="-1" aria-label="Fewer nights">&minus;</button>
-              <span class="step-val" data-est="nights">3</span>
-              <button type="button" class="step-btn" data-step="nights" data-dir="1" aria-label="More nights">+</button>
+              <button type="button" class="step-btn" data-step="nights" data-dir="-1" aria-label="Fewer">&minus;</button>
+              <input class="step-val step-input" id="est-nights-home" type="number" inputmode="numeric" min="1" max="365" value="1" data-est="nights" aria-label="Number of nights">
+              <button type="button" class="step-btn" data-step="nights" data-dir="1" aria-label="More">+</button>
             </div>
           </div>
           <div class="est-group est-stepper-group">
-            <span class="est-label">Dogs <small data-est="dognote">(+$20/night each additional)</small></span>
+            <label class="est-label" for="est-dogs-home">Dogs <small data-est="dognote">(+$20/night each additional)</small></label>
             <div class="est-stepper">
               <button type="button" class="step-btn" data-step="dogs" data-dir="-1" aria-label="Fewer dogs">&minus;</button>
-              <span class="step-val" data-est="dogs">1</span>
+              <input class="step-val step-input" id="est-dogs-home" type="number" inputmode="numeric" min="1" max="10" value="1" data-est="dogs" aria-label="Number of dogs">
               <button type="button" class="step-btn" data-step="dogs" data-dir="1" aria-label="More dogs">+</button>
             </div>
           </div>
         </div>
 
+        <div class="est-quick" role="group" aria-label="Quick stay lengths">
+          <button type="button" class="est-chip" data-nights="1">1 night</button>
+          <button type="button" class="est-chip" data-nights="2">Weekend</button>
+          <button type="button" class="est-chip" data-nights="7">1 week</button>
+          <button type="button" class="est-chip" data-nights="14">2 weeks</button>
+          <button type="button" class="est-chip est-chip-month" data-nights="30">Month-Long Stay <small>20% off</small></button>
+        </div>
+
+        <fieldset class="est-group est-dates">
+          <legend>Drop-off &amp; pick-up <small>(optional)</small></legend>
+          <div class="est-date-grid">
+            <div class="est-field"><label for="est-in-home">Drop-off date</label><input id="est-in-home" type="date" data-est="in"></div>
+            <div class="est-field"><label for="est-intime-home">Drop-off time</label><select id="est-intime-home" data-est="inTime"><option value="">Not sure yet</option><option value="am">6:00 AM to 12:00 PM</option><option value="pm">After 12:00 PM</option></select></div>
+            <div class="est-field"><label for="est-out-home">Pick-up date</label><input id="est-out-home" type="date" data-est="out"></div>
+            <div class="est-field"><label for="est-outtime-home">Pick-up time</label><select id="est-outtime-home" data-est="outTime"><option value="">Not sure yet</option><option value="early">By 12:00 PM</option><option value="late">After 12:01 PM</option></select></div>
+          </div>
+        </fieldset>
+
+        <fieldset class="est-group">
+          <legend>Discounts</legend>
+          <label class="est-check"><input type="checkbox" data-est="community"><span><span class="ec-main">Firefighter, law enforcement or U.S. military <em>5% off</em></span><span class="ec-desc">Applies to boarding nights. Not combined with Month&#8209;Long Stay pricing, which is 20% off for 28+ nights.</span></span></label>
+        </fieldset>
+
         <fieldset class="est-group">
           <legend>Add a little extra</legend>
           <div class="est-addons">
-            <label class="est-check"><input type="checkbox" data-addon="photo" data-price="5"><span><span class="ec-main">Daily photo update <em>$5/day</em></span><span class="ec-desc">Cute photos of your dog sent to you by text or email, so you can see how the day went.</span></span></label>
-            <label class="est-check"><input type="checkbox" data-addon="walkShort" data-price="10"><span><span class="ec-main">Nature walk, 10 to 15 min <em>$10/day</em></span><span class="ec-desc">A short one‑on‑one walk around the wooded lakefront property.</span></span></label>
-            <label class="est-check"><input type="checkbox" data-addon="walkLong" data-price="20"><span><span class="ec-main">Nature walk, 25 to 30 min <em>$20/day</em></span><span class="ec-desc">A longer guided walk for dogs with plenty of energy to burn.</span></span></label>
-            <label class="est-check"><input type="checkbox" data-addon="play" data-price="10"><span><span class="ec-main">Extended play session <em>$10/day</em></span><span class="ec-desc">Extra one‑on‑one play time in the secure fenced yard.</span></span></label>
-            <label class="est-check"><input type="checkbox" data-addon="egg" data-price="3"><span><span class="ec-main">Sunrise Scramble <em>$3/day</em></span><span class="ec-desc">A freshly scrambled egg served alongside their breakfast.</span></span></label>
+            <div class="est-addon" data-addon="photo" data-price="5" data-per="count" data-label="Daily photo update">
+              <label class="est-check"><input type="checkbox"><span><span class="ec-main">Daily photo update <em>$5/day</em></span><span class="ec-desc">Cute photos of your dog sent to you by text or email, so you can see how the day went.</span></span></label>
+              <div class="est-qty" hidden><label for="est-q-photo-home">Days</label><input id="est-q-photo-home" type="number" inputmode="numeric" min="1" max="999" value="1"><span class="est-qty-sum"></span></div>
+            </div>
+            <div class="est-addon" data-addon="walkShort" data-price="10" data-per="count" data-label="Nature walk, 10 to 15 min">
+              <label class="est-check"><input type="checkbox"><span><span class="ec-main">Nature walk, 10 to 15 min <em>$10/walk</em></span><span class="ec-desc">A short one&#8209;on&#8209;one walk around the wooded lakefront property.</span></span></label>
+              <div class="est-qty" hidden><label for="est-q-walkShort-home">Walks</label><input id="est-q-walkShort-home" type="number" inputmode="numeric" min="1" max="999" value="1"><span class="est-qty-sum"></span></div>
+            </div>
+            <div class="est-addon" data-addon="walkLong" data-price="20" data-per="count" data-label="Nature walk, 25 to 30 min">
+              <label class="est-check"><input type="checkbox"><span><span class="ec-main">Nature walk, 25 to 30 min <em>$20/walk</em></span><span class="ec-desc">A longer guided walk for dogs with plenty of energy to burn.</span></span></label>
+              <div class="est-qty" hidden><label for="est-q-walkLong-home">Walks</label><input id="est-q-walkLong-home" type="number" inputmode="numeric" min="1" max="999" value="1"><span class="est-qty-sum"></span></div>
+            </div>
+            <div class="est-addon" data-addon="play" data-price="10" data-per="count" data-label="Extended play session">
+              <label class="est-check"><input type="checkbox"><span><span class="ec-main">Extended play session <em>$10/session</em></span><span class="ec-desc">Extra one&#8209;on&#8209;one play time in the secure fenced yard.</span></span></label>
+              <div class="est-qty" hidden><label for="est-q-play-home">Sessions</label><input id="est-q-play-home" type="number" inputmode="numeric" min="1" max="999" value="1"><span class="est-qty-sum"></span></div>
+            </div>
+            <div class="est-addon" data-addon="brush" data-price="10" data-per="count" data-label="Brush & comb out">
+              <label class="est-check"><input type="checkbox"><span><span class="ec-main">Brush &amp; comb out <em>$10/day</em></span><span class="ec-desc">Helps long&#8209;haired pups stay mat&#8209;free and comfy.</span></span></label>
+              <div class="est-qty" hidden><label for="est-q-brush-home">Days</label><input id="est-q-brush-home" type="number" inputmode="numeric" min="1" max="999" value="1"><span class="est-qty-sum"></span></div>
+            </div>
+            <div class="est-addon" data-addon="egg" data-price="3" data-per="count" data-label="Sunrise Scramble">
+              <label class="est-check"><input type="checkbox"><span><span class="ec-main">Sunrise Scramble <em>$3/meal</em></span><span class="ec-desc">A freshly scrambled egg served alongside their breakfast.</span></span></label>
+              <div class="est-qty" hidden><label for="est-q-egg-home">Breakfasts</label><input id="est-q-egg-home" type="number" inputmode="numeric" min="1" max="999" value="1"><span class="est-qty-sum"></span></div>
+            </div>
+            <div class="est-addon" data-addon="med" data-price="2" data-per="perday" data-label="Medication administration">
+              <label class="est-check"><input type="checkbox"><span><span class="ec-main">Medication administration <em>$2/dose</em></span><span class="ec-desc">Given on your schedule, following your instructions.</span></span></label>
+              <div class="est-qty" hidden><label for="est-q-med-home">Doses per day</label><input id="est-q-med-home" type="number" inputmode="numeric" min="1" max="999" value="1"><span class="est-qty-sum"></span></div>
+            </div>
+            <div class="est-addon" data-addon="bath" data-price="0" data-per="quote" data-label="Departure bath">
+              <label class="est-check"><input type="checkbox"><span><span class="ec-main">Departure bath <em>Ask us</em></span><span class="ec-desc">Priced by size and coat, so they come home fresh and clean.</span></span></label>
+            </div>
+            <div class="est-addon" data-addon="care" data-price="0" data-per="quote" data-label="Puppy or senior care schedule">
+              <label class="est-check"><input type="checkbox"><span><span class="ec-main">Puppy or senior care schedule <em>Ask us</em></span><span class="ec-desc">Extra breaks, slower pacing or a special routine tailored to your dog.</span></span></label>
+            </div>
           </div>
         </fieldset>
       </div>
 
       <div class="est-summary">
+        <div class="est-summary-inner">
         <p class="est-summary-title">Your estimate</p>
-        <ul class="est-lines" data-est="lines"></ul>
-        <p class="est-total"><span>Estimated total</span><strong data-est="total">$135</strong></p>
+        <p class="est-badge" data-est="badge" hidden></p>
+        <ul class="est-lines" data-est="lines" aria-live="polite"></ul>
+        <p class="est-total"><span>Estimated total</span><strong data-est="total">$45</strong></p>
+        <p class="est-avg" data-est="avg"></p>
+        <p class="est-hint" data-est="hint" hidden></p>
         <a class="btn btn-primary" data-cta="estimator_book" href="https://woodlandspetretreat.portal.gingrapp.com/public/new_customer">Book This Stay</a>
+        <div class="est-share">
+          <button type="button" class="est-share-btn" data-est="copy">Copy quote</button>
+          <a class="est-share-btn" data-est="sms" href="sms:+19126744709">Text us this quote</a>
+        </div>
         <p class="est-note">Estimate only. Final pricing and availability are confirmed when you book.</p>
+        <p class="est-note est-fine">Drop-off 6:00 AM to 12:00 PM with pick-up after 12:01 PM on your departure day adds a day stay fee to your overnights.</p>
+        </div>
       </div>
     </div>
   </div>
@@ -911,12 +950,12 @@ src="https://www.facebook.com/tr?id=1607755737352542&ev=PageView&noscript=1"
     </p>
 
     <div class="photo-grid reveal">
-      <figure class="ph ph-wide"><img src="images/water.webp" alt="Calm lake framed by trees, seen from the retreat's dock" loading="lazy"><figcaption>The view from the dock</figcaption></figure>
-      <figure class="ph"><img src="images/play_area.webp" alt="Dog enjoying the fenced play area" loading="lazy"><figcaption>Play time</figcaption></figure>
-      <figure class="ph"><img src="images/sign.webp" alt="Woodlands Pet Retreat entrance sign" loading="lazy"><figcaption>Welcome in</figcaption></figure>
-      <figure class="ph"><img src="images/outside.webp" alt="Secure fenced outdoor walkway" loading="lazy"><figcaption>Secure walkways</figcaption></figure>
-      <figure class="ph"><img src="images/interior.webp" alt="Dogs settled comfortably in their private suites" loading="lazy"><figcaption>Settled in</figcaption></figure>
-      <figure class="ph ph-wide"><img src="images/play_area2.webp" alt="Dogs playing together outside" loading="lazy"><figcaption>New friends</figcaption></figure>
+      <figure class="ph ph-wide"><img decoding="async" src="images/water.webp" srcset="images/water-sm.webp 640w, images/water.webp 1600w" sizes="(max-width: 700px) 92vw, 560px" alt="Calm lake framed by trees, seen from the retreat's dock" loading="lazy"><figcaption>The view from the dock</figcaption></figure>
+      <figure class="ph"><img decoding="async" src="images/play_area.webp" srcset="images/play_area-sm.webp 640w, images/play_area.webp 1170w" sizes="(max-width: 700px) 92vw, 560px" alt="Dog enjoying the fenced play area" loading="lazy"><figcaption>Play time</figcaption></figure>
+      <figure class="ph"><img decoding="async" src="images/sign.webp" srcset="images/sign-sm.webp 640w, images/sign.webp 1170w" sizes="(max-width: 700px) 92vw, 560px" alt="Woodlands Pet Retreat entrance sign" loading="lazy"><figcaption>Welcome in</figcaption></figure>
+      <figure class="ph"><img decoding="async" src="images/outside.webp" srcset="images/outside-sm.webp 640w, images/outside.webp 768w" sizes="(max-width: 700px) 92vw, 560px" alt="Secure fenced outdoor walkway" loading="lazy"><figcaption>Secure walkways</figcaption></figure>
+      <figure class="ph"><img decoding="async" src="images/interior.webp" srcset="images/interior-sm.webp 640w, images/interior.webp 960w" sizes="(max-width: 700px) 92vw, 560px" alt="Dogs settled comfortably in their private suites" loading="lazy"><figcaption>Settled in</figcaption></figure>
+      <figure class="ph ph-wide"><img decoding="async" src="images/play_area2.webp" srcset="images/play_area2-sm.webp 640w, images/play_area2.webp 768w" sizes="(max-width: 700px) 92vw, 560px" alt="Dogs playing together outside" loading="lazy"><figcaption>New friends</figcaption></figure>
     </div>
   </div>
 </section>
@@ -1081,7 +1120,7 @@ src="https://www.facebook.com/tr?id=1607755737352542&ev=PageView&noscript=1"
 <footer class="site-footer">
   <div class="wrap footer-grid">
     <div class="footer-brand">
-      <img src="images/emblem.png" alt="Woodlands Pet Retreat emblem" width="56" height="56">
+      <img decoding="async" loading="lazy" src="images/emblem.webp" alt="Woodlands Pet Retreat emblem" width="56" height="56">
       <p class="footer-name">Woodlands <em>Pet Retreat</em></p>
       <p class="footer-est">Owner operated by Amber Lee Zug · Est. 2025</p>
       <p class="footer-est">Serving St. Marys, Kingsland, Kings Bay &amp; Yulee</p>
@@ -1093,12 +1132,12 @@ src="https://www.facebook.com/tr?id=1607755737352542&ev=PageView&noscript=1"
       <a href="day-stays/">Day Stays</a>
       <a href="facility/">Our Facility</a>
       <a href="rates/">Rates &amp; Packages</a>
+      <a href="packages/">Stay Packages</a>
       <a href="about/">About Amber</a>
       <a href="faq/">FAQ</a>
       <a href="compare/">Compare Boarding Options</a>
       <a href="contact/">Contact &amp; Directions</a>
       <a href="#community-discounts">Community Discounts</a>
-          <a href="st-marys-pet-travel/">St. Marys Pet Travel Guides</a>
     </nav>
     <div class="footer-contact">
       <p><strong>Woodlands Pet Retreat</strong></p>
@@ -1128,16 +1167,7 @@ src="https://www.facebook.com/tr?id=1607755737352542&ev=PageView&noscript=1"
 </div>
 
 <!-- Lightbox -->
-<div id="lightbox" role="dialog" aria-modal="true" aria-label="Photo viewer">
-  <button class="lb-close" aria-label="Close">&times;</button>
-  <button class="lb-arrow lb-prev" aria-label="Previous photo">&#8249;</button>
-  <figure>
-    <img id="lb-img" src="" alt="">
-    <figcaption id="lb-cap"></figcaption>
-  </figure>
-  <button class="lb-arrow lb-next" aria-label="Next photo">&#8250;</button>
-</div>
 
-<script src="script.js" defer></script>
+<script src="script.js?v=20260927b" defer></script>
 </body>
 </html>
